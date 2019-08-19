@@ -1,17 +1,15 @@
 import React, {useState} from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import {fetchSpecials} from '../../actions/index';
-
-
-const Menu = (props) => {
+import {Link} from 'react-router-dom';
+import DrinkCategories from './DrinkCategories'
+import MenuItems from './MenuItems'
+const Menu = () => {
     return (
         <div>
-            Hi
+            <Link to='/'>Back </Link>
+            <DrinkCategories />
+            <MenuItems />
         </div>
     )
-  };
+}
 
-
-  export default Menu;
-  
+export default Menu;

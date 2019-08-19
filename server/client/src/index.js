@@ -14,6 +14,8 @@ import OrderCompleted from './components/customer/OrderCompleted'
 import LoginPage from './components/admin/LoginPage'
 import Orders from './components/admin/OrderBacklog'
 import Stats from './components/admin/Stats'
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
 
 const store = createStore(
     rootReducer, {}, applyMiddleware(thunk)
