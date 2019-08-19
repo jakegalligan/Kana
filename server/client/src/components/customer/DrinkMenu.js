@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import DrinkCategories from './DrinkCategories'
-import MenuItems from './DrinkMenuItems'
+import MenuItems from './DrinkMenuItems';
+import OrderPopUp from './OrderPopUpMenu';
 
 const Menu = () => {
     return (
@@ -9,6 +10,7 @@ const Menu = () => {
             <Link to='/'>Back </Link>
             <DrinkCategories />
             <MenuItems />
+            <OrderPopUp />
         </div>
     )
 }
