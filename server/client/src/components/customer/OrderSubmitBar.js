@@ -1,23 +1,23 @@
 import React, {useState} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Button from '@material-ui/core/Button';
+import AppBar from '@material-ui/core/AppBar';import Toolbar from '@material-ui/core/Toolbar';import Button from '@material-ui/core/Button';import TextField from '@material-ui/core/TextField';
 import styled from "styled-components";
-import TextField from '@material-ui/core/TextField';
-import ModalDialog from 'react-bootstrap/ModalDialog';
-import ModalBody from 'react-bootstrap/ModalBody'
+import ModalDialog from 'react-bootstrap/ModalDialog';import ModalBody from 'react-bootstrap/ModalBody'
 
 
 
 const OrderSubmitBar = () => {
     const classes = useStyles();
 
-    
+    //initialize state with showModal set to false
+    const [showModal, setShowModal] = useState(false);    
     //intialize a state that holds the name input
 
     //intialize a state that holds the phone number inpiut
+
+    //intialize a state redirect which redirects when true
+    const [redirect, setRedirect] = useState(false);
 
     //closeModal function will set the value of showModal to false and close the modal
     const closeModal = () => {
@@ -29,10 +29,18 @@ const OrderSubmitBar = () => {
   //submitInfo function will send information to server and redirect user to order completed page
   const submitInfo = () => {
       console.log('submit')
+      setRedirect(true);
   }
 
-    //initialize state with showModal set to false
-    const [showModal, setShowModal] = useState(false);
+  //render a componenet which redirects to order complete page when redirect is true
+  const renderRedirect = () => {
+    return (
+      <div>
+        <Redirect to = '/customer/review/3' />
+      </div>
+    )
+  }
+    
     //when the checkout button is clicked set showmodal to true have modal pop up 
     const checkOut = () => {
       console.log('clickedcheckout button');
@@ -50,7 +58,6 @@ const OrderSubmitBar = () => {
                         id="outlined-name"
                         label="Name"
                         className={classes.textField}
-                        //onchange
                         margin="normal"
                         variant="outlined"
                     />
@@ -74,6 +81,7 @@ const OrderSubmitBar = () => {
             <Button onClick={() => checkOut()} className = {classes.buttonCheckout}>Checkout</Button>
           </Toolbar>
         </AppBar>
+        {redirect? renderRedirect() : ''}
       </div>
     )
 }
