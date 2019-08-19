@@ -1,24 +1,33 @@
-import React, {useState} from 'react';
+import React, {Fragment} from 'react';
+import {Redirect, Link} from 'react-router-dom'
 import styled from "styled-components";
 import Jumbotron from 'react-bootstrap/Jumbotron'
-import {Button as BootButton} from 'react-bootstrap/Button';
 import { makeStyles } from '@material-ui/styles';
 import Button from '@material-ui/core/Button';
+import HeaderBar from './HeaderBar';
 
 const LandingPage = () => {
     //import styling for material ui components
     const classes = useStyles();
 
+
     return (
-        <div>
+            <Fragment>
+            <HeaderBar/>
             <StyledJumbotron>
-                <Button className={classes.button}>Hook</Button>
+                <h1> Kana </h1>
+                <p> Blah blah blah b</p>
+                <Link to='/customer/menu'>
+                    <Button className={classes.button}>
+                        Order Now
+                    </Button>
+                </Link>
             </StyledJumbotron>
-            </div>
+            <p>About Kana</p>
+            </Fragment>
     )
   };
 
-  export default LandingPage;
   //create styling for jumbotron
   const StyledJumbotron = styled(Jumbotron)`
     height: 80vh;
@@ -30,6 +39,7 @@ const LandingPage = () => {
     //create styline for button
 const useStyles = makeStyles({
     button: {
+        
       background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
       border: 0,
       borderRadius: 3,
@@ -39,5 +49,7 @@ const useStyles = makeStyles({
       padding: '0 30px',
     },
   });
+
+  export default LandingPage;
 
   
