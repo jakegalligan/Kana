@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import DrinkCategories from './DrinkCategories'
-import MenuItems from './MenuItems'
+import MenuItems from './DrinkMenuItems'
+
 const Menu = () => {
     return (
         <div>

@@ -8,7 +8,7 @@ import rootReducer from "./reducers/index";
 import './index.css';
 import App from './App';
 import LandingPage from './components/shared/LandingPage'
-import Menu from './components/customer/Menu'
+import Menu from './components/customer/DrinkMenu'
 import OrderReview from './components/customer/OrderReview'
 import OrderCompleted from './components/customer/OrderCompleted'
 import LoginPage from './components/admin/LoginPage'
