@@ -1,0 +1,1 @@
+export const FETCH_SPECIALS = 'fetch_specials';
