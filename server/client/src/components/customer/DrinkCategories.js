@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { connect } from 'react-redux';
 import {Container, Row, Col, Doo} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -8,10 +8,12 @@ import {fetchDrinks} from '../../actions'
 
 
 const DrinkCategories = (props) => {
-    props.fetchDrinks();
-    //on initial render, load specials
+    // on initial render, load specials
+    useEffect(() => {
+        props.fetchDrinks();
+    }, []) 
 
-  //when a drink filter is clicked fetch the selected drinks
+    //when a drink filter is clicked fetch the selected drinks
     const getDrinks = (e) => {
         console.log(e.target.value);
         props.fetchDrinks(e.target.value)
@@ -60,6 +62,11 @@ const DrinkCategories = (props) => {
   const mapDispatchToProps = {
       fetchDrinks: fetchDrinks
   }
+  const mapStateToProps =(state) => {
+      return{
+          drinks: state.drinks
+      }
+  }
 
-  export default connect(null, mapDispatchToProps)(DrinkCategories);
+  export default connect(mapStateToProps, mapDispatchToProps)(DrinkCategories);
   
