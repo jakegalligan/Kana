@@ -19,7 +19,7 @@ const OrderCart = () => {
                         Oz
                     </Row>
                 </Col>
-                <Col>
+                <Col xs={{span:3, offset: 6}}>
                     <Row>
                         +
                     </Row>

@@ -4,7 +4,7 @@ const OrderCompleted = () => {
 
     return (
         <div>
-            Hi
+            Insert text about completed order
         </div>
     )
   };
