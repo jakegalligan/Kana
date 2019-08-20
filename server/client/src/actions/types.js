@@ -1,1 +1,1 @@
-export const FETCH_SPECIALS = 'fetch_specials';
+export const FETCH_DRINKS = 'fetch_drinks';

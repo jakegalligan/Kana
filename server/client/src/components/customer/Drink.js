@@ -9,7 +9,6 @@ import Icon from '@material-ui/core/Icon';
 
 const Drink = (props) => {
     const classes=useStyles();
-
     //when add drink button is clicked, add drink to cart and set renderCarts value to true
     const addDrink = () => {
         console.log('added');
@@ -20,15 +19,15 @@ const Drink = (props) => {
             <Container>
                 <Row>
                     <Col>
-                        Picture
+                        {props.descriptor}
                     </Col>
                     <Col>
-                        <Row>Title</Row>
-                        <Row>Company</Row>
-                        <Row>Amount</Row>
+                        <Row>{props.name}</Row>
+                        <Row>{props.ABV}</Row>
+                        <Row>{props.ounce}</Row>
                     </Col>
                     <Col xs={{span:3, offset: 3}}>
-                        <Row>Price</Row>
+                        <Row>{props.price}</Row>
                         <Row>
                             <Fab onClick={() => addDrink()} color="primary" aria-label="add" className={classes.fab}>
                                 <AddIcon />
