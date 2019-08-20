@@ -4,7 +4,6 @@ import {FETCH_DRINKS} from '../actions/types'
 const ROOT_URL = 'http://localhost:8000';
 
 export const fetchDrinks = (category = '') => dispatch => {
-    console.log('hit action');
     axios.get(`${ROOT_URL}/menu?category=${category}`)
     .then(response => {
         dispatch({type: FETCH_DRINKS, payload: response.data})
@@ -13,4 +12,5 @@ export const fetchDrinks = (category = '') => dispatch => {
         console.log(error);
     })
 }
+
  

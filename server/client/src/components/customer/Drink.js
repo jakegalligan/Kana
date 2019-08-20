@@ -9,7 +9,6 @@ import Icon from '@material-ui/core/Icon';
 
 const Drink = (props) => {
     const classes=useStyles();
-    console.log(props);
     //when add drink button is clicked, add drink to cart and set renderCarts value to true
     const addDrink = () => {
         console.log('added');

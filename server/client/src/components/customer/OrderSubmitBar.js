@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {Link, Redirect} from 'react-router-dom';
+import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';import Toolbar from '@material-ui/core/Toolbar';import Button from '@material-ui/core/Button';import TextField from '@material-ui/core/TextField';
 import styled from "styled-components";
@@ -87,7 +88,6 @@ const OrderSubmitBar = () => {
 }
 
 export default OrderSubmitBar;
-
 
 const useStyles = makeStyles(theme =>({
     appBar: {

@@ -6,13 +6,14 @@ const DrinkMenuItems = (props) => {
     //go through array of drinks and render them as drink components
     const RenderDrinks = () => {
         return props.drinks.map((drink) => {
-            console.log(drink.Price)
             return <Drink 
                     name={drink.Name}
                     ABV={drink.ABV}
                     price={drink.Price}
                     descriptor={drink.Descriptor}
-                    ounce={drink.Ounces}>
+                    ounce={drink.Ounces}
+                    key={drink._id}
+                    >
                     </Drink>
         })
     }
