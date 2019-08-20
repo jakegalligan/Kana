@@ -16,12 +16,12 @@ app.use(bodyParser.urlencoded({
 }))
 
 const menuRoutes = require('./routes/menu');
-const adminRoutes = require('./routes/admin');
+const orderRoutes = require('./routes/order');
 
 //when a request is made to /customer route to customerRoutes
 app.use('/menu', menuRoutes)
 //when a request is made to /adminRoutes route to adminRoutes
-app.use('/admin', adminRoutes)
+app.use('/order', orderRoutes)
 
 //server setup
 const port = 8000;
