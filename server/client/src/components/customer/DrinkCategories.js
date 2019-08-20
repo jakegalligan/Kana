@@ -8,7 +8,7 @@ import {fetchDrinks} from '../../actions'
 
 
 const DrinkCategories = (props) => {
-
+    props.fetchDrinks();
     //on initial render, load specials
 
   //when a drink filter is clicked fetch the selected drinks
