@@ -3,8 +3,7 @@ import {Link} from 'react-router-dom';
 import Drink from './Drink'
 const DrinkMenuItems = () => {
 
-    //go through array of drinks and render them accordingly
-
+    //go through array of drinks and render them as drink components
     const RenderDrinks = () => {
         return testDate.map((drink) => {
             return <p>{drink.name}</p>
