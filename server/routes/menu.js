@@ -16,8 +16,9 @@ router.get('/', (req,res) => {
         .exec((err,drinks) => {
             if (err || drinks.length == 0) {
                 res.status(400).send('Unable to get drinks make sure a valid query was entered');
-            }
+            } else {
             res.send(drinks);
+            }
         })
 
 })

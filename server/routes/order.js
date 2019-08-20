@@ -22,9 +22,9 @@ router.post('/:id', (req,res) => {
         .exec((err,order) => {
             if (err) {
                 res.status(400).send('Unable to update order, double check order Id')
-            }
-            
+            } else {
             res.send(order);
+            }
         })
 })
 
