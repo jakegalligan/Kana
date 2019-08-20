@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const Order = require('../models/order-schema');
 
-//create post route which instantiates an order
+// route which instantiates an order
 router.post('/', (req,res) => {
 
     //create a new order with contents of body sent by client
@@ -12,10 +12,11 @@ router.post('/', (req,res) => {
     })
 })
 
-//create route which updates order
+//route which updates order
 router.post('/:id', (req,res) => {
     let id = req.params.id
     let updates = req.body
+    //find the specific order to update and update it with the desired values
     Order
         .findByIdAndUpdate(id, updates,{new: true})
         .exec((err,order) => {
@@ -27,9 +28,11 @@ router.post('/:id', (req,res) => {
         })
 })
 
-//create route which gets individual order by id
+// route which gets individual order by id
 router.get('/:id', (req,res) => {
     let id = req.params.id;
+
+    //find the order the client wants and send it back
     Order
         .findById(id)
         .exec((err, order) => {
