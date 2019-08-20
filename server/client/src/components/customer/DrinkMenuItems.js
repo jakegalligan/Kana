@@ -1,28 +1,33 @@
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
+import { connect } from 'react-redux';
 import Drink from './Drink'
-const DrinkMenuItems = () => {
-
+const DrinkMenuItems = (props) => {
     //go through array of drinks and render them as drink components
     const RenderDrinks = () => {
-        return testDate.map((drink) => {
-            return <p>{drink.name}</p>
+        return props.drinks.map((drink) => {
+            console.log(drink.Price)
+            return <Drink 
+                    name={drink.Name}
+                    ABV={drink.ABV}
+                    price={drink.Price}
+                    descriptor={drink.Descriptor}
+                    ounce={drink.Ounces}>
+                    </Drink>
         })
     }
     return (
         <div>
-         {RenderDrinks()}
-         <Drink />   
+         {RenderDrinks()}  
         </div>
     )
 }
 
 
-const testDate = [{
-    name: 'Red wine',
-    price: '10',
-    Ounces: '4',
-    description: 'feafeawfeafae from italy befuatiflly crafted'
-}]
+const mapStateToProps =(state) => {
+    return{
+        drinks: state.drinks
+    }
+}
 
-export default DrinkMenuItems;
+export default connect(mapStateToProps)(DrinkMenuItems);

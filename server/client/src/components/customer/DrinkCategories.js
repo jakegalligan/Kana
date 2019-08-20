@@ -62,11 +62,7 @@ const DrinkCategories = (props) => {
   const mapDispatchToProps = {
       fetchDrinks: fetchDrinks
   }
-  const mapStateToProps =(state) => {
-      return{
-          drinks: state.drinks
-      }
-  }
 
-  export default connect(mapStateToProps, mapDispatchToProps)(DrinkCategories);
+
+  export default connect(null, mapDispatchToProps)(DrinkCategories);
   
