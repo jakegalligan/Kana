@@ -28,24 +28,26 @@ const OrderReview = (props) => {
         // setRedirect(true);
     }
 
-
+    //when redirect is set to true this function will run and redirect the user
     const renderRedirect = () => {
         return (
             <Redirect to = '/customer/complete/3'>
             </Redirect>
         )
     }
-
+    //go through all the drink in the cart and return the total price of all of them
     const getTotal = () => {
         return props.cart.reduce((sum, drink) => {
             return sum + drink.price
         }, 0)
     }
-
+    //multiply total by sales tax and then round to nearest hundreths place
     const getTax =(total) => {
         let tax = total * .0625;
         return Math.round(100 * tax)/100;
     }
+
+
 
 
 
@@ -90,7 +92,7 @@ const OrderReview = (props) => {
                 </Row>
                 <Row>
                     <Col xs={{span:3, offset: 9}}>
-                        {getTax() + getTotal()}
+                        {getTax(getTotal()) + getTotal()}
                     </Col>
                 </Row>
             </Container>
