@@ -1,4 +1,4 @@
-import {ADD_TO_CART} from '../actions/types';
+import {ADD_TO_CART,INCREMENT_DRINK,DECREMENT_DRINK} from '../actions/types';
 
 export default function (state = [], action) {
     switch (action.type) {
@@ -19,6 +19,10 @@ export default function (state = [], action) {
             let newCart = [...state, drink]
             console.log(newCart);
             return newCart
+        //if type is increment drink find the drink and increase its quantity by 1
+        //if drink isn't in cart throw error
+
+        //if type is decrement drink find drink and decrease its quantity by 1
         //otherwise return the current state
         default:
             return state;

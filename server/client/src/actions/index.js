@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {FETCH_DRINKS, ADD_TO_CART, SUBMIT_ORDER, ADD_NAME, ADD_NUMBER} from '../actions/types'
+import {FETCH_DRINKS, ADD_TO_CART, SUBMIT_ORDER, ADD_NAME, ADD_NUMBER, INCREMENT_DRINK, DECREMENT_DRINK} from '../actions/types'
 
 const ROOT_URL = 'http://localhost:8000';
 
@@ -47,4 +47,19 @@ export const setNumber = (number) => {
         payload: number
     }
 } 
+
+export const incrementDrinkQuantity = (drink) => {
+    return {
+        type: INCREMENT_DRINK,
+        payload: drink
+    }
+}
+
+export const decrementDrinkQuantity = (drink) => {
+    return {
+        type: DECREMENT_DRINK,
+        payload: drink
+    }
+}
+ 
  

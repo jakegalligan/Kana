@@ -9,11 +9,13 @@ import RemoveIcon from '@material-ui/icons/Remove'
 
 const OrderCart = (props) => {
     //when this function runs the quantity of this drink in the cart is decreased by 1
-    const decrementDrinkQuantity = () => {
+    const decrementDrinkQuantity = (e) => {
+        console.log(e.target.value)
         console.log('decrement');
     }
     //when this function runs the quantity of this drink in the cart is increment by 1
-    const incrementDrinkQuantity = () => {
+    const incrementDrinkQuantity = (e) => {
+        console.log(e.target.value)
         console.log('increment')
     }
     const classes = useStyles();
@@ -33,7 +35,7 @@ const OrderCart = (props) => {
                 </Col>
                 <Col xs={{span:3, offset: 6}}>
                     <Row>
-                        <Fab onClick={incrementDrinkQuantity} color="primary" aria-label="add" className={classes.fab}>
+                        <Fab value={props.name} onClick={(e) =>incrementDrinkQuantity(e)} color="primary" aria-label="add" className={classes.fab}>
                                 <AddIcon />
                         </Fab>
                     </Row>
@@ -41,9 +43,9 @@ const OrderCart = (props) => {
                         {props.price}
                     </Row>
                     <Row>
-                    <Fab onClick={decrementDrinkQuantity} color="primary" aria-label="add" className={classes.fab}>
+                        <Fab value ={props.name} onClick={(e) =>decrementDrinkQuantity(e)} color="primary" aria-label="add" className={classes.fab}>
                                 <RemoveIcon />
-                    </Fab>
+                        </Fab>
                     </Row>
                 </Col>
             </Row>
