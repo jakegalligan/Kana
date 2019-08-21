@@ -7,6 +7,14 @@ import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 
 const OrderCart = (props) => {
+    //when this function runs the quantity of this drink in the cart is decreased by 1
+    const decrementDrinkQuantity = () => {
+        console.log('decrement');
+    }
+    //when this function runs the quantity of this drink in the cart is increment by 1
+    const incrementDrinkQuantity = () => {
+        console.log('increment')
+    }
     const classes = useStyles();
     return (
         <Container>
@@ -24,7 +32,7 @@ const OrderCart = (props) => {
                 </Col>
                 <Col xs={{span:3, offset: 6}}>
                     <Row>
-                        <Fab  color="primary" aria-label="add" className={classes.fab}>
+                        <Fab onClick={incrementDrinkQuantity} color="primary" aria-label="add" className={classes.fab}>
                                 <AddIcon />
                         </Fab>
                     </Row>
@@ -32,7 +40,7 @@ const OrderCart = (props) => {
                         {props.price}
                     </Row>
                     <Row>
-                    <Fab  color="primary" aria-label="add" className={classes.fab}>
+                    <Fab onClick={decrementDrinkQuantity} color="primary" aria-label="add" className={classes.fab}>
                                 <AddIcon />
                     </Fab>
                     </Row>
