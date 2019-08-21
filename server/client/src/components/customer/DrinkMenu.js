@@ -1,18 +1,27 @@
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
+import { connect } from 'react-redux';
 import DrinkCategories from './DrinkCategories'
 import DrinkMenuItems from './DrinkMenuItems';
 import OrderSubmitBar from './OrderSubmitBar';
 
-const Menu = () => {
+const Menu = (props) => {
+    
     return (
         <div>
             <Link to='/'>Back </Link>
             <DrinkCategories />
-            <DrinkMenuItems />
-            <OrderSubmitBar />
+            <DrinkMenuItems  />
+            {props.cart.length>0? <OrderSubmitBar />: ''}
         </div>
     )
 }
 
-export default Menu;
+function mapStateToProps(state) {
+	return {
+		cart : state.cart
+	}
+}
+
+
+export default connect(mapStateToProps)(Menu);

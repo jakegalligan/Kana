@@ -20,4 +20,8 @@ export const addToCart = (drink) => {
         payload: drink
     }
 } 
+
+export const submitOrder = (order) => {
+    axios.post(`${ROOT_URL}/order`)
+}
  
