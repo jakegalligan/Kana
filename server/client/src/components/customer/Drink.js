@@ -11,7 +11,9 @@ import {addToCart} from '../../actions'
 
 const Drink = (props) => {
     const classes=useStyles();
-    //when add drink button is clicked, add drink to cart 
+    //when add drink button is clicked, add drink to cart
+    //if the specific drink is already in the cart increases its quantity
+    //if not set its quantity to 1 
     const addDrink = (drink) => {
         props.addToCart(drink)
     }
