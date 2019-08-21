@@ -42,6 +42,13 @@ const OrderReview = (props) => {
         }, 0)
     }
 
+    const getTax =(total) => {
+        let tax = total * .0625;
+        return Math.round(100 * tax)/100;
+    }
+
+
+
     const renderCart = () => {
          return props.cart.map((drink) => {
             return (
@@ -77,13 +84,13 @@ const OrderReview = (props) => {
                         Tax
                     </Col>
                     <Col xs={{span:3, offset: 6}}>
-                        Tax amount
+                        {getTax(getTotal())}
                     </Col>
                     {/* Possible tip incrementer */}
                 </Row>
                 <Row>
                     <Col xs={{span:3, offset: 9}}>
-                        TotalPrice
+                        {getTax() + getTotal()}
                     </Col>
                 </Row>
             </Container>
