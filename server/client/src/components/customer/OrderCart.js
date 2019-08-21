@@ -4,19 +4,19 @@ import {Container, Row, Col} from 'react-bootstrap';
 
 
 
-const OrderCart = () => {
+const OrderCart = (props) => {
     return (
         <Container>
             <Row>
                 <Col>
                     <Row>
-                        Name
+                        {props.name}
                     </Row>
                     <Row>
-                        Company
+                        {props.ABV}
                     </Row>
                     <Row>
-                        Oz
+                        {props.ounce}
                     </Row>
                 </Col>
                 <Col xs={{span:3, offset: 6}}>
@@ -24,7 +24,7 @@ const OrderCart = () => {
                         +
                     </Row>
                     <Row>
-                        Quantity
+                        {props.price}
                     </Row>
                     <Row>
                         -

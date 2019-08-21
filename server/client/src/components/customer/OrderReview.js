@@ -36,11 +36,27 @@ const OrderReview = (props) => {
         )
     }
 
+    const renderCart = () => {
+         return props.cart.map((drink) => {
+            return (
+                <OrderCart
+                name={drink.name}
+                ABV={drink.ABV}
+                price={drink.price}
+                descriptor={drink.descriptor}
+                ounce={drink.ounce}
+                key={drink._id}
+                >
+                </OrderCart>
+            )
+        })
+    }
+
 
     return (
         <div>
             <Link to = '/'>Back to Menu</Link>
-            <OrderCart />
+            {renderCart()}
             <Container>
                 <Row>
                     <Col>
