@@ -28,26 +28,57 @@ const OrderReview = (props) => {
         // setRedirect(true);
     }
 
-
+    //when redirect is set to true this function will run and redirect the user
     const renderRedirect = () => {
         return (
             <Redirect to = '/customer/complete/3'>
             </Redirect>
         )
     }
+    //go through all the drink in the cart and return the total price of all of them
+    const getTotal = () => {
+        return props.cart.reduce((sum, drink) => {
+            return sum + drink.price
+        }, 0)
+    }
+    //multiply total by sales tax and then round to nearest hundreths place
+    const getTax =(total) => {
+        let tax = total * .0625;
+        return Math.round(100 * tax)/100;
+    }
+
+
+
+
+
+    const renderCart = () => {
+         return props.cart.map((drink) => {
+            return (
+                <OrderCart
+                name={drink.name}
+                ABV={drink.ABV}
+                price={drink.price}
+                descriptor={drink.descriptor}
+                ounce={drink.ounce}
+                key={drink._id}
+                >
+                </OrderCart>
+            )
+        })
+    }
 
 
     return (
         <div>
             <Link to = '/'>Back to Menu</Link>
-            <OrderCart />
+            {renderCart()}
             <Container>
                 <Row>
                     <Col>
                         Subtotal
                     </Col>
                     <Col xs={{span:3, offset: 6}}>
-                        Subtotal Amount
+                        {getTotal()}
                     </Col>
                 </Row>
                 <Row>
@@ -55,13 +86,13 @@ const OrderReview = (props) => {
                         Tax
                     </Col>
                     <Col xs={{span:3, offset: 6}}>
-                        Tax amount
+                        {getTax(getTotal())}
                     </Col>
                     {/* Possible tip incrementer */}
                 </Row>
                 <Row>
                     <Col xs={{span:3, offset: 9}}>
-                        TotalPrice
+                        {getTax(getTotal()) + getTotal()}
                     </Col>
                 </Row>
             </Container>

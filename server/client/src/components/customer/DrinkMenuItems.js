@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Drink from './Drink'
 const DrinkMenuItems = (props) => {
     //go through array of drinks and render them as drink components
-    const RenderDrinks = () => {
+    const renderDrinks = () => {
         return props.drinks.map((drink) => {
             return <Drink 
                     name={drink.Name}
@@ -19,7 +19,7 @@ const DrinkMenuItems = (props) => {
     }
     return (
         <div>
-         {RenderDrinks()}  
+         {renderDrinks()}  
         </div>
     )
 }
