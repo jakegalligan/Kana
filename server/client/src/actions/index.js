@@ -21,14 +21,17 @@ export const addToCart = (drink) => {
 } 
 
 export const submitOrder = (order) => dispatch => {
+    console.log('hit action submit order')
     axios.post(`${ROOT_URL}/order`, order)
     .then(response => {
-        console.log('in')
+        console.log('got response')
         dispatch({type: SUBMIT_ORDER, payload: response.data})
     })
     .catch (error => {
+        console.log('eror')
         console.log(error);
     })
+    console.log('skipped');
 }
 
 export const setName = (name) => {
@@ -40,7 +43,7 @@ export const setName = (name) => {
 
 export const setNumber = (number) => {
     return {
-        type: ADD_NAME,
+        type: ADD_NUMBER,
         payload: number
     }
 } 
