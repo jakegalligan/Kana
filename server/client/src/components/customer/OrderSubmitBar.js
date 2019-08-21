@@ -5,11 +5,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';import Toolbar from '@material-ui/core/Toolbar';import Button from '@material-ui/core/Button';import TextField from '@material-ui/core/TextField';
 import styled from "styled-components";
 import ModalDialog from 'react-bootstrap/ModalDialog';import ModalBody from 'react-bootstrap/ModalBody'
-
+import {submitOrder} from '../../actions'
 
 
 const OrderSubmitBar = (props) => {
-  console.log(props.cart);
     //import styling
     const classes = useStyles();
     //initialize state with showModal set to false
@@ -31,11 +30,15 @@ const OrderSubmitBar = (props) => {
     const handlePhoneNumberChange = (e) => {
       setPhoneNumber(e.target.value);
     }
-    //submitInfo function will send information to server and redirect user to order completed page
+    //submitInfo function will send user information as well as cart to server and redirect user to order completed page
     const submitOrder = () => {
-        console.log(customerName, phoneNumber);
-        //props.submitorder(names and cart)
-        // setRedirect(true);
+        //format information to be properly stored in server
+        let order = {
+          cart: props.cart,
+          customerName: customerName,
+          phoneNumber: phoneNumber
+        }
+        props.submitOrder(order);
     }
 
     //render a componenet which redirects to order complete page when redirect is true
@@ -100,16 +103,20 @@ const OrderSubmitBar = (props) => {
     )
 }
 
-function mapStateToProps(state) {
+const mapStateToProps =(state) => {
 	return {
 		cart : state.cart
 	}
 }
 
+const mapDispatchToProps = {
+  submitOrder: submitOrder
+}
 
 
 
-export default connect(mapStateToProps)(OrderSubmitBar);
+
+export default connect(mapStateToProps, mapDispatchToProps)(OrderSubmitBar);
 
 const useStyles = makeStyles(theme =>({
     appBar: {
