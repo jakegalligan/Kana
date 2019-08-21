@@ -14,6 +14,7 @@ export const fetchDrinks = (category = '') => dispatch => {
 }
 
 export const addToCart = (drink) => {
+    console.log('hit add drink action')
     return {
         type: ADD_TO_CART,
         payload: drink
