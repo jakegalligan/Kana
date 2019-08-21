@@ -28,7 +28,7 @@ ReactDOM.render(
             <App>
                 <Switch>
                     <Route exact path='/' component={LandingPage} />
-                    <Route exact path='/customer/menu' component={Menu} />
+                    <Route exact path='/customer/menu/:id' component={Menu} />
                     <Route exact path='/customer/review/:orderId' component={OrderReview} />
                     <Route exact path='/customer/complete/:orderId' component={OrderCompleted} />
                     <Route exact path='/admin/login' component={LoginPage} />

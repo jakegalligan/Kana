@@ -5,6 +5,9 @@ import Jumbotron from 'react-bootstrap/Jumbotron'
 import { makeStyles } from '@material-ui/styles';
 import Button from '@material-ui/core/Button';
 import HeaderBar from './HeaderBar';
+// const uuidv1 = require('uuid/v1');
+import uuidv1 from 'uuid'
+
 
 const LandingPage = () => {
     //import styling for material ui components
@@ -17,7 +20,7 @@ const LandingPage = () => {
             <StyledJumbotron>
                 <h1> Kana </h1>
                 <p> Blah blah blah b</p>
-                <Link to='/customer/menu'>
+                <Link to={`/customer/menu/${uuidv1()}`}>
                     <Button className={classes.button}>
                         Order Now
                     </Button>
