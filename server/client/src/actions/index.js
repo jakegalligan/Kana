@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {FETCH_DRINKS, ADD_TO_CART, SUBMIT_ORDER} from '../actions/types'
+import {FETCH_DRINKS, ADD_TO_CART, SUBMIT_ORDER, ADD_NAME, ADD_NUMBER} from '../actions/types'
 
 const ROOT_URL = 'http://localhost:8000';
 
@@ -30,4 +30,18 @@ export const submitOrder = (order) => dispatch => {
         console.log(error);
     })
 }
+
+export const setName = (name) => {
+    return {
+        type: ADD_NAME,
+        payload: name
+    }
+} 
+
+export const setNumber = (number) => {
+    return {
+        type: ADD_NAME,
+        payload: number
+    }
+} 
  

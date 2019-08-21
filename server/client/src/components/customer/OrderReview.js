@@ -16,9 +16,16 @@ const OrderReview = () => {
 
     //when the submit order button is clicked send order to bartenders
     const submitOrder = () => {
-        console.log('clickedsubmitorder');
-        setRedirect(true);
+        //format information to be properly stored in server
+        // let order = {
+        //   cart: props.cart,
+        //   customerName: customerName,
+        //   phoneNumber: phoneNumber
+        // }
+        // props.submitOrder(order);
+        // setRedirect(true);
     }
+
 
     const renderRedirect = () => {
         return (
@@ -30,7 +37,7 @@ const OrderReview = () => {
 
     return (
         <div>
-            <Link to = '/customer/menu'>Back to Menu</Link>
+            <Link to = '/'>Back to Menu</Link>
             <OrderCart />
             <Container>
                 <Row>

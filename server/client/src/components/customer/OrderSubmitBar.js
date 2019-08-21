@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';import Toolbar from '@material-ui/core/Toolbar';import Button from '@material-ui/core/Button';import TextField from '@material-ui/core/TextField';
 import styled from "styled-components";
 import ModalDialog from 'react-bootstrap/ModalDialog';import ModalBody from 'react-bootstrap/ModalBody'
-import {submitOrder} from '../../actions'
+import {submitOrder, setName, setNumber} from '../../actions'
 
 
 const OrderSubmitBar = (props) => {
@@ -33,12 +33,9 @@ const OrderSubmitBar = (props) => {
     //submitInfo function will send user information as well as cart to server and redirect user to order completed page
     const submitOrder = () => {
         //format information to be properly stored in server
-        let order = {
-          cart: props.cart,
-          customerName: customerName,
-          phoneNumber: phoneNumber
-        }
-        props.submitOrder(order);
+        props.setName(customerName);
+        props.setNumber(phoneNumber);
+        setRedirect(true);
     }
 
     //render a componenet which redirects to order complete page when redirect is true
@@ -110,7 +107,9 @@ const mapStateToProps =(state) => {
 }
 
 const mapDispatchToProps = {
-  submitOrder: submitOrder
+  submitOrder: submitOrder,
+  setName: setName,
+  setNumber: setNumber
 }
 
 
