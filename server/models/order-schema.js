@@ -18,11 +18,11 @@ OrderSchema.pre('save', function(next) {
     let currentDate = new Date();
     //set timeOrderSubmitted to current time on first save 
     if (!this.timeOrderSubmitted) {
-        timeOrderSubmitted = currentDate;
+        this.timeOrderSubmitted = currentDate;
     }
     //set submitted value to true on first save
     if (!this.isSubmitted) {
-        isSubmitted = true;
+        this.isSubmitted = true;
     }
 
      next();
