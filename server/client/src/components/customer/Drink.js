@@ -11,9 +11,8 @@ import {addToCart} from '../../actions'
 
 const Drink = (props) => {
     const classes=useStyles();
-    //when add drink button is clicked, add drink to cart and set renderCarts value to true
+    //when add drink button is clicked, add drink to cart 
     const addDrink = (drink) => {
-        console.log('added');
         props.addToCart(drink)
     }
 

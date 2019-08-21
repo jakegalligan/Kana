@@ -5,11 +5,12 @@ import DrinkMenuItems from './DrinkMenuItems';
 import OrderSubmitBar from './OrderSubmitBar';
 
 const Menu = () => {
+    
     return (
         <div>
             <Link to='/'>Back </Link>
             <DrinkCategories />
-            <DrinkMenuItems />
+            <DrinkMenuItems  />
             <OrderSubmitBar />
         </div>
     )

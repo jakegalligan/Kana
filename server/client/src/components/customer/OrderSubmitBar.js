@@ -9,7 +9,7 @@ import ModalDialog from 'react-bootstrap/ModalDialog';import ModalBody from 'rea
 
 
 const OrderSubmitBar = (props) => {
-  console.log('propscar', props.cart)
+  console.log(props.cart);
     //import styling
     const classes = useStyles();
     //initialize state with showModal set to false
