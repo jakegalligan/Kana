@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {FETCH_DRINKS} from '../actions/types'
+import {FETCH_DRINKS, ADD_TO_CART} from '../actions/types'
 
 const ROOT_URL = 'http://localhost:8000';
 
@@ -13,4 +13,10 @@ export const fetchDrinks = (category = '') => dispatch => {
     })
 }
 
+export const addToCart = (drink) => {
+    return {
+        type: ADD_TO_CART,
+        payload: drink
+    }
+} 
  
