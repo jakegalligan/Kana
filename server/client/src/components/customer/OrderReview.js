@@ -21,7 +21,7 @@ const OrderReview = (props) => {
         //format information to be properly stored in server
         let order = {
           cart: props.cart,
-          customerName: props.ame,
+          customerName: props.name,
           phoneNumber: props.number
         }
         props.submitOrder(order);
