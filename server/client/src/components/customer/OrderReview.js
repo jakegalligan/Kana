@@ -5,9 +5,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';import Toolbar from '@material-ui/core/Toolbar';import Button from '@material-ui/core/Button';import TextField from '@material-ui/core/TextField';
 import styled from "styled-components";
 import {Container, Row, Col} from 'react-bootstrap';
+import { connect } from 'react-redux';
+import {submitOrder} from '../../actions'
 
 
-const OrderReview = () => {
+const OrderReview = (props) => {
 
     const classes=useStyles();
     //initilaize state redirect which when true redirects user to completed order menu
@@ -17,13 +19,13 @@ const OrderReview = () => {
     //when the submit order button is clicked send order to bartenders
     const submitOrder = () => {
         //format information to be properly stored in server
-        // let order = {
-        //   cart: props.cart,
-        //   customerName: customerName,
-        //   phoneNumber: phoneNumber
-        // }
-        // props.submitOrder(order);
-        // setRedirect(true);
+        let order = {
+          cart: props.cart,
+          customerName: props.ame,
+          phoneNumber: props.number
+        }
+        props.submitOrder(order);
+        setRedirect(true);
     }
 
 
@@ -75,7 +77,17 @@ const OrderReview = () => {
     )
   };
 
-  export default OrderReview;
+  const mapStateToProps =(state) => {
+	return {
+        cart : state.cart,
+        name: state.name,
+        number: state.number
+    }
+}
+   const mapDispatchToProps = {
+       submitOrder: submitOrder
+   }
+  export default connect(mapStateToProps,mapDispatchToProps)(OrderReview);
 
 
   const useStyles = makeStyles(theme =>({
