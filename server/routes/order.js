@@ -3,7 +3,6 @@ const Order = require('../models/order-schema');
 
 // route which instantiates an order
 router.post('/', (req,res) => {
-
     //create a new order with contents of body sent by client
     const newOrder = new Order (req.body)
     newOrder.save((err,order) => {

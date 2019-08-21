@@ -24,8 +24,8 @@ const OrderReview = (props) => {
           customerName: props.name,
           phoneNumber: props.number
         }
-        props.submitOrder(order);
-        setRedirect(true);
+        props.submitOrder(order)
+        // setRedirect(true);
     }
 
 
