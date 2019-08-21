@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { connect } from 'react-redux';
 import {Container, Row, Col} from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import styled from "styled-components";
@@ -6,12 +7,14 @@ import { makeStyles } from '@material-ui/core/styles';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 import Icon from '@material-ui/core/Icon';
+import {addToCart} from '../../actions'
 
 const Drink = (props) => {
     const classes=useStyles();
     //when add drink button is clicked, add drink to cart and set renderCarts value to true
-    const addDrink = () => {
+    const addDrink = (drink) => {
         console.log('added');
+        props.addToCart(drink)
     }
 
     return (
@@ -29,7 +32,7 @@ const Drink = (props) => {
                     <Col xs={{span:3, offset: 3}}>
                         <Row>{props.price}</Row>
                         <Row>
-                            <Fab onClick={() => addDrink()} color="primary" aria-label="add" className={classes.fab}>
+                            <Fab onClick={() => addDrink(props)} color="primary" aria-label="add" className={classes.fab}>
                                 <AddIcon />
                             </Fab>
                         </Row>
@@ -40,7 +43,10 @@ const Drink = (props) => {
     )
 }
 
-export default Drink;
+const mapDispatchToProps = {
+    addToCart: addToCart
+}
+export default connect(null,mapDispatchToProps)(Drink);
 
 
 //add styling to plus button
