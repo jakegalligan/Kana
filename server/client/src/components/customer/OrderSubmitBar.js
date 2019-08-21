@@ -8,7 +8,8 @@ import ModalDialog from 'react-bootstrap/ModalDialog';import ModalBody from 'rea
 
 
 
-const OrderSubmitBar = () => {
+const OrderSubmitBar = (props) => {
+  console.log('propscar', props.cart)
     //import styling
     const classes = useStyles();
     //initialize state with showModal set to false
@@ -33,6 +34,7 @@ const OrderSubmitBar = () => {
     //submitInfo function will send information to server and redirect user to order completed page
     const submitOrder = () => {
         console.log(customerName, phoneNumber);
+        //props.submitorder(names and cart)
         // setRedirect(true);
     }
 
@@ -98,7 +100,16 @@ const OrderSubmitBar = () => {
     )
 }
 
-export default OrderSubmitBar;
+function mapStateToProps(state) {
+	return {
+		cart : state.cart
+	}
+}
+
+
+
+
+export default connect(mapStateToProps)(OrderSubmitBar);
 
 const useStyles = makeStyles(theme =>({
     appBar: {
