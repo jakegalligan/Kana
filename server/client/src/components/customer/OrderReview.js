@@ -36,6 +36,12 @@ const OrderReview = (props) => {
         )
     }
 
+    const getTotal = () => {
+        return props.cart.reduce((sum, drink) => {
+            return sum + drink.price
+        }, 0)
+    }
+
     const renderCart = () => {
          return props.cart.map((drink) => {
             return (
@@ -63,7 +69,7 @@ const OrderReview = (props) => {
                         Subtotal
                     </Col>
                     <Col xs={{span:3, offset: 6}}>
-                        Subtotal Amount
+                        {getTotal()}
                     </Col>
                 </Row>
                 <Row>
