@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
+import RemoveIcon from '@material-ui/icons/Remove'
 
 const OrderCart = (props) => {
     //when this function runs the quantity of this drink in the cart is decreased by 1
@@ -41,7 +42,7 @@ const OrderCart = (props) => {
                     </Row>
                     <Row>
                     <Fab onClick={decrementDrinkQuantity} color="primary" aria-label="add" className={classes.fab}>
-                                <AddIcon />
+                                <RemoveIcon />
                     </Fab>
                     </Row>
                 </Col>
