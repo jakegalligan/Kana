@@ -30,6 +30,8 @@ const OrderReview = (props) => {
         }
         props.submitOrder(order)
         // setRedirect(true);
+        console.log('submitting');
+        socket.emit('order', order)
     }
 
     //when redirect is set to true this function will run and redirect the user
