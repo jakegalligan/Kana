@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import styled from "styled-components";
 import Navbar from 'react-bootstrap/Navbar';
+import {Link, Redirect} from 'react-router-dom';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const HeaderBar = () => {
@@ -11,6 +12,7 @@ const HeaderBar = () => {
             width = '30'
             height = '30'
         />
+        <Link to = '/admin/login'> Admin</Link>
     </StyledNavbar>
     )
 }

@@ -33,7 +33,7 @@ const OrderReview = (props) => {
     //when redirect is set to true this function will run and redirect the user
     const renderRedirect = () => {
         return (
-            <Redirect to = {`/customer/complete/${uuidv1()}`}>
+            <Redirect to = {`/customer/complete`}>
             </Redirect>
         )
     }
