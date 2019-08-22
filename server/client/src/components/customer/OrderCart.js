@@ -6,17 +6,21 @@ import { makeStyles } from '@material-ui/core/styles';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove'
+import {incrementDrink, decrementDrink} from '../../actions'
+import { connect } from 'react-redux';
 
 const OrderCart = (props) => {
+    const classes = useStyles();
     //when this function runs the quantity of this drink in the cart is decreased by 1
-    const decrementDrinkQuantity = () => {
-        console.log('decrement');
+    const decrementDrinkQuantity = (e) => {
+        console.log(e.target.value)
+        props.decrementDrink(e.target.value);
     }
     //when this function runs the quantity of this drink in the cart is increment by 1
-    const incrementDrinkQuantity = () => {
-        console.log('increment')
+    const incrementDrinkQuantity = (e) => {
+        console.log(e.target.value)
+        props.incrementDrink(e.target.value);
     }
-    const classes = useStyles();
     return (
         <Container>
             <Row>
@@ -33,17 +37,17 @@ const OrderCart = (props) => {
                 </Col>
                 <Col xs={{span:3, offset: 6}}>
                     <Row>
-                        <Fab onClick={incrementDrinkQuantity} color="primary" aria-label="add" className={classes.fab}>
-                                <AddIcon />
+                        <Fab value={props.name} onClick={(e) =>incrementDrinkQuantity(e)} color="primary" aria-label="add" className={classes.fab}>
+                            <AddIcon />
                         </Fab>
                     </Row>
                     <Row>
                         {props.price}
                     </Row>
                     <Row>
-                    <Fab onClick={decrementDrinkQuantity} color="primary" aria-label="add" className={classes.fab}>
+                        <Fab value ={props.name} onClick={(e) =>decrementDrinkQuantity(e)} color="primary" aria-label="add" className={classes.fab}>
                                 <RemoveIcon />
-                    </Fab>
+                        </Fab>
                     </Row>
                 </Col>
             </Row>
@@ -51,14 +55,22 @@ const OrderCart = (props) => {
     )
 }
 
-export default OrderCart;
+const mapDispatchToProps = {
+    incrementDrink: incrementDrink,
+    decrementDrink: decrementDrink
+}
+export default connect(null, mapDispatchToProps)(OrderCart)
 
 
 const useStyles = makeStyles(theme => ({
     fab: {
       margin: theme.spacing(1),
+      zIndex: 3
     },
     extendedIcon: {
       marginRight: theme.spacing(1),
     },
+    icon: {
+        zIndex: 1
+    }
   }));
