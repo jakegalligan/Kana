@@ -3,6 +3,7 @@ const http = require('http');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const socket = require('socket.io')
 
 var db = mongoose.connect('mongodb://localhost:27017/bardb', { useNewUrlParser: true });
 
@@ -17,15 +18,28 @@ app.use(bodyParser.urlencoded({
 
 const menuRoutes = require('./routes/menu');
 const orderRoutes = require('./routes/order');
+const notifyRoutes = require('./routes/notify')
 
 //when a request is made to /customer route to customerRoutes
 app.use('/menu', menuRoutes)
 //when a request is made to /adminRoutes route to adminRoutes
 app.use('/order', orderRoutes)
+//when a request is made to /notfiyRoutes route to notifyRoutes
+app.use('/notify', notifyRoutes)
+
 
 //server setup
 const port = 8000;
 const server = http.createServer(app);
 server.listen(port);
 console.log('Server listening on:', port);
+const io = socket(server);
+
+io.on('connection', (socket) => {
+    console.log('connection made')
+    socket.on('order', (data) => {
+        io.sockets.emit('list', data)
+    })
+})
+
 

@@ -5,3 +5,4 @@ export const ADD_NAME = 'add_name';
 export const ADD_NUMBER = 'add_number';
 export const INCREMENT_DRINK = 'increment_drink';
 export const DECREMENT_DRINK = 'decrement_drink';
+export const SEND_NOTIFICATION = 'send-notification';

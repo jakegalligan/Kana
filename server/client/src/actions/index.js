@@ -1,5 +1,6 @@
 import axios from 'axios'
-import {FETCH_DRINKS, ADD_TO_CART, SUBMIT_ORDER, ADD_NAME, ADD_NUMBER, INCREMENT_DRINK, DECREMENT_DRINK} from '../actions/types'
+import {FETCH_DRINKS, ADD_TO_CART, SUBMIT_ORDER,
+     ADD_NAME, ADD_NUMBER, INCREMENT_DRINK, DECREMENT_DRINK, SEND_NOTIFICATION} from '../actions/types'
 
 const ROOT_URL = 'http://localhost:8000';
 
@@ -61,6 +62,18 @@ export const decrementDrink = (drink) => {
         type: DECREMENT_DRINK,
         payload: drink
     }
+}
+
+export const sendNotification = (number) => {
+    console.log(number)
+    let phoneNumberObj = {
+        phoneNumber: number
+    }
+    axios.post(`${ROOT_URL}/notify`, phoneNumberObj)
+    return {
+        type: SEND_NOTIFICATION
+    }
+
 }
  
  

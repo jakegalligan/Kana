@@ -4,13 +4,8 @@ const accountSid = 'AC5e903f020fd3f2e86fbcd2c13ef52e64';
 const authToken = '75b1bf2c8284e1a187275ffe69128724';
 const client = require('twilio')(accountSid, authToken);
 
-// client.messages
-// .create({
-//    body: 'test',
-//    from: '+19842144330',
-//    to: '+19194104603'
-//  })
-// .then(message => console.log(message.sid));
+
+
 
 // route which instantiates an order
 router.post('/', (req,res) => {
@@ -53,6 +48,7 @@ router.get('/:id', (req,res) => {
             }
         })
 })
+
 
 
 module.exports = router
