@@ -12,6 +12,15 @@ const Order = (props) => {
     //store the order in a variable for easier access
     let order = props.order;
 
+    //when the claim buttons is clicked have the drink be claimed
+    const claimDrink = () => {
+      console.log('claimed');
+    }
+
+    const submitDrink = () => {
+      console.log('submit');
+    }
+
     //go through shopping cart and render each item
     const renderCart = () => {
       return order.cart.map(drink => {
@@ -19,7 +28,7 @@ const Order = (props) => {
           <div>
             {drink.name}
             <br />
-            {drink.quantity}
+            Quantity: {drink.quantity}
           </div>
         )
       })
@@ -35,8 +44,8 @@ const Order = (props) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Claim</Button>
-        <Button size="small">Submit</Button>
+        <Button onClick={claimDrink} size="small">Claim</Button>
+        <Button onClick={submitDrink} size="small">Submit</Button>
       </CardActions>
     </Card>
   );

@@ -30,6 +30,7 @@ const OrderBacklog = () => {
         <Container>
             <Row>
                 <Col>
+                    stats
                 </Col>
                 <Col>
                     <Row>
