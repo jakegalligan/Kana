@@ -44,7 +44,7 @@ const OrderSubmitBar = (props) => {
     const renderRedirect = () => {
       return (
         <div>
-          <Redirect to = {`/customer/review/${uuidv1()}`} />
+          <Redirect to = {`/customer/review/`} />
         </div>
       )
     }

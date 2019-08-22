@@ -72,7 +72,7 @@ const OrderReview = (props) => {
 
     return (
         <div>
-            <Link to = '/'>Back to Menu</Link>
+            <Link to = {`/customer/menu`}>Back to Menu</Link>
             {renderCart()}
             <Container>
                 <Row>

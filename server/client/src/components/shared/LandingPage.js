@@ -19,7 +19,7 @@ const LandingPage = () => {
             <StyledJumbotron>
                 <h1> Kana </h1>
                 <p> Blah blah blah b</p>
-                <Link to={`/customer/menu/${uuidv1()}`}>
+                <Link to={`/customer/menu/`}>
                     <Button className={classes.button}>
                         Order Now
                     </Button>
