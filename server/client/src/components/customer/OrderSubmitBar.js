@@ -1,14 +1,16 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Link, Redirect} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';import Toolbar from '@material-ui/core/Toolbar';import Button from '@material-ui/core/Button';import TextField from '@material-ui/core/TextField';
 import styled from "styled-components";
 import ModalDialog from 'react-bootstrap/ModalDialog';import ModalBody from 'react-bootstrap/ModalBody'
-import {submitOrder, setName, setNumber} from '../../actions'
+import {submitOrder, setName, setNumber} from '../../actions';
+import uuidv1 from 'uuid'
 
 
 const OrderSubmitBar = (props) => {
+
     //import styling
     const classes = useStyles();
     //initialize state with showModal set to false
@@ -42,7 +44,7 @@ const OrderSubmitBar = (props) => {
     const renderRedirect = () => {
       return (
         <div>
-          <Redirect to = '/customer/review/3' />
+          <Redirect to = {`/customer/review/${uuidv1()}`} />
         </div>
       )
     }
