@@ -8,9 +8,9 @@ import {Container, Row, Col} from 'react-bootstrap';
 import { connect } from 'react-redux';
 import {submitOrder} from '../../actions';
 import uuidv1 from 'uuid'
-
-
-
+import io from 'socket.io-client';
+ const socket = io.connect('http://localhost:8000')
+    
 const OrderReview = (props) => {
     console.log(props);
     const classes=useStyles();
@@ -20,14 +20,20 @@ const OrderReview = (props) => {
 
     //when the submit order button is clicked send order to bartenders
     const submitOrder = () => {
+        //get current date/time to know when data was made
+        let currentDate = new Date();
         //format information to be properly stored in server
         let order = {
           cart: props.cart,
           customerName: props.name,
-          phoneNumber: props.number
+          phoneNumber: props.number,
+          isSubmitted: true,
+          timeOrderSubmitted: currentDate
         }
         props.submitOrder(order)
         // setRedirect(true);
+        console.log('submitting');
+        socket.emit('order', order)
     }
 
     //when redirect is set to true this function will run and redirect the user
