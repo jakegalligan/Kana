@@ -7,7 +7,9 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
-const Order = () => {
+const Order = (props) => {
+  //store the order in a variable for easier access
+  let order = props.order;
   const classes = useStyles()
     return (
       <Card className={classes.card}>
