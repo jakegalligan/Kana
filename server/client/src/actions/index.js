@@ -68,7 +68,7 @@ export const sendNotification = (number) => {
     let phoneNumberObj = {
         phoneNumber: number
     }
-    axios.post(`${ROOT_URL}/order/notify`, phoneNumberObj)
+    axios.post(`${ROOT_URL}/notify`, phoneNumberObj)
     return {
         type: 'send_notif'
     }

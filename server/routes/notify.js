@@ -12,7 +12,8 @@ const client = require('twilio')(accountSid, authToken);
        from: '+19842144330',
        to: `+${req.body.phoneNumber}`
      })
-.then(message => console.log(message.sid));
+    .then(message => console.log(message.sid));
+     res.end();
   })
 
   module.exports = router;
