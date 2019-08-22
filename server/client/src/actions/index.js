@@ -48,14 +48,15 @@ export const setNumber = (number) => {
     }
 } 
 
-export const incrementDrinkQuantity = (drink) => {
+export const incrementDrink = (drink) => {
+    console.log('hit', drink)
     return {
         type: INCREMENT_DRINK,
         payload: drink
     }
 }
 
-export const decrementDrinkQuantity = (drink) => {
+export const decrementDrink = (drink) => {
     return {
         type: DECREMENT_DRINK,
         payload: drink

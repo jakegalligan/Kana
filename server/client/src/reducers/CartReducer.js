@@ -21,8 +21,24 @@ export default function (state = [], action) {
             return newCart
         //if type is increment drink find the drink and increase its quantity by 1
         //if drink isn't in cart throw error
-
+        case INCREMENT_DRINK:
+            console.log('hit reducer')
+            for (let i = 0; i< state.length; i++) {
+                if (state[i].name = action.payload) {
+                    state[i].quantity ++;
+                }
+            }
+        console.log(state);
+        return state;
+        case DECREMENT_DRINK:
         //if type is decrement drink find drink and decrease its quantity by 1
+            for (let i = 0; i< state.length; i++) {
+                if (state[i].name = action.payload) {
+                    state[i].quantity --;
+                }
+            }
+        console.log(state);
+        return state;
         //otherwise return the current state
         default:
             return state;
