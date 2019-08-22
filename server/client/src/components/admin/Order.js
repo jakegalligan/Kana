@@ -8,29 +8,30 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
 const Order = (props) => {
-  //store the order in a variable for easier access
-  let order = props.order;
-  const classes = useStyles()
+    const classes = useStyles()
+    //store the order in a variable for easier access
+    let order = props.order;
+
+    //go through shopping cart and render each item
+    const renderCart = () => {
+      return order.cart.map(drink => {
+        return (
+          <div>
+            {drink.name}
+            <br />
+            {drink.quantity}
+          </div>
+        )
+      })
+    }
     return (
       <Card className={classes.card}>
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
-          Word of the Day
-        </Typography>
-        <Typography variant="h5" component="h2">
-          be
-       
-          nev
-          
-          lent
-        </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          adjective
+          {order.timeOrderSubmitted}
         </Typography>
         <Typography variant="body2" component="p">
-          well meaning and kindly.
-          <br />
-          {'"a benevolent smile"'}
+          {renderCart()}
         </Typography>
       </CardContent>
       <CardActions>
