@@ -6,11 +6,13 @@ import AppBar from '@material-ui/core/AppBar';import Toolbar from '@material-ui/
 import styled from "styled-components";
 import {Container, Row, Col} from 'react-bootstrap';
 import { connect } from 'react-redux';
-import {submitOrder} from '../../actions'
+import {submitOrder} from '../../actions';
+import uuidv1 from 'uuid'
+
 
 
 const OrderReview = (props) => {
-
+    console.log(props);
     const classes=useStyles();
     //initilaize state redirect which when true redirects user to completed order menu
     const [redirect, setRedirect] = useState(false);
@@ -31,7 +33,7 @@ const OrderReview = (props) => {
     //when redirect is set to true this function will run and redirect the user
     const renderRedirect = () => {
         return (
-            <Redirect to = '/customer/complete/3'>
+            <Redirect to = {`/customer/complete/${uuidv1()}`}>
             </Redirect>
         )
     }
