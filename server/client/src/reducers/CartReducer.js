@@ -35,6 +35,12 @@ export default function (state = [], action) {
             for (let i = 0; i< state.length; i++) {
                 if (state[i].name = action.payload) {
                     state[i].quantity --;
+                        //if the quantity of the drink is 0 remove it from the cart
+                        if (state[i].quantity == 0) {
+                            console.log(state)
+                            state.splice(i,1);
+                            console.log(state);
+                        }
                 }
             }
         console.log(state);
