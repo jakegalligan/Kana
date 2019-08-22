@@ -1,7 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import io from 'socket.io-client';
 import Order from './Order';
-const socket = io.connect('http://localhost:8000')
+import {Container, Row, Col} from 'react-bootstrap';
+
+const socket = io.connect('http://localhost:8000');
+
 
 const OrderBacklog = () => {
     const[orders,setOrders] = useState([])
@@ -13,20 +16,28 @@ const OrderBacklog = () => {
         setOrders(newArray)
     })
 
-    const renderUnClaimedOrders = () => {
-        return orders.map(order => {
-            // <UnclaimedOrder
-
-            // >
-            // </UnclaimedOrder>
+    const renderOrders = () => {
+        return orders.map(individualOrder => {
+            return(
+                <Order
+                    order={individualOrder}
+                ></Order>
+            )
         })
     }
         
     return (
-        <div>
-            <Order />
-            Hi
-        </div>
+        <Container>
+            <Row>
+                <Col>
+                </Col>
+                <Col>
+                    <Row>
+                        {renderOrders()}
+                    </Row>
+                </Col>
+            </Row>
+        </Container>
     )
   };
 

@@ -3,6 +3,7 @@ const http = require('http');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const socket = require('socket.io')
 
 var db = mongoose.connect('mongodb://localhost:27017/bardb', { useNewUrlParser: true });
 
@@ -28,4 +29,13 @@ const port = 8000;
 const server = http.createServer(app);
 server.listen(port);
 console.log('Server listening on:', port);
+const io = socket(server);
+
+io.on('connection', (socket) => {
+    console.log('connection made')
+    socket.on('order', (data) => {
+        io.sockets.emit('list', data)
+    })
+})
+
 
