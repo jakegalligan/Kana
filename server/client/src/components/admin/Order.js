@@ -12,13 +12,20 @@ const Order = (props) => {
     //store the order in a variable for easier access
     let order = props.order;
 
+    //create state that keep track whether or not buttons have been clicked
+    const[claimed, setClaimed] = useState(false);
+    const[submitted, setSubmitted] = useState(false)
+
     //when the claim buttons is clicked have the drink be claimed
     const claimDrink = () => {
       console.log('claimed');
+      setClaimed(true);
     }
 
     const submitDrink = () => {
       console.log('submit');
+      setSubmitted(true);
+
     }
 
     //go through shopping cart and render each item
@@ -34,6 +41,8 @@ const Order = (props) => {
       })
     }
     return (
+      <div>
+      {submitted ? '': 
       <Card className={classes.card}>
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
@@ -47,8 +56,10 @@ const Order = (props) => {
         <Button onClick={claimDrink} size="small">Claim</Button>
         <Button onClick={submitDrink} size="small">Submit</Button>
       </CardActions>
-    </Card>
-  );
+    </Card> 
+      }
+    </div>
+  ) 
   };
 
   export default Order;
