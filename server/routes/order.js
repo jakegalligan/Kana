@@ -9,10 +9,13 @@ const client = require('twilio')(accountSid, authToken);
 
 // route which instantiates an order
 router.post('/', (req,res) => {
+    console.log(req.body);
     //create a new order with contents of body sent by client
     const newOrder = new Order (req.body)
     newOrder.save((err,order) => {
         if (err) return err;
+        console.log('saved');
+        console.log(order);
         res.send(order);
     })
 })

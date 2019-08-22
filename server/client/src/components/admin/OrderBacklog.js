@@ -17,6 +17,7 @@ const OrderBacklog = () => {
     })
     const renderOrders = () => {
         return liveOrders.map(individualOrder => {
+            console.log(individualOrder);
             return(
                 <Order
                     order={individualOrder}

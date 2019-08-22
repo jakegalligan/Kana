@@ -11,6 +11,7 @@ import {sendNotification} from '../../actions'
 
 
 const Order = (props) => {
+    console.log(props);
     const classes = useStyles()
     //store the order in a variable for easier access
     let order = props.order;

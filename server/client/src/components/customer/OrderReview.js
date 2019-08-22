@@ -20,16 +20,20 @@ const OrderReview = (props) => {
 
     //when the submit order button is clicked send order to bartenders
     const submitOrder = () => {
+        //create a unique id to identify the order
+        let uId1 = uuidv1();
         //get current date/time to know when data was made
         let currentDate = new Date();
         //format information to be properly stored in server
         let order = {
+          uId: uId1,
           cart: props.cart,
           customerName: props.name,
           phoneNumber: props.number,
           isSubmitted: true,
-          timeOrderSubmitted: currentDate
+          timeOrderSubmitted: currentDate,          
         }
+        console.log(order);
         props.submitOrder(order)
         // setRedirect(true);
         console.log('submitting');
