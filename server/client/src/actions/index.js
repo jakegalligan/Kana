@@ -1,5 +1,6 @@
 import axios from 'axios'
-import {FETCH_DRINKS, ADD_TO_CART, SUBMIT_ORDER, ADD_NAME, ADD_NUMBER, INCREMENT_DRINK, DECREMENT_DRINK} from '../actions/types'
+import {FETCH_DRINKS, ADD_TO_CART, SUBMIT_ORDER,
+     ADD_NAME, ADD_NUMBER, INCREMENT_DRINK, DECREMENT_DRINK, SEND_NOTIFICATION} from '../actions/types'
 
 const ROOT_URL = 'http://localhost:8000';
 
@@ -70,7 +71,7 @@ export const sendNotification = (number) => {
     }
     axios.post(`${ROOT_URL}/notify`, phoneNumberObj)
     return {
-        type: 'send_notif'
+        type: SEND_NOTIFICATION
     }
 
 }
