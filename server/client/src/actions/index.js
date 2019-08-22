@@ -62,5 +62,17 @@ export const decrementDrink = (drink) => {
         payload: drink
     }
 }
+
+export const sendNotification = (number) => {
+    console.log(number)
+    let phoneNumberObj = {
+        phoneNumber: number
+    }
+    axios.post(`${ROOT_URL}/order/notify`, phoneNumberObj)
+    return {
+        type: 'send_notif'
+    }
+
+}
  
  
