@@ -9,7 +9,7 @@ const socket = io.connect('http://localhost:8000');
 const OrderBacklog = () => {
     const[liveOrders,setLiveOrders] = useState([])
     // listen for emissions from the server
-        socket.on('list',(data) => {
+        socket.on('new order',(data) => {
         //create new array with current and most recent order in order to avoid direct data manipulation
         let newArray = [...liveOrders, data]
         //add the new order to the array
