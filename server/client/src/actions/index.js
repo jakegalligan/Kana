@@ -7,9 +7,7 @@ const ROOT_URL = 'http://localhost:8000';
 
 export const fetchDrinks = (category = '') => dispatch => {
     console.log('hit action')
-    axios.get(`/menu`, {
-        category
-    })
+    axios.get(`/menu?category=${category}`)
     .then(response => {
         dispatch({type: FETCH_DRINKS, payload: response.data})
     })

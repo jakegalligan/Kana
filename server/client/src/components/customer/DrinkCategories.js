@@ -23,6 +23,7 @@ const DrinkCategories = (props) => {
 
     //when a drink filter is clicked fetch the selected drinks
     const getDrinks = (e) => {
+        console.log(e.target);
         console.log(e.target.value);
         props.fetchDrinks(e.target.value)
     }
@@ -38,23 +39,23 @@ const DrinkCategories = (props) => {
         {/* <Link to='/'><ArrowBack className={classes.nav} /></Link> */}
         <StyledContainer sticky='top'>
             <Row>
-                <Col xs={3}>
-                    <Button className={classes.button} onClick={e=>getDrinks(e)} value='Specials'>
+                <Col xs={3} value='Specials'>
+                    <Button variant="contained"  className={classes.button} onClick={getDrinks} value='Specials'>
                     <FontAwesomeIcon icon={faGlassCheers} />
                     </Button>
                 </Col>
                 <Col xs={3}>
-                <Button className={classes.button} onClick={e=>getDrinks(e)} value='Beer'>
+                <Button variant="contained"  className={classes.button} onClick={getDrinks} value='Beer'>
                     <FontAwesomeIcon icon={faBeer} />
                     </Button>
                 </Col>
                 <Col xs={3}>
-                <Button className={classes.button} onClick={e=>getDrinks(e)} value='Cocktail'>
+                <Button className={classes.button} onClick={getDrinks} value='Cocktail'>
                     <FontAwesomeIcon icon={faCocktail} />
                     </Button>
                 </Col>
                 <Col xs={3}>
-                <Button className={classes.button} onClick={e=>getDrinks(e)} value='Wine'>
+                <Button className={classes.button} onClick={getDrinks} value='Wine'>
                     <FontAwesomeIcon icon={faWineGlass} />
                     </Button>
                 </Col>
@@ -103,7 +104,7 @@ const useStyles = makeStyles({
       boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
       color: 'white',
       height: 48,
-      width: '10px'
+      width: '10px',
     },
     nav: {
         // marginLeft: '5px',
