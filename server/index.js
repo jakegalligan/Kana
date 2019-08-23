@@ -46,7 +46,7 @@ const port = process.env.PORT || 8000;
 const server = http.createServer(app);
 server.listen(port);
 console.log('Server listening on:', port);
-const io = socket(server);
+// const io = socket(server);
 
 // io.on('connection', (socket) => {
 //     console.log('connection made')
