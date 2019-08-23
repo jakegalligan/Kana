@@ -50,7 +50,7 @@ const Order = (props) => {
       })
     }
     return (
-      <Card className={classes.card}>
+      <Card className={order.isClaimed ? classes.cardClaimed : classes.card}>
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
           {order.timeOrderSubmitted}
@@ -80,6 +80,10 @@ const Order = (props) => {
 const useStyles = makeStyles({
   card: {
     minWidth: 275,
+  },
+  cardClaimed: {
+    minWidth: 275,
+    backgroundColor: 'yellow'
   },
   bullet: {
     display: 'inline-block',
