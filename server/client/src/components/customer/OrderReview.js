@@ -9,6 +9,7 @@ import { connect } from 'react-redux';
 import {submitOrder} from '../../actions';
 import uuidv1 from 'uuid'
 import io from 'socket.io-client';
+import moment from 'moment'
  const socket = io.connect('http://localhost:8000')
     
 const OrderReview = (props) => {

@@ -7,6 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { connect } from 'react-redux';
+import moment from 'moment';
 import {sendNotification, claimDrink, submitDrink} from '../../actions'
 
 
@@ -50,7 +51,7 @@ const Order = (props) => {
       <Card className={order.isClaimed ? classes.cardClaimed : classes.card}>
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
-          {order.timeOrderSubmitted}
+          {moment(order.timeOrderSubmitted).fromNow()}
         </Typography>
         <Typography variant="body2" component="p">
           {renderCart()}
