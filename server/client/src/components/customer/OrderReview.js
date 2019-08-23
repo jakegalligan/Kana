@@ -9,7 +9,8 @@ import { connect } from 'react-redux';
 import {submitOrder} from '../../actions';
 import uuidv1 from 'uuid'
 import io from 'socket.io-client';
- const socket = io.connect('http://localhost:8000')
+import moment from 'moment'
+//  const socket = io.connect('http://localhost:8000')
     
 const OrderReview = (props) => {
     console.log(props);
@@ -37,7 +38,7 @@ const OrderReview = (props) => {
         props.submitOrder(order)
         // setRedirect(true);
         console.log('submitting');
-        socket.emit('order', order)
+        // socket.emit('order', order)
     }
 
     //when redirect is set to true this function will run and redirect the user

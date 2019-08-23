@@ -7,32 +7,47 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { connect } from 'react-redux';
+import moment from 'moment';
 import {sendNotification, claimDrink, submitDrink} from '../../actions'
 
 
 const Order = (props) => {
-    console.log(props);
-    const classes = useStyles()
-    //store the order in a variable for easier access
     let order = props.order;
 
-    //create state that keep track whether or not buttons have been clicked
-    const[claimed, setClaimed] = useState(false);
-    const[submitted, setSubmitted] = useState(false)
+    let timeSinceOrdered = moment(order.timeOrderSubmitted).fromNow();
+    let urgent;
+    if (timeSinceOrdered.includes('hour')) {
+      urgent = true;
+    } else if (timeSinceOrdered.includes('minute') && timeSinceOrdered[1] !==' ') {
+      urgent=true
+    }
+    console.log(urgent);
+    // let currentTime = moment(new Date());
+    // let timeOrderSubmitted = moment(props.timeOrderSubmitted)
+    const classes = useStyles()
+    //store the order in a variable for easier access
+    let a = parseInt(moment(order.timeOrderSubmitted).format('ss'), 10)
+    console.log(a);
+    // let b = moment().format('HHmmss');
+    // console.log(b);
+    // console.log(b-a);
+    
+
 
     //when the claim buttons is clicked have the drink be claimed
     const handleClaimDrink = () => {
       console.log('claimed');
-      setClaimed(true);
+      if (props.isClaimed == true) {
+        return '';
+      }
       props.claimDrink(order.uId)
     }
 
     const handleSubmitDrink = () => {
       console.log('submit');
-      setSubmitted(true);
+      // send drink to backend to have its isSubmitted property changed to true
       props.submitDrink(order.uId);
       // props.sendNotification(order.phoneNumber)
-      //send action to backend to be sumitted
     
 
     }
@@ -50,10 +65,10 @@ const Order = (props) => {
       })
     }
     return (
-      <Card className={classes.card}>
+      <Card className={order.isClaimed ? classes.cardClaimed : urgent? classes.cardUrgent : classes.card}>
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
-          {order.timeOrderSubmitted}
+          {moment(order.timeOrderSubmitted).fromNow()}
         </Typography>
         <Typography variant="body2" component="p">
           {renderCart()}
@@ -80,6 +95,14 @@ const Order = (props) => {
 const useStyles = makeStyles({
   card: {
     minWidth: 275,
+  },
+  cardClaimed: {
+    minWidth: 275,
+    backgroundColor: 'yellow'
+  },
+  cardUrgent: {
+    minWidth: 275,
+    backgroundColor: 'red'
   },
   bullet: {
     display: 'inline-block',
