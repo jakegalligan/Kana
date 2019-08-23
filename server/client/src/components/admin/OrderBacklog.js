@@ -11,7 +11,7 @@ const OrderBacklog = (props) => {
     // on initial page load get orers
     useEffect(() => {
         //fetch newly added orders every second
-        // setInterval(()=>{props.fetchOrders()},1000);
+        setInterval(()=>{props.fetchOrders()},1000);
         
     },[])
     //go throuhg all unCompleted orders in database and render them

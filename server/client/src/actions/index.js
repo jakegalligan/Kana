@@ -6,6 +6,7 @@ import {FETCH_DRINKS, ADD_TO_CART, SUBMIT_ORDER,
 const ROOT_URL = 'http://localhost:8000';
 
 export const fetchDrinks = (category = '') => dispatch => {
+    console.log('hit action')
     axios.get(`/menu`, {
         category
     })
@@ -80,6 +81,7 @@ export const sendNotification = (number) => {
 }
 
 export const fetchOrders = () => dispatch => {
+    console.log('hit orders');
     axios.get(`/order`)
     .then(response => {
         dispatch({type: FETCH_ORDERS, payload: response.data})
