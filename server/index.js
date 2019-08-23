@@ -35,11 +35,11 @@ server.listen(port);
 console.log('Server listening on:', port);
 const io = socket(server);
 
-io.on('connection', (socket) => {
-    console.log('connection made')
-    socket.on('order', (data) => {
-        io.sockets.emit('new order', data)
-    })
-})
+// io.on('connection', (socket) => {
+//     console.log('connection made')
+//     socket.on('order', (data) => {
+//         io.sockets.emit('new order', data)
+//     })
+// })
 
 

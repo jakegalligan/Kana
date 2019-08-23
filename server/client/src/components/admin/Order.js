@@ -12,10 +12,27 @@ import {sendNotification, claimDrink, submitDrink} from '../../actions'
 
 
 const Order = (props) => {
-    console.log(props);
+    let order = props.order;
+
+    let timeSinceOrdered = moment(order.timeOrderSubmitted).fromNow();
+    let urgent;
+    if (timeSinceOrdered.includes('hour')) {
+      urgent = true;
+    } else if (timeSinceOrdered.includes('minute') && timeSinceOrdered[1]) {
+      urgent=true
+    }
+    console.log(urgent);
+    // let currentTime = moment(new Date());
+    // let timeOrderSubmitted = moment(props.timeOrderSubmitted)
     const classes = useStyles()
     //store the order in a variable for easier access
-    let order = props.order;
+    let a = parseInt(moment(order.timeOrderSubmitted).format('ss'), 10)
+    console.log(a);
+    // let b = moment().format('HHmmss');
+    // console.log(b);
+    // console.log(b-a);
+    
+
 
     //when the claim buttons is clicked have the drink be claimed
     const handleClaimDrink = () => {
