@@ -31,7 +31,7 @@ const OrderReview = (props) => {
           customerName: props.name,
           phoneNumber: props.number,
           isSubmitted: true,
-          timeOrderSubmitted: currentDate,          
+          timeOrderSubmitted: currentDate,      
         }
         console.log(order);
         props.submitOrder(order)
