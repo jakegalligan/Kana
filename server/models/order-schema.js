@@ -9,9 +9,9 @@ const OrderSchema = new Schema({
     timeOrderCreated: Date,
     isSubmitted: Boolean,
     timeOrderSubmitted: Date,
-    isClaimed: Boolean,
+    isClaimed: {type: Boolean, default: false},
     timeOrderClaimed: Date,
-    isCompleted: Boolean,
+    isCompleted: {type: Boolean, default: false},
     timeOrderCompleted: Date,
 })
 

@@ -41,7 +41,7 @@ router.get('/', (req,res) => {
 
     //find the order the client wants and send it back
     Order
-        .find()
+        .find({isSubmitted: false})
         .exec((err, order) => {
             if (err) {
                 res.status(400).send('Unable to get drinks');
