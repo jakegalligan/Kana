@@ -9,10 +9,13 @@ const client = require('twilio')(accountSid, authToken);
 
 // route which instantiates an order
 router.post('/', (req,res) => {
+    console.log(req.body);
     //create a new order with contents of body sent by client
     const newOrder = new Order (req.body)
     newOrder.save((err,order) => {
         if (err) return err;
+        console.log('saved');
+        console.log(order);
         res.send(order);
     })
 })
@@ -23,26 +26,26 @@ router.post('/:id', (req,res) => {
     let updates = req.body
     //find the specific order to update and update it with the desired values
     Order
-        .findByIdAndUpdate(id, updates,{new: true})
+        .findOneAndUpdate({uId: id}, updates)
         .exec((err,order) => {
             if (err) {
                 res.status(400).send('Unable to update order, double check order Id')
             } else {
+            console.log(order);
             res.send(order);
             }
         })
 })
 
-// route which gets individual order by id
-router.get('/:id', (req,res) => {
-    let id = req.params.id;
+// route which gets orders
+router.get('/', (req,res) => {
 
     //find the order the client wants and send it back
     Order
-        .findById(id)
+        .find({isCompleted: false})
         .exec((err, order) => {
             if (err) {
-                res.status(400).send('Unable to find order, double check order Id');
+                res.status(400).send('Unable to get drinks');
             } else {
                 res.send(order);
             }

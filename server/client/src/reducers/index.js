@@ -4,7 +4,7 @@ import CartReducer from './CartReducer';
 import OrderReducer from './OrderReducer';
 import NameReducer from './NameReducer.js';
 import NumberReducer from './NumberReducer';
-// import OrderHistoryReducer from './OrderHistoryReducer';
+import OrderListReducer from './OrderListReducer';
 
 const rootReducer = combineReducers({
     drinks: DrinksReducer,
@@ -12,7 +12,7 @@ const rootReducer = combineReducers({
     order: OrderReducer,
     name: NameReducer,
     number: NumberReducer,
-    // orderHistory: OrderHistoryReducer
+    orderList: OrderListReducer
 })
 
 export default rootReducer;

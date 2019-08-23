@@ -7,10 +7,11 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { connect } from 'react-redux';
-import {sendNotification} from '../../actions'
+import {sendNotification, claimDrink, submitDrink} from '../../actions'
 
 
 const Order = (props) => {
+    console.log(props);
     const classes = useStyles()
     //store the order in a variable for easier access
     let order = props.order;
@@ -20,16 +21,19 @@ const Order = (props) => {
     const[submitted, setSubmitted] = useState(false)
 
     //when the claim buttons is clicked have the drink be claimed
-    const claimDrink = () => {
+    const handleClaimDrink = () => {
       console.log('claimed');
       setClaimed(true);
+      props.claimDrink(order.uId)
     }
 
-    const submitDrink = () => {
+    const handleSubmitDrink = () => {
       console.log('submit');
       setSubmitted(true);
-      props.sendNotification(order.phoneNumber)
+      props.submitDrink(order.uId);
+      // props.sendNotification(order.phoneNumber)
       //send action to backend to be sumitted
+    
 
     }
 
@@ -46,8 +50,6 @@ const Order = (props) => {
       })
     }
     return (
-      <div>
-      {submitted ? '': 
       <Card className={classes.card}>
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
@@ -58,17 +60,17 @@ const Order = (props) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button onClick={claimDrink} size="small">Claim</Button>
-        <Button onClick={submitDrink} size="small">Submit</Button>
+        <Button onClick={handleClaimDrink} size="small">Claim</Button>
+        <Button onClick={handleSubmitDrink} size="small">Submit</Button>
       </CardActions>
     </Card> 
-      }
-    </div>
   ) 
   };
 
   const mapDispatchToProps = {
-    sendNotification: sendNotification
+    sendNotification: sendNotification,
+    claimDrink: claimDrink,
+    submitDrink: submitDrink
   }
 
   export default connect(null,mapDispatchToProps)(Order);
