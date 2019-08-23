@@ -13,7 +13,6 @@ import OrderReview from './components/customer/OrderReview'
 import OrderCompleted from './components/customer/OrderCompleted'
 import LoginPage from './components/admin/LoginPage'
 import Orders from './components/admin/OrderBacklog'
-import Stats from './components/admin/Stats'
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 
@@ -33,7 +32,6 @@ ReactDOM.render(
                     <Route exact path='/customer/complete' component={OrderCompleted} />
                     <Route exact path='/admin/login' component={LoginPage} />
                     <Route exact path='/admin/orders' component={Orders} />
-                    <Route exact path='/admin/stats' component={Stats} />
                 </Switch>
             </App>
         </Router>,

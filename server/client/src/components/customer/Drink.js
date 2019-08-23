@@ -8,6 +8,8 @@ import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 import Icon from '@material-ui/core/Icon';
 import {addToCart} from '../../actions'
+import Typography from '@material-ui/core/Typography';
+
 
 const Drink = (props) => {
     const classes=useStyles();
@@ -18,18 +20,20 @@ const Drink = (props) => {
 
     return (
         <div>
-            <Container>
+            <Container className={classes.container}>
                 <Row>
-                    <Col>
+                    <Col xs={2}>
+                        <Typography>
                         {props.descriptor}
+                        </Typography>
                     </Col>
-                    <Col>
-                        <Row>{props.name}</Row>
-                        <Row>{props.ABV}</Row>
-                        <Row>{props.ounce}</Row>
+                    <Col xs={{span: 5, offset: 2}}>
+                        <Row><Typography>{props.name}</Typography></Row>
+                        <Row><Typography>ABV: {props.ABV}%</Typography></Row>
+                        <Row><Typography>${props.price}</Typography></Row>
                     </Col>
-                    <Col xs={{span:3, offset: 3}}>
-                        <Row>{props.price}</Row>
+                    <Col className={classes.centeredcol} xs={{span:2, offset: 1}}>
+                        {/* <Row><Typography>{props.price}</Typography></Row> */}
                         <Row>
                             <Fab onClick={() => addDrink(props)} color="primary" aria-label="add" className={classes.fab}>
                                 <AddIcon />
@@ -52,8 +56,15 @@ export default connect(null,mapDispatchToProps)(Drink);
 const useStyles = makeStyles(theme => ({
     fab: {
       margin: theme.spacing(1),
+      height: '6vh'
     },
     extendedIcon: {
       marginRight: theme.spacing(1),
     },
+    container: {
+        textAlign: 'left'
+    },
+    centeredcol: {
+        textAlign: 'center'
+    }
   }));
