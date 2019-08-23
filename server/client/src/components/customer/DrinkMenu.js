@@ -9,7 +9,6 @@ const Menu = (props) => {
     
     return (
         <div>
-            <Link to='/'>Back </Link>
             <DrinkCategories />
             <DrinkMenuItems  />
             {props.cart.length>0? <OrderSubmitBar />: ''}

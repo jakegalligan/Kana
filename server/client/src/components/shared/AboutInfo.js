@@ -25,7 +25,7 @@ const AboutInfo = () => {
 
 export default AboutInfo;
 
-  //create styling for jumbotron
+  //create styling for container
   const StyledContainer = styled(Container)`
     background-color: gray;
     text-align: center;
