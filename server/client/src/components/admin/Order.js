@@ -16,23 +16,20 @@ const Order = (props) => {
     //store the order in a variable for easier access
     let order = props.order;
 
-    //create state that keep track whether or not buttons have been clicked
-    const[claimed, setClaimed] = useState(false);
-    const[submitted, setSubmitted] = useState(false)
-
     //when the claim buttons is clicked have the drink be claimed
     const handleClaimDrink = () => {
       console.log('claimed');
-      setClaimed(true);
+      if (props.isClaimed == true) {
+        return '';
+      }
       props.claimDrink(order.uId)
     }
 
     const handleSubmitDrink = () => {
       console.log('submit');
-      setSubmitted(true);
+      // send drink to backend to have its isSubmitted property changed to true
       props.submitDrink(order.uId);
       // props.sendNotification(order.phoneNumber)
-      //send action to backend to be sumitted
     
 
     }

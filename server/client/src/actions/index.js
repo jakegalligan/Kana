@@ -88,7 +88,8 @@ export const fetchOrders = () => dispatch => {
 }
 
 export const claimDrink = (drinkId) => dispatch => {
-    axios.post(`${ROOT_URL}/order/${drinkId}`,{isClaimed: true} )
+    let currentTime = new Date(); 
+    axios.post(`${ROOT_URL}/order/${drinkId}`,{isClaimed: true, timeOrderClaimed: currentTime} )
     .then(response => {
         dispatch({type: CLAIM_DRINK, payload: response.data})
     })
@@ -98,7 +99,8 @@ export const claimDrink = (drinkId) => dispatch => {
 }
 
 export const submitDrink = (drinkId) => dispatch => {
-    axios.post(`${ROOT_URL}/order/${drinkId}`,{isCompleted: true} )
+    let currentTime = new Date(); 
+    axios.post(`${ROOT_URL}/order/${drinkId}`,{isCompleted: true, timeOrderCompleted: currentTime} )
     .then(response => {
         dispatch({type: CLAIM_DRINK, payload: response.data})
     })
