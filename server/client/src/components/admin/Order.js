@@ -12,34 +12,26 @@ import {sendNotification, claimDrink, submitDrink} from '../../actions'
 
 
 const Order = (props) => {
+    const classes = useStyles()
     let order = props.order;
-
+    //store the relative time since the order was submitted and the current time
     let timeSinceOrdered = moment(order.timeOrderSubmitted).fromNow();
+    //instantiate a variable to store urgency or order
     let urgent;
+    //if the order has been over ten mintues or an hour set urgent to true
     if (timeSinceOrdered.includes('hour')) {
       urgent = true;
     } else if (timeSinceOrdered.includes('minute') && timeSinceOrdered[1] !==' ') {
       urgent=true
     }
-    console.log(urgent);
-    // let currentTime = moment(new Date());
-    // let timeOrderSubmitted = moment(props.timeOrderSubmitted)
-    const classes = useStyles()
-    //store the order in a variable for easier access
-    let a = parseInt(moment(order.timeOrderSubmitted).format('ss'), 10)
-    console.log(a);
-    // let b = moment().format('HHmmss');
-    // console.log(b);
-    // console.log(b-a);
     
-
-
     //when the claim buttons is clicked have the drink be claimed
     const handleClaimDrink = () => {
-      console.log('claimed');
+      //if the drink is already claimed return nothing
       if (props.isClaimed == true) {
         return '';
       }
+      //send the drink to the server to have its claim property updated
       props.claimDrink(order.uId)
     }
 
@@ -65,10 +57,12 @@ const Order = (props) => {
       })
     }
     return (
+      // if the drink isClaimed render its background as yellow and if it is urgent render its backgorund as red
+      //otherwise leave the background color as white
       <Card className={order.isClaimed ? classes.cardClaimed : urgent? classes.cardUrgent : classes.card}>
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
-          {moment(order.timeOrderSubmitted).fromNow()}
+          {timeSinceOrdered}
         </Typography>
         <Typography variant="body2" component="p">
           {renderCart()}
