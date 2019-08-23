@@ -7,7 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { connect } from 'react-redux';
-import {sendNotification, claimDrink} from '../../actions'
+import {sendNotification, claimDrink, submitDrink} from '../../actions'
 
 
 const Order = (props) => {
@@ -30,8 +30,10 @@ const Order = (props) => {
     const handleSubmitDrink = () => {
       console.log('submit');
       setSubmitted(true);
-      props.sendNotification(order.phoneNumber)
+      props.submitDrink(order.uId);
+      // props.sendNotification(order.phoneNumber)
       //send action to backend to be sumitted
+    
 
     }
 
@@ -67,7 +69,8 @@ const Order = (props) => {
 
   const mapDispatchToProps = {
     sendNotification: sendNotification,
-    claimDrink: claimDrink
+    claimDrink: claimDrink,
+    submitDrink: submitDrink
   }
 
   export default connect(null,mapDispatchToProps)(Order);

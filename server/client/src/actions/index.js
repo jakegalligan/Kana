@@ -96,5 +96,15 @@ export const claimDrink = (drinkId) => dispatch => {
         console.log(error);
     })
 }
+
+export const submitDrink = (drinkId) => dispatch => {
+    axios.post(`${ROOT_URL}/order/${drinkId}`,{isSubmitted: true} )
+    .then(response => {
+        dispatch({type: CLAIM_DRINK, payload: response.data})
+    })
+    .catch (error => {
+        console.log(error);
+    })
+}
  
  
