@@ -160,7 +160,6 @@ const useStyles = makeStyles(theme =>({
       height: 48,
       padding: '0 30px',
       zindex: 1,
-      zIndex: 1,
       top: -30,
       left: 0,
       right: 0,

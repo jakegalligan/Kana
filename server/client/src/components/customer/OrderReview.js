@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Link, Redirect} from 'react-router-dom';
 import OrderCart from './OrderCart';
 import { makeStyles } from '@material-ui/core/styles';
@@ -9,10 +9,17 @@ import { connect } from 'react-redux';
 import {submitOrder} from '../../actions';
 import uuidv1 from 'uuid'
 import moment from 'moment'
-//  const socket = io.connect('http://localhost:8000')
+import Typography from '@material-ui/core/Typography';
+import { textAlign } from '@material-ui/system';
     
 const OrderReview = (props) => {
-    console.log(props);
+    console.log(props.cart);
+    const[rerender, setRerender] = useState(false);
+    // useEffect(() => {
+    // //     //fetch newly added orders every second
+    //     setInterval(()=>{setRerender(true)},1000);
+        
+    // },[])
     const classes=useStyles();
     //initilaize state redirect which when true redirects user to completed order menu
     const [redirect, setRedirect] = useState(false);
@@ -31,7 +38,7 @@ const OrderReview = (props) => {
           customerName: props.name,
           phoneNumber: props.number,
           isSubmitted: true,
-          timeOrderSubmitted: currentDate,      
+          timeOrderSubmitted: currentDate,   
         }
         console.log(order);
         props.submitOrder(order)
@@ -58,13 +65,9 @@ const OrderReview = (props) => {
         let tax = total * .0625;
         return Math.round(100 * tax)/100;
     }
-
-
-
-
-
     const renderCart = () => {
          return props.cart.map((drink) => {
+             if (drink.quantity >=1) {
             return (
                 <OrderCart
                 name={drink.name}
@@ -73,50 +76,52 @@ const OrderReview = (props) => {
                 descriptor={drink.descriptor}
                 ounce={drink.ounce}
                 key={drink._id}
+                setRerender={setRerender}
                 >
                 </OrderCart>
             )
+             }
         })
     }
 
 
     return (
-        <div>
+        <Container>
             <Link to = {`/customer/menu`}>Back to Menu</Link>
             {renderCart()}
-            <Container>
+            <Container >
                 <Row>
                     <Col>
-                        Subtotal
+                    <Typography className={classes.subtotalPlusTax}>Subtotal</Typography>
                     </Col>
-                    <Col xs={{span:3, offset: 6}}>
-                        {getTotal()}
+                    <Col xs={{span:2, offset: 6}}>
+                        <Typography className={classes.subtotal}> {getTotal()}</Typography>
                     </Col>
                 </Row>
                 <Row>
                     <Col>
-                        Tax
+                        <Typography className={classes.subtotalPlusTax}>Tax</Typography>
                     </Col>
                     <Col xs={{span:3, offset: 6}}>
-                        {getTax(getTotal())}
+                        <Typography className={classes.subtotal}>{getTax(getTotal())}</Typography>
                     </Col>
-                    {/* Possible tip incrementer */}
                 </Row>
                 <Row>
-                    <Col xs={{span:3, offset: 9}}>
-                        {getTax(getTotal()) + getTotal()}
+                    <Col className={classes.totalcolumn} xs={{span:3, offset: 9}}>
+                    <Typography className={classes.total}>Total</Typography>
+                    <Typography className={classes.total}>{getTax(getTotal()) + getTotal()}</Typography>    
                     </Col>
                 </Row>
             </Container>
             <div className={classes.appBar}>
-            <AppBar position="static" color="default">
+            <AppBar className={classes.appBar}>
                 <Toolbar className={classes.toolBar} >
                     <Button onClick={()=>submitOrder()} className = {classes.buttonCheckout}>Submit</Button>
                 </Toolbar>
             </AppBar>
             </div>
             {redirect? renderRedirect(): ''}
-        </div>
+        </Container>
     )
   };
 
@@ -144,6 +149,10 @@ const OrderReview = (props) => {
     toolBar: {
       zindex: 1
     },
+    container: {
+        height: '100vh',
+        backgroundColor: 'black'
+    },
     buttonCheckout: {
       background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
       border: 0,
@@ -153,7 +162,6 @@ const OrderReview = (props) => {
       height: 48,
       padding: '0 30px',
       zindex: 1,
-      position: 'absolute',
       zIndex: 1,
       top: -30,
       left: 0,
@@ -173,5 +181,23 @@ const OrderReview = (props) => {
     },
     menu: {
       width: 200,
+    },
+    subtotal: {
+        fontSize: '15px',
+        color: 'white',
+        textAlign: 'right'
+    },
+    subtotalPlusTax: {
+        fontSize: '15px',
+        color: 'white',
+        textAlign: 'left'   
+    },
+    total: {
+        fontSize: '25px',
+        color: 'white',
+        textAlign: 'right'
+    },
+    totalcolumn: {
+        alignText: 'left'
     }
 }));
