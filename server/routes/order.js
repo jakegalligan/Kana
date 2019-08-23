@@ -26,7 +26,7 @@ router.post('/:id', (req,res) => {
     let updates = req.body
     //find the specific order to update and update it with the desired values
     Order
-        .findOneAndUpdate({uId: id}, updates,{new: true})
+        .findOneAndUpdate({uId: id}, updates)
         .exec((err,order) => {
             if (err) {
                 res.status(400).send('Unable to update order, double check order Id')

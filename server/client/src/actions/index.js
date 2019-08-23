@@ -98,7 +98,7 @@ export const claimDrink = (drinkId) => dispatch => {
 }
 
 export const submitDrink = (drinkId) => dispatch => {
-    axios.post(`${ROOT_URL}/order/${drinkId}`,{isSubmitted: true} )
+    axios.post(`${ROOT_URL}/order/${drinkId}`,{isCompleted: true} )
     .then(response => {
         dispatch({type: CLAIM_DRINK, payload: response.data})
     })

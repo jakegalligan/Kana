@@ -10,6 +10,7 @@ const socket = io.connect('http://localhost:8000');
 
 const OrderBacklog = (props) => {
     console.log(props);
+
     const[liveOrders,setLiveOrders] = useState([])
     // listen for emissions from the server
         socket.on('new order',(data) => {
@@ -21,7 +22,9 @@ const OrderBacklog = (props) => {
 
     // on initial page load get orers
     useEffect(() => {
-        props.fetchOrders()
+        //this counts every second
+        // setInterval(()=>{props.fetchOrders()},1000);
+        
     },[])
     const renderOrders = () => {
         return liveOrders.map(individualOrder => {
