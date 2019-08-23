@@ -36,16 +36,15 @@ router.post('/:id', (req,res) => {
         })
 })
 
-// route which gets individual order by id
-router.get('/:id', (req,res) => {
-    let id = req.params.id;
+// route which gets orders
+router.get('/', (req,res) => {
 
     //find the order the client wants and send it back
     Order
-        .findById(id)
+        .find()
         .exec((err, order) => {
             if (err) {
-                res.status(400).send('Unable to find order, double check order Id');
+                res.status(400).send('Unable to get drinks');
             } else {
                 res.send(order);
             }

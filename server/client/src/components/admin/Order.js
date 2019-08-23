@@ -24,6 +24,7 @@ const Order = (props) => {
     const claimDrink = () => {
       console.log('claimed');
       setClaimed(true);
+      //props.claimDrink(order.uid)
     }
 
     const submitDrink = () => {

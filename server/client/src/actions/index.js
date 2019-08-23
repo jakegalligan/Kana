@@ -1,6 +1,7 @@
 import axios from 'axios'
 import {FETCH_DRINKS, ADD_TO_CART, SUBMIT_ORDER,
-     ADD_NAME, ADD_NUMBER, INCREMENT_DRINK, DECREMENT_DRINK, SEND_NOTIFICATION} from '../actions/types'
+     ADD_NAME, ADD_NUMBER, INCREMENT_DRINK, 
+     DECREMENT_DRINK, SEND_NOTIFICATION, FETCH_ORDERS} from '../actions/types'
 
 const ROOT_URL = 'http://localhost:8000';
 
@@ -74,6 +75,16 @@ export const sendNotification = (number) => {
         type: SEND_NOTIFICATION
     }
 
+}
+
+export const fetchOrders = () => dispatch => {
+    axios.get(`${ROOT_URL}/order`)
+    .then(response => {
+        dispatch({type: FETCH_ORDERS, payload: response.data})
+    })
+    .catch (error => {
+        console.log(error);
+    })
 }
  
  
