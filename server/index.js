@@ -3,11 +3,10 @@ const http = require('http');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const keys = require('./config/keys');
+const keys = require('./config/key');
 
 // const socket = require('socket.io')
 
-// var db = mongoose.connect('mongodb://localhost:27017/bardb', { useNewUrlParser: true });
 mongoose.connect(keys.MONGODB_URI,  { useNewUrlParser: true });
 
 //instantiate an express server with middleware
