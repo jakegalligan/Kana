@@ -6,7 +6,7 @@ import {FETCH_DRINKS, ADD_TO_CART, SUBMIT_ORDER,
 const ROOT_URL = 'http://localhost:8000';
 
 export const fetchDrinks = (category = '') => dispatch => {
-    axios.get(`${ROOT_URL}/menu?category=${category}`)
+    axios.get(`/menu?category=${category}`)
     .then(response => {
         dispatch({type: FETCH_DRINKS, payload: response.data})
     })
@@ -24,7 +24,7 @@ export const addToCart = (drink) => {
 
 export const submitOrder = (order) => dispatch => {
     console.log('hit action submit order')
-    axios.post(`${ROOT_URL}/order`, order)
+    axios.post(`/order`, order)
     .then(response => {
         console.log('got response')
         dispatch({type: SUBMIT_ORDER, payload: response.data})
@@ -70,7 +70,7 @@ export const sendNotification = (number) => {
     let phoneNumberObj = {
         phoneNumber: number
     }
-    axios.post(`${ROOT_URL}/notify`, phoneNumberObj)
+    axios.post(`/notify`, phoneNumberObj)
     return {
         type: SEND_NOTIFICATION
     }
@@ -78,7 +78,7 @@ export const sendNotification = (number) => {
 }
 
 export const fetchOrders = () => dispatch => {
-    axios.get(`${ROOT_URL}/order`)
+    axios.get(`/order`)
     .then(response => {
         dispatch({type: FETCH_ORDERS, payload: response.data})
     })
@@ -89,7 +89,7 @@ export const fetchOrders = () => dispatch => {
 
 export const claimDrink = (drinkId) => dispatch => {
     let currentTime = new Date(); 
-    axios.post(`${ROOT_URL}/order/${drinkId}`,{isClaimed: true, timeOrderClaimed: currentTime} )
+    axios.post(`/order/${drinkId}`,{isClaimed: true, timeOrderClaimed: currentTime} )
     .then(response => {
         dispatch({type: CLAIM_DRINK, payload: response.data})
     })
@@ -100,7 +100,7 @@ export const claimDrink = (drinkId) => dispatch => {
 
 export const submitDrink = (drinkId) => dispatch => {
     let currentTime = new Date(); 
-    axios.post(`${ROOT_URL}/order/${drinkId}`,{isCompleted: true, timeOrderCompleted: currentTime} )
+    axios.post(`/order/${drinkId}`,{isCompleted: true, timeOrderCompleted: currentTime} )
     .then(response => {
         dispatch({type: CLAIM_DRINK, payload: response.data})
     })
