@@ -23,17 +23,16 @@ const Drink = (props) => {
             <Container className={classes.container}>
                 <Row>
                     <Col xs={2}>
-                        <Typography>
+                        <Typography className={classes.descriptor}>
                         {props.descriptor}
                         </Typography>
                     </Col>
-                    <Col xs={{span: 5, offset: 2}}>
-                        <Row><Typography>{props.name}</Typography></Row>
-                        <Row><Typography>ABV: {props.ABV}%</Typography></Row>
-                        <Row><Typography>${props.price}</Typography></Row>
+                    <Col xs={{span: 5, offset: 1}}>
+                        <Row><Typography className={classes.name}>{props.name}</Typography></Row>
+                        <Row><Typography className={classes.abv}>ABV: {props.ABV}%</Typography></Row>
+                        <Row><Typography className={classes.price}>${props.price}</Typography></Row>
                     </Col>
-                    <Col className={classes.centeredcol} xs={{span:2, offset: 1}}>
-                        {/* <Row><Typography>{props.price}</Typography></Row> */}
+                    <Col className={classes.centeredcol} xs={{span:2, offset: 2}}>
                         <Row>
                             <Fab onClick={() => addDrink(props)} color="primary" aria-label="add" className={classes.fab}>
                                 <AddIcon />
@@ -62,9 +61,24 @@ const useStyles = makeStyles(theme => ({
       marginRight: theme.spacing(1),
     },
     container: {
-        textAlign: 'left'
+        textAlign: 'left',
+        marginTop: '10px'
     },
     centeredcol: {
         textAlign: 'center'
+    },
+    name: {
+        color: 'white'
+    },
+    abv: {
+        color: 'white',
+        fontSize: '12px'
+    },
+    price: {
+        color: 'white',
+        fontSize: '12px'
+    },
+    descriptor: {
+        color: 'white'
     }
   }));

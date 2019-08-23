@@ -109,6 +109,10 @@ const useStyles = makeStyles({
     nav: {
         // marginLeft: '5px',
         // marginTop: 'px'
+    },
+    descriptor: {
+        color: 'white',
+        marginTop: '3px'
     }
   });
 
