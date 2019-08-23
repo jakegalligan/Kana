@@ -103,7 +103,7 @@ const useStyles = makeStyles({
       boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
       color: 'white',
       height: 48,
-      width: '11vh'
+      width: '10px'
     },
     nav: {
         // marginLeft: '5px',
@@ -115,7 +115,6 @@ const useStyles = makeStyles({
    const StyledContainer = styled(Container)`
    text-align: center;
    padding-right: 30px;
-
  `;
 
   

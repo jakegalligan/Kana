@@ -1,7 +1,11 @@
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
-import Drink from './Drink'
+import Drink from './Drink';
+import {Container, Row, Col, Doo} from 'react-bootstrap';
+import styled from 'styled-components';
+
+
 const DrinkMenuItems = (props) => {
     //go through array of drinks and render them as drink components
     const renderDrinks = () => {
@@ -18,9 +22,9 @@ const DrinkMenuItems = (props) => {
         })
     }
     return (
-        <div>
+        <StyledContainer>
          {renderDrinks()}  
-        </div>
+        </StyledContainer>
     )
 }
 
@@ -32,3 +36,10 @@ const mapStateToProps =(state) => {
 }
 
 export default connect(mapStateToProps)(DrinkMenuItems);
+
+ //create styling for container
+ const StyledContainer = styled(Container)`
+ text-align: center;
+ padding-right: 30px;
+
+`;
