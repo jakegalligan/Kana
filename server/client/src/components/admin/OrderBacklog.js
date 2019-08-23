@@ -3,7 +3,9 @@ import io from 'socket.io-client';
 import Order from './Order';
 import {Container, Row, Col} from 'react-bootstrap';
 import { connect } from 'react-redux';
-import {fetchOrders} from '../../actions'
+import {fetchOrders} from '../../actions';
+import HeaderBar from '../shared/HeaderBar'
+
 
 
 const OrderBacklog = (props) => {
@@ -26,6 +28,8 @@ const OrderBacklog = (props) => {
     }
         
     return (
+        <div>
+        <HeaderBar />
         <Container>
             <Row>
                 <Col>
@@ -38,6 +42,7 @@ const OrderBacklog = (props) => {
                 </Col>
             </Row>
         </Container>
+        </div>
     )
   };
 

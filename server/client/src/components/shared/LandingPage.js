@@ -6,6 +6,11 @@ import { makeStyles } from '@material-ui/styles';
 import Button from '@material-ui/core/Button';
 import HeaderBar from './HeaderBar';
 import uuidv1 from 'uuid'
+import Typography from '@material-ui/core/Typography';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUserLock } from '@fortawesome/free-solid-svg-icons';
+import {Container, Row, Col} from 'react-bootstrap';
+import AboutInfo from './AboutInfo';
 
 
 const LandingPage = () => {
@@ -14,19 +19,27 @@ const LandingPage = () => {
 
 
     return (
-            <Fragment>
-            <HeaderBar/>
-            <StyledJumbotron>
-                <h1> Kana </h1>
-                <p> Blah blah blah b</p>
-                <Link to={`/customer/menu/`}>
-                    <Button className={classes.button}>
-                        Order Now
-                    </Button>
-                </Link>
-            </StyledJumbotron>
-            <p>About Kana</p>
-            </Fragment>
+        <Fragment>
+          <HeaderBar/>
+          <StyledJumbotron>
+              <Typography className={classes.header}>
+                Kana
+              </Typography>
+              <Typography className={classes.body}>
+                Mobile Drink Ordering
+              </Typography>
+              <br />
+              <Link to={`/customer/menu/`}>
+                  <Button className={classes.button}>
+                      Order Now
+                  </Button>
+                  <br />
+                  <br />
+              </Link>
+              <Link to = '/admin/login'> Admin</Link> 
+          </StyledJumbotron>
+          <AboutInfo />
+        </Fragment>
     )
   };
 
@@ -40,8 +53,7 @@ const LandingPage = () => {
 
     //create styline for button
 const useStyles = makeStyles({
-    button: {
-        
+    button: {  
       background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
       border: 0,
       borderRadius: 3,
@@ -50,6 +62,15 @@ const useStyles = makeStyles({
       height: 48,
       padding: '0 30px',
     },
+    header: {
+      color: 'white',
+      fontFamily: '\'Raleway\', sans-serif',
+      fontSize: '15vh'
+    },
+    body: {
+      color: 'white',
+      fontFamily: '\'Roboto\', sans-serif'
+    }
   });
 
   export default LandingPage;
