@@ -7,3 +7,4 @@ export const INCREMENT_DRINK = 'increment_drink';
 export const DECREMENT_DRINK = 'decrement_drink';
 export const SEND_NOTIFICATION = 'send-notification';
 export const FETCH_ORDERS = 'fetch_orders';
+export const CLAIM_DRINK = 'claim_drink';
