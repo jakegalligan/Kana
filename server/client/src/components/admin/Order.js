@@ -18,7 +18,7 @@ const Order = (props) => {
     let urgent;
     if (timeSinceOrdered.includes('hour')) {
       urgent = true;
-    } else if (timeSinceOrdered.includes('minute') && timeSinceOrdered[1]) {
+    } else if (timeSinceOrdered.includes('minute') && timeSinceOrdered[1] !==' ') {
       urgent=true
     }
     console.log(urgent);
@@ -65,7 +65,7 @@ const Order = (props) => {
       })
     }
     return (
-      <Card className={order.isClaimed ? classes.cardClaimed : classes.card}>
+      <Card className={order.isClaimed ? classes.cardClaimed : urgent? classes.cardUrgent : classes.card}>
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
           {moment(order.timeOrderSubmitted).fromNow()}
@@ -99,6 +99,10 @@ const useStyles = makeStyles({
   cardClaimed: {
     minWidth: 275,
     backgroundColor: 'yellow'
+  },
+  cardUrgent: {
+    minWidth: 275,
+    backgroundColor: 'red'
   },
   bullet: {
     display: 'inline-block',

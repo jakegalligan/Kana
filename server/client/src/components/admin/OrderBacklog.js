@@ -9,7 +9,7 @@ import {fetchOrders} from '../../actions'
 
 
 const OrderBacklog = (props) => {
-    console.log(props);
+    // console.log(props);
     
 
     // const[liveOrders,setLiveOrders] = useState([])
