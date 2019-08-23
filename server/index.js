@@ -5,8 +5,8 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 // const socket = require('socket.io')
 
-var db = mongoose.connect('mongodb://localhost:27017/bardb', { useNewUrlParser: true });
-
+// var db = mongoose.connect('mongodb://localhost:27017/bardb', { useNewUrlParser: true });
+mongoose.connect(keys.MONGODB_URI,  { useNewUrlParser: true });
 
 //instantiate an express server with middleware
 const app = express();
