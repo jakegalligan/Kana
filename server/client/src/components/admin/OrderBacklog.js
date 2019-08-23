@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import io from 'socket.io-client';
 import Order from './Order';
 import {Container, Row, Col} from 'react-bootstrap';
 import { connect } from 'react-redux';
