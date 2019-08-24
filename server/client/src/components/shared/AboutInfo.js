@@ -12,10 +12,8 @@ const AboutInfo = () => {
                     <Col>
                         How it wokrs
                     </Col>
-                </Row>
-                <Row>
                     <Col>
-                        decription info
+                        About the creator
                     </Col>
                 </Row>
             </StyledContainer>

@@ -6,7 +6,11 @@ import AppBar from '@material-ui/core/AppBar';import Toolbar from '@material-ui/
 import styled from "styled-components";
 import ModalDialog from 'react-bootstrap/ModalDialog';import ModalBody from 'react-bootstrap/ModalBody'
 import {submitOrder, setName, setNumber} from '../../actions';
-import uuidv1 from 'uuid'
+import uuidv1 from 'uuid';
+import Typography from '@material-ui/core/Typography';
+import Slide from '@material-ui/core/Slide';
+import Zoom from '@material-ui/core/Zoom';
+
 
 
 const OrderSubmitBar = (props) => {
@@ -63,19 +67,23 @@ const OrderSubmitBar = (props) => {
 
     return (
         <div className={classes.appBar}>
-           {showModal ?  <div>
+           {showModal ?  <Zoom in={true}><div>
            <StyledModalDialog>
                 <StyledModalBody> 
+                <Typography className={classes.label}>
+                  Before we can finalize your order we need some info
+                </Typography>
                 <form className={classes.container} noValidate autoComplete="off">
+                  <Typography className={classes.label}></Typography>
                     <TextField
                         onChange={handleNameInputChange}
                         id="outlined-name"
-                        label="Name"
+                        label="FullName"
                         className={classes.textField}
                         margin="normal"
                         variant="outlined"
-                        
                     />
+                    <Typography className={classes.label}></Typography>
                     <TextField
                         onChange={handlePhoneNumberChange}
                         id="outlined-name"
@@ -86,15 +94,18 @@ const OrderSubmitBar = (props) => {
                     />
                 </form>
                 <div>
-                    <Button onClick={() =>closeModal()} className={classes.button}>f</Button>
-                    <Button onClick={() => submitOrder()} className={classes.button}>ff</Button>
+                  <br />
+                    <Button onClick={() =>closeModal()} className={classes.buttonModalClose}>Back To Menu</Button>
+                    <Button onClick={() => submitOrder()} className={classes.buttonModalSubmit}>submitOrder</Button>
+                    <br />
+                    <br />
                 </div>
                 </StyledModalBody>
             </StyledModalDialog>
-        </div>: ''}
-        <AppBar position="static" color="default">
+        </div></Zoom>: ''}
+        <AppBar position="static" className={classes.appBar}>
           <Toolbar className={classes.toolBar} >
-            <Button onClick={() => checkOut()} className = {classes.buttonCheckout}>Checkout</Button>
+           {showModal? <div></div>:<Button onClick={() => checkOut()} className = {classes.buttonCheckout}>Checkout</Button>}
           </Toolbar>
         </AppBar>
         {redirect? renderRedirect() : ''}
@@ -125,10 +136,22 @@ const useStyles = makeStyles(theme =>({
       position: 'sticky',
       top: 'auto',
       bottom: 0,
-      zindex: 1
+      zindex: 1,
+      // textAlign: 'center'
     },
     toolBar: {
       zindex: 1
+    },
+    buttonModalSubmit: {
+      color:'white',
+      backgroundColor: 'green',
+      marginRight: '5px',
+      width: '30vw'
+    },
+    buttonModalClose: {
+      color: 'white',
+      backgroundColor: 'yellow',
+      marginRight: '5px'
     },
     buttonCheckout: {
       background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
@@ -139,8 +162,6 @@ const useStyles = makeStyles(theme =>({
       height: 48,
       padding: '0 30px',
       zindex: 1,
-      position: 'absolute',
-      zIndex: 1,
       top: -30,
       left: 0,
       right: 0,
@@ -163,10 +184,15 @@ const useStyles = makeStyles(theme =>({
 }));
 
 const StyledModalBody = styled(ModalBody)`
-    height: 80vh;
+    height: 75vh;
     zindex: 10;
+    border-style: solid;
+    border-color: red;
+    width: 100%;
 `
 const StyledModalDialog = styled(ModalDialog)`
-    zindex: 10
+    zindex: 10;
     height: 80vh;
+    width: 96.5vw;
+    // text-align: center
 `

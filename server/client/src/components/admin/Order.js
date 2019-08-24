@@ -10,6 +10,8 @@ import Typography from '@material-ui/core/Typography';
 import { connect } from 'react-redux';
 import moment from 'moment';
 import {sendNotification, claimDrink, submitDrink} from '../../actions'
+import { Grow } from '@material-ui/core';
+
 
 
 const Order = (props) => {
@@ -40,7 +42,7 @@ const Order = (props) => {
       console.log('submit');
       // send drink to backend to have its isSubmitted property changed to true
       props.submitDrink(order.uId);
-      // props.sendNotification(order.phoneNumber)
+      props.sendNotification(order.phoneNumber)
     
 
     }
@@ -60,6 +62,7 @@ const Order = (props) => {
     return (
       // if the drink isClaimed render its background as yellow and if it is urgent render its backgorund as red
       //otherwise leave the background color as white
+      <Grow in={true} timeout={800}>
       <Card className={order.isClaimed ? classes.cardClaimed : urgent? classes.cardUrgent : classes.card}>
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
@@ -74,6 +77,7 @@ const Order = (props) => {
         <Button onClick={handleSubmitDrink} size="small">Submit</Button>
       </CardActions>
     </Card> 
+    </Grow>
   ) 
   };
 
@@ -90,22 +94,25 @@ const Order = (props) => {
 const useStyles = makeStyles({
   card: {
     minWidth: 275,
+    width: '60%',
+    margin: '8px',
   },
   cardClaimed: {
     minWidth: 275,
-    backgroundColor: 'yellow'
+    width: '60%',
+    margin: '8px',
+    backgroundColor: '#007d04'
   },
+
   cardUrgent: {
     minWidth: 275,
-    backgroundColor: 'red'
-  },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
+    width: '60%',
+    marginTop: '8px',
+    backgroundColor: '#990000'
   },
   title: {
     fontSize: 14,
+    fontStyle: 'italic',
   },
   pos: {
     marginBottom: 12,

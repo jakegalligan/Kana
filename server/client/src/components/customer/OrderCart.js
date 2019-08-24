@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import {Container, Row, Col} from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
@@ -11,14 +11,23 @@ import { connect } from 'react-redux';
 
 const OrderCart = (props) => {
     const classes = useStyles();
+    console.log(props);
+    // const[rerender, setRerender] = useState(false);
+    // useEffect(() => {
+    //     console.log('rerend')
+    // //     //fetch newly added orders every second
+    //     setInterval(()=>{setRerender(true)},1000);
+        
     //when this function runs the quantity of this drink in the cart is decreased by 1
     const decrementDrinkQuantity = (e) => {
+        // props.setRerender(true)
         console.log(e.target.value)
         props.decrementDrink(e.target.value);
     }
     //when this function runs the quantity of this drink in the cart is increment by 1
     const incrementDrinkQuantity = (e) => {
         console.log(e.target.value)
+        // props.setRerender(true)
         props.incrementDrink(e.target.value);
     }
     return (
