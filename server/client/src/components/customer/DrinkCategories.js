@@ -21,17 +21,10 @@ const DrinkCategories = (props) => {
         props.fetchDrinks();
     }, []) 
 
-    //when a drink filter is clicked fetch the selected drinks
-    const getDrinks = (e) => {
-        console.log(e.target);
-        console.log(e.target.value);
-        props.fetchDrinks(e.target.value)
-    }
-
+    //Functions to get specific drinks from the server. Initially it was one dynamic function, but the svg icons were blocking the value of the elements
     const getWine =() => {
         props.fetchDrinks('Wine');
     }
-
     const getBeer =() => {
         props.fetchDrinks('Beer');
     }
@@ -117,7 +110,7 @@ const useStyles = makeStyles({
       borderRadius: 9,
       boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
       color: 'white',
-    //   height: 48,
+      height: 48,
       width: '10px',
     },
     nav: {
@@ -137,7 +130,9 @@ const useStyles = makeStyles({
    const StyledContainer = styled(Container)`
    text-align: center;
    padding-right: 30px;
-   background-color: red;
+   position: sticky;
+//    background: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)
+
  `;
 
   

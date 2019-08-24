@@ -55,9 +55,9 @@ const LoginPage = () => {
 
     return (
         <Container className={classes.container}>
-            {/* <HeaderBar className={classes.header} /> */}
+            <HeaderBar  />
             <br />
-            <br />
+            <Typography className={classes.loginHeader}> Login</Typography>
             <br />
             <Container className={classes.form}>
             <Row>
@@ -68,12 +68,12 @@ const LoginPage = () => {
             <Row>
                 <Col md={{span:6, offset: 3}}>
                 <Input className={classes.input} type='password'  placeholder='Password' onChange={handlePassordChange}></Input>
+                {errortext? renderErrorText(): ''}
                 </Col>
             </Row>
             <Row>
-                {errortext? renderErrorText(): ''}
             </Row>
-                 <Button className={classes.button} onClick={handleLogIn}>Login</Button>
+                 <Button className={classes.button} onClick={handleLogIn}>Sign in</Button>
             {redirect? renderRedirect(): ''}
             </Container>
         </Container>
@@ -90,23 +90,32 @@ const LoginPage = () => {
           margin: '40px'
       },
       form: {
-          backgroundColor: 'white',
+        //   background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
           height: '50vh',
-        //   width: ' 6vw',
-          borderStyle: 'solid',
-          borderColor: 'purple',
+        //   width: '50vw',
+          width: '50%',
+        //   borderWidth: '20px',
+        //   borderStyle: 'solid',
+        //   borderColor: 'purple',
       },
       container: {
           height: '100vh',
-          width: '65vw',
+          width: '100vw',
           textAlign: 'center',
           alignItems: 'center',
-          backgroundColor: 'red',
-          backgroundImage: 'url(https://media.istockphoto.com/photos/empty-wooden-bar-counter-picture-id624494724?k=6&m=624494724&s=612x612&w=0&h=_rBlLq5e6ZklWpz2gCDI06IUmms2I4LuntrbxFo5w3A=)'
-      },
+          borderStyle: 'solid',
+          borderColor: 'purple',  
+          borderWidth: '15px',        
+          background: 'url(http://redpithemes.com/Documentation/assets/img/page_bg/page_bg_blur02.jpg)',
+    },
       button: {
-          backgroundColor: 'purple',
-          margin: '10px',
-          width: '100px'
+        background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+        margin: '10px',
+        width: '100px'
+      },
+      loginHeader: {
+        color: 'white',
+        fontFamily: '\'Roboto\', sans-serif',
+        fontSize: '70px',
       }
   });

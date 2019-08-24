@@ -37,7 +37,11 @@ const LandingPage = () => {
                   <br />
                   <br />
               </Link>
-              <Link to = '/admin/login'> Admin</Link> 
+              <Link to = '/admin/login'>
+                 <Button className={classes.button}>
+                      Admin
+                  </Button>
+                  </Link> 
           </StyledJumbotron>
           <AboutInfo />
         </Fragment>
@@ -48,7 +52,7 @@ const LandingPage = () => {
   const StyledJumbotron = styled(Jumbotron)`
     height: 80vh;
     background-color: gray;
-    background-image: url('https://media.istockphoto.com/photos/empty-wooden-bar-counter-picture-id624494724?k=6&m=624494724&s=612x612&w=0&h=_rBlLq5e6ZklWpz2gCDI06IUmms2I4LuntrbxFo5w3A=');
+    // background-image: url('https://media.istockphoto.com/photos/empty-wooden-bar-counter-picture-id624494724?k=6&m=624494724&s=612x612&w=0&h=_rBlLq5e6ZklWpz2gCDI06IUmms2I4LuntrbxFo5w3A=');
     text-align: center;
   `;
 
