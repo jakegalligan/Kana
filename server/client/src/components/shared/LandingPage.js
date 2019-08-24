@@ -13,6 +13,7 @@ import {Container, Row, Col} from 'react-bootstrap';
 import AboutInfo from './AboutInfo';
 
 
+
 const LandingPage = () => {
     //import styling for material ui components
     const classes = useStyles();
