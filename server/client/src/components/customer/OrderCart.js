@@ -30,14 +30,14 @@ const OrderCart = (props) => {
     //when this function runs the quantity of this drink in the cart is decreased by 1
     const decrementDrinkQuantity = (e) => {
         // props.setRerender(true)
-        console.log(e.target.value)
-        props.decrementDrink(e.target.value);
+        console.log(props.name)
+        props.decrementDrink(props.name);
     }
     //when this function runs the quantity of this drink in the cart is increment by 1
     const incrementDrinkQuantity = (e) => {
-        console.log(e.target.value)
+        console.log(props.name)
         // props.setRerender(true)
-        props.incrementDrink(e.target.value);
+        props.incrementDrink(props.name);
     }
     return (
         <Container>
