@@ -15,7 +15,7 @@ const OrderBacklog = (props) => {
     // on initial page load get orers
     useEffect(() => {
         //fetch newly added orders every second
-        setInterval(()=>{props.fetchOrders()},10000);
+        setInterval(()=>{props.fetchOrders()},6000);
         
     },[])
     //go throuhg all unCompleted orders in database and render them
@@ -39,7 +39,7 @@ const OrderBacklog = (props) => {
                 <Col md={6} className={classes.statscontainer}>
                     stats
                 </Col>
-                <Col md={6} className={classes.orderscontainer}>
+                <Col md={{span: 6}}className={classes.orderscontainer}>
                     <Row>
                         {props.orders.length>=1?renderUncompletedOrders(): ''}
                     </Row>
@@ -63,11 +63,12 @@ const OrderBacklog = (props) => {
   const useStyles = makeStyles({
     container: {
         backgroundColor: 'white',
-        height: '100vh',
+        height: '200vh',
+        paddingRight: '5%'
     },
     orderscontainer: {
         backgroundColor: 'white',
-        height: '100vh'
+        // height: '100vh'
     },
     statscontainer: {
         height:'100vh'

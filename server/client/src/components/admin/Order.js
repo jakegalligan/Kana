@@ -15,8 +15,15 @@ import { Grow } from '@material-ui/core';
 
 
 const Order = (props) => {
+  let order = props.order;
+
+  let now = new Date();
+  console.log(now)
+  let then = new Date(order.timeOrderSubmitted);
+  console.log(then);
+  let diff = moment.utc(moment(now,"DD/MM/YYYY HH:mm:ss").diff(moment(then,"DD/MM/YYYY HH:mm:ss"))).format("HH:mm:ss")
+  console.log(diff);
     const classes = useStyles()
-    let order = props.order;
     //store the relative time since the order was submitted and the current time
     let timeSinceOrdered = moment(order.timeOrderSubmitted).fromNow();
     //instantiate a variable to store urgency or order
@@ -67,6 +74,9 @@ const Order = (props) => {
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
           {timeSinceOrdered}
+        </Typography>
+        <Typography variant="body3" component="p">
+          {order.customerName}
         </Typography>
         <Typography variant="body2" component="p">
           {renderCart()}
