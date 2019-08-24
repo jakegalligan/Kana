@@ -75,7 +75,7 @@ const OrderSubmitBar = (props) => {
                 </Typography>
                 <form className={classes.container} noValidate autoComplete="off">
                   <Typography className={classes.label}></Typography>
-                    <TextField
+                    <TextField className={classes.input}
                         onChange={handleNameInputChange}
                         id="outlined-name"
                         label="FullName"
@@ -84,7 +84,7 @@ const OrderSubmitBar = (props) => {
                         variant="outlined"
                     />
                     <Typography className={classes.label}></Typography>
-                    <TextField
+                    <TextField className={classes.input}
                         onChange={handlePhoneNumberChange}
                         id="outlined-name"
                         label="Number"
@@ -130,7 +130,7 @@ const mapDispatchToProps = {
 
 export default connect(mapStateToProps, mapDispatchToProps)(OrderSubmitBar);
 
-const useStyles = makeStyles(theme =>({
+const useStyles = makeStyles({
     appBar: {
       flexGrow: 1,
       position: 'sticky',
@@ -172,26 +172,31 @@ const useStyles = makeStyles(theme =>({
       flexWrap: 'wrap',
     },
     textField: {
-      marginLeft: theme.spacing(1),
-      marginRight: theme.spacing(1),
+      color: 'white',
+      // marginLeft: theme.spacing(1),
+      // marginRight: theme.spacing(1),
     },
     dense: {
-      marginTop: theme.spacing(2),
     },
     menu: {
       width: 200,
     }
-}));
+});
 
 const StyledModalBody = styled(ModalBody)`
     height: 75vh;
     zindex: 10;
     border-style: solid;
-    border-color: red;
+    border-color: purple;
+    border-width: 5px;
+    background-color: black'
     width: 100%;
 `
 const StyledModalDialog = styled(ModalDialog)`
     zindex: 10;
+    border-style: solid;
+    border-color: purple;
+    border-width: 20px;
     height: 80vh;
     width: 96.5vw;
     // text-align: center

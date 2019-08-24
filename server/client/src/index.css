@@ -5,7 +5,28 @@
 }
 
 #root {
-    background-color: black
+    background-color: #282828;
+}
+
+.modal-content {
+    background-color:#282828 !important;
+    background:linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%);
+
+    border-color: gray !important;
+    border-width: 10px !important;
+}
+.MuiInputBase-input {
+    color: white !important;
+    /* background-color: red !important; */
+    border-color: red;
+}
+
+.MuiInputLabel-outlined {
+    color: white !important;
+}
+
+.MuiOutlinedInput-input {
+    color: white !important;
 }
 
 
