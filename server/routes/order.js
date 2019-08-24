@@ -1,8 +1,6 @@
 const router = require('express').Router();
 const Order = require('../models/order-schema');
-const accountSid = 'AC5e903f020fd3f2e86fbcd2c13ef52e64';
-const authToken = '75b1bf2c8284e1a187275ffe69128724';
-const client = require('twilio')(accountSid, authToken);
+
 
 
 

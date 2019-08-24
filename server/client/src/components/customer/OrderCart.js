@@ -56,10 +56,10 @@ const OrderCart = (props) => {
                         </Typography>
                     </Row>
                 </Col>
-                <Col xs={{span:3, offset: 6}} className={classes.incdec}>
+                <Col xs={{span:3, offset: 6}} className={classes.rightsideContainer}>
                     <Row>
                         {/* <Fab value={props.name} onClick={(e) =>incrementDrinkQuantity(e)} color="primary" aria-label="add" className={classes.fab}> */}
-                            <FontAwesomeIcon className={classes.down} icon={faCaretUp} onClick={(e) =>incrementDrinkQuantity(e)} />
+                            <FontAwesomeIcon className={classes.caret} icon={faCaretUp} onClick={(e) =>incrementDrinkQuantity(e)} />
                         {/* </Fab> */}
                     </Row>
                     <Row>
@@ -69,7 +69,7 @@ const OrderCart = (props) => {
                     </Row>
                     <Row>
                         {/* <Fab value ={props.name} onClick={(e) =>decrementDrinkQuantity(e)} color="primary" aria-label="add" className={classes.fab}> */}
-                        <FontAwesomeIcon className={classes.down} icon={faCaretDown}  onClick={(e) =>decrementDrinkQuantity(e)} />
+                        <FontAwesomeIcon className={classes.caret} icon={faCaretDown}  onClick={(e) =>decrementDrinkQuantity(e)} />
                         {/* </Fab> */}
                     </Row>
                 </Col>
@@ -95,11 +95,12 @@ const useStyles = makeStyles(theme => ({
     extendedIcon: {
       marginRight: theme.spacing(1),
     },
-    down: {
+    caret: {
         fontSize: '40px',
-        marginLeft: '50%'
+        marginLeft: '50%',
+        color: 'white'
     },
-    incdec: {
+    rightsideContainer: {
         textAlign: 'center'
     },
     icon: {
@@ -107,7 +108,7 @@ const useStyles = makeStyles(theme => ({
     },
     drinkName: {
         color: 'white',
-        marginTop: '50%'
+        marginTop: '25%'
     },
     drinkPrice:{
         color: 'white'

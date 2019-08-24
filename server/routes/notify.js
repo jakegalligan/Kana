@@ -1,7 +1,8 @@
 const router = require('express').Router();
-const accountSid = 'AC5e903f020fd3f2e86fbcd2c13ef52e64';
-const authToken = '75b1bf2c8284e1a187275ffe69128724';
-const client = require('twilio')(accountSid, authToken);
+const keys = require('../config/key');
+
+
+const client = require('twilio')(keys.ACCOUNT_SID, keys.AUTH_TOKEN);
 
 
   //send notification to the user when their order is completed
@@ -23,7 +24,7 @@ const client = require('twilio')(accountSid, authToken);
     //send text message to the user
     client.messages
     .create({
-       body: `${customerName}Your order is ready! Remember to bring you driver's license and payment method when picking up your drink` ,
+       body: `${customerName} Your order is ready! Remember to bring you driver's license and payment method when picking up your drink` ,
        from: '+19842144330',
        to: `+${phoneNumber}`
      })
