@@ -93,10 +93,11 @@ const OrderSubmitBar = (props) => {
                         variant="outlined"
                     />
                 </form>
+                <Typography className={classes.labelNotes}>*This information allows us to identify your order as well as notify ou when it's ready!</Typography>
                 <div>
                   <br />
-                    <Button onClick={() =>closeModal()} className={classes.buttonModalClose}>Back To Menu</Button>
-                    <Button onClick={() => submitOrder()} className={classes.buttonModalSubmit}>submitOrder</Button>
+                    <Button onClick={() =>closeModal()} className={classes.buttonModalClose}>Back To<br /> Menu</Button>
+                    <Button onClick={() => submitOrder()} className={classes.buttonModalSubmit}>Review <br /> Order</Button>
                     <br />
                     <br />
                 </div>
@@ -148,7 +149,7 @@ const useStyles = makeStyles({
       marginRight: '5px',
       borderStyle: 'solid',
       borderWidth: '1px',
-      width: '30vw'
+      // width: '30vw'
     },
     buttonModalClose: {
       color: 'white',
@@ -193,6 +194,11 @@ const useStyles = makeStyles({
       color: 'white',
       fontSize: '15px',
       marginBottom: '15px'
+    },
+    labelNotes: {
+      fontSize: '10px',
+      color: 'white',
+      marginTop: '20px'
     }
 });
 
