@@ -5,7 +5,7 @@
 }
 .modal-dialog{
     top: 0;
-    position: fixed;
+    position: fixed !important;
 }
 
 #root {

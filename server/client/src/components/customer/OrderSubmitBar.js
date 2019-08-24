@@ -209,7 +209,7 @@ const useStyles = makeStyles({
 
 const StyledModalBody = styled(ModalBody)`
     height: 75vh;
-    zindex: 10;
+    z-index: 10;
     border-style: solid;
     border-color: #282828;
     border-width: 15px;
@@ -217,10 +217,10 @@ const StyledModalBody = styled(ModalBody)`
     width: 100%;
 `
 const StyledModalDialog = styled(ModalDialog)`
-    zindex: 10;
+    z-index: 10;
     position: fixed;
     border-style: solid;
-    height: 80vh;
+    height: 90vh;
     width: 96.5vw;
     // text-align: center
 `

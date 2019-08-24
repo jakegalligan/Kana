@@ -6,10 +6,19 @@ import { makeStyles } from '@material-ui/core/styles';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove'
-import {incrementDrink, decrementDrink} from '../../actions'
+import {incrementDrink, decrementDrink,getCart} from '../../actions'
 import { connect } from 'react-redux';
+import { Typography } from '@material-ui/core';
+
 
 const OrderCart = (props) => {
+
+    // useEffect(() => {
+    //         console.log('fetching all that in da cart')
+    //     //     //fetch newly added orders every second
+    //         setInterval(()=>{props.getCart()},1000);
+            
+    //     },[])
     const classes = useStyles();
     console.log(props);
     // const[rerender, setRerender] = useState(false);
@@ -35,13 +44,19 @@ const OrderCart = (props) => {
             <Row>
                 <Col>
                     <Row>
-                        {props.name}
+                        <Typography className={classes.drink}>
+                            {props.name}
+                        </Typography>
                     </Row>
                     <Row>
+                    <Typography className={classes.drink}>
                         {props.ABV}
+                    </Typography>
                     </Row>
                     <Row>
-                        {props.ounce}
+                    <Typography className={classes.drink}>
+                        Quantity {props.quantity}
+                    </Typography>
                     </Row>
                 </Col>
                 <Col xs={{span:3, offset: 6}}>
@@ -66,7 +81,8 @@ const OrderCart = (props) => {
 
 const mapDispatchToProps = {
     incrementDrink: incrementDrink,
-    decrementDrink: decrementDrink
+    decrementDrink: decrementDrink,
+    getCart: getCart
 }
 export default connect(null, mapDispatchToProps)(OrderCart)
 
@@ -81,5 +97,8 @@ const useStyles = makeStyles(theme => ({
     },
     icon: {
         zIndex: 1
+    },
+    drink: {
+        color: 'white'
     }
   }));

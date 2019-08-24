@@ -6,20 +6,20 @@ import AppBar from '@material-ui/core/AppBar';import Toolbar from '@material-ui/
 import styled from "styled-components";
 import {Container, Row, Col} from 'react-bootstrap';
 import { connect } from 'react-redux';
-import {submitOrder} from '../../actions';
+import {submitOrder, getCart} from '../../actions';
 import uuidv1 from 'uuid'
 import moment from 'moment'
 import Typography from '@material-ui/core/Typography';
 import { textAlign } from '@material-ui/system';
+import HeaderBar from '../shared/HeaderBar'
     
 const OrderReview = (props) => {
     console.log(props.cart);
-    const[rerender, setRerender] = useState(false);
     // useEffect(() => {
+    //     console.log('fetching all that')
     // //     //fetch newly added orders every second
-    //     setInterval(()=>{setRerender(true)},1000);
-        
-    // },[])
+        // setInterval(()=>{props.getCart(); console.log('bet')},1000);
+    
     const classes=useStyles();
     //initilaize state redirect which when true redirects user to completed order menu
     const [redirect, setRedirect] = useState(false);
@@ -77,8 +77,7 @@ const OrderReview = (props) => {
                 descriptor={drink.descriptor}
                 ounce={drink.ounce}
                 key={drink._id}
-                setRerender={setRerender}
-                >
+                quantity={drink.quantity}                >
                 </OrderCart>
             )
              }
@@ -88,6 +87,7 @@ const OrderReview = (props) => {
 
     return (
         <Container className={classes.container}>
+            <HeaderBar />
             <Link to = {`/customer/menu`}>Back to Menu</Link>
             {renderCart()}
             <Container >
@@ -134,7 +134,8 @@ const OrderReview = (props) => {
     }
 }
    const mapDispatchToProps = {
-       submitOrder: submitOrder
+       submitOrder: submitOrder,
+       getCart: getCart
    }
   export default connect(mapStateToProps,mapDispatchToProps)(OrderReview);
 
@@ -167,8 +168,8 @@ const OrderReview = (props) => {
       margin: '0 auto',
     },
     container: {
-      display: 'flex',
-      flexWrap: 'wrap',
+    //   display: 'flex',
+    //   flexWrap: 'wrap',
       height: '100vh'
     },
     textField: {
