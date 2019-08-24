@@ -3,6 +3,11 @@ import Typography from '@material-ui/core/Typography';
 import {Container, Row, Col} from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
+import LocalDrink from '@material-ui/icons/LocalDrink';
+import PhoneIphone from '@material-ui/icons/PhoneIphone';
+import IdIcon from '@material-ui/icons/PictureInPicture';
+import Paper from '@material-ui/core/Paper';
+
 
 
 const OrderCompleted = (props) => {
@@ -12,34 +17,33 @@ const OrderCompleted = (props) => {
            <Row>
                <Col>
                     <Typography className={classes.mainHeader}>
-                    Cheeres name
+                    Cheers {props.name}!!
+                    </Typography>
+                    <Typography className={classes.mainBody}>
+                    Your order has been submitted!
                     </Typography>
                </Col>
            </Row>
            <Row>
-               <Col xs={4}>
+               <Col xs={6}>
+                   <Paper className={classes.paper}>
                <Typography className={classes.bodyHeader}>
-                    Cheeres name
+                    <PhoneIphone className={classes.icon} />
                     </Typography>
                     <Typography className={classes.body}>
-                    Cheeres name
+                    When your order is ready you will be texted
                     </Typography>
+                    </Paper>
                </Col>
-               <Col xs={4}>
+               <Col xs={6}>
+                   <Paper className={classes.paper}>
                <Typography className={classes.bodyHeader}>
-                    Cheeres name
+                    <IdIcon className={classes.icon} />
                     </Typography>
                     <Typography className={classes.body}>
-                    Cheeres name
+                    Remember to bring your id for pickup
                     </Typography>
-               </Col>
-               <Col xs={4}>
-               <Typography className={classes.bodyHeader}>
-                    Cheeres name
-                    </Typography>
-                    <Typography className={classes.body}>
-                    Cheeres name
-                    </Typography>
+                    </Paper>
                </Col>
             </Row>
        </Container>
@@ -59,6 +63,28 @@ export default connect(null,mapStateToProps)(OrderCompleted);
 const useStyles = makeStyles({
   container: {
       textAlign: 'center',
+      backgroundColor: 'purple',
+      height: '100vh',
+  },
+  body: {
+      textAlign: 'center',
+      margin: '5px'
+  },
+  mainHeader: {
+      fontSize: '30px'
+  },
+  mainBody: {
+      fontSize: '20px'
+  },
+  icon: {
+      fontSize: '40px',
+      margin: '20px',
+  },
+  paper: {
+      height: '40vh',
+      backgroundColor: 'purple',
+      borderRadius: 40,
+
   }
   });
 
