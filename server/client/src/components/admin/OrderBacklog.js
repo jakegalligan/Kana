@@ -3,11 +3,14 @@ import Order from './Order';
 import {Container, Row, Col} from 'react-bootstrap';
 import { connect } from 'react-redux';
 import {fetchOrders} from '../../actions';
-import HeaderBar from '../shared/HeaderBar'
+import HeaderBar from '../shared/HeaderBar';
+import { makeStyles } from '@material-ui/core/styles';
+
 
 
 
 const OrderBacklog = (props) => {
+    const classes = useStyles();
     // on initial page load get orers
     useEffect(() => {
         //fetch newly added orders every second
@@ -29,7 +32,7 @@ const OrderBacklog = (props) => {
     return (
         <div>
         <HeaderBar />
-        <Container>
+        <Container className={classes.container}>
             <Row>
                 <Col>
                     stats
@@ -55,3 +58,9 @@ const OrderBacklog = (props) => {
    }
   export default connect(mapStateToProps,mapDispatchToProps)(OrderBacklog);
 
+  const useStyles = makeStyles({
+    container: {
+        backgroundColor: 'gray',
+        height: '100vh'
+    }
+});
