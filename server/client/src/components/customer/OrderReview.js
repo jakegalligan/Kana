@@ -66,6 +66,7 @@ const OrderReview = (props) => {
         return Math.round(100 * tax)/100;
     }
     const renderCart = () => {
+        console.log('rere')
          return props.cart.map((drink) => {
              if (drink.quantity >=1) {
             return (
