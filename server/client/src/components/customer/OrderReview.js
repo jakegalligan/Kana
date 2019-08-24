@@ -42,7 +42,7 @@ const OrderReview = (props) => {
         }
         console.log(order);
         props.submitOrder(order)
-        // setRedirect(true);
+        setRedirect(true);
         console.log('submitting');
         // socket.emit('order', order)
     }
