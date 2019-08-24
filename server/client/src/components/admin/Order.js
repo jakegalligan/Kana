@@ -16,13 +16,20 @@ import { Grow } from '@material-ui/core';
 
 const Order = (props) => {
   let order = props.order;
+  console.log(order)
 
   let now = new Date();
-  console.log(now)
-  let then = new Date(order.timeOrderSubmitted);
-  console.log(then);
-  let diff = moment.utc(moment(now,"DD/MM/YYYY HH:mm:ss").diff(moment(then,"DD/MM/YYYY HH:mm:ss"))).format("HH:mm:ss")
-  console.log(diff);
+  let timeSubmitted = new Date(order.timeOrderSubmitted);
+  let diff = moment.utc(moment(now,"DD/MM/YYYY HH:mm:ss").diff(moment(timeSubmitted,"DD/MM/YYYY H:mm:ss"))).format("HH:mm:ss")
+  let diffClaim
+
+  // console.log(diff);
+  if(order.timeOrderClaimed) {
+    let timeClaimed = new Date(order.timeOrderClaimed);
+    console.log(timeClaimed)
+     diffClaim = moment.utc(moment(now,"DD/MM/YYYY HH:mm:ss").diff(moment(timeClaimed,"DD/MM/YYYY H:mm:ss"))).format("HH:mm:ss")
+  }
+
     const classes = useStyles()
     //store the relative time since the order was submitted and the current time
     let timeSinceOrdered = moment(order.timeOrderSubmitted).fromNow();
@@ -73,8 +80,11 @@ const Order = (props) => {
       <Card className={order.isClaimed ? classes.cardClaimed : urgent? classes.cardUrgent : classes.card}>
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
-          {timeSinceOrdered}
+          Ordered: {diff}
         </Typography>
+        {order.isClaimed? <Typography className={classes.title} color="textSecondary" gutterBottom>
+          Claimed {diffClaim}
+        </Typography> : <div></div>}
         <Typography variant="body3" component="p">
           {order.customerName}
         </Typography>
