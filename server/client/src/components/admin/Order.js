@@ -60,6 +60,7 @@ const Order = (props) => {
     return (
       // if the drink isClaimed render its background as yellow and if it is urgent render its backgorund as red
       //otherwise leave the background color as white
+
       <Card className={order.isClaimed ? classes.cardClaimed : urgent? classes.cardUrgent : classes.card}>
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
@@ -90,22 +91,25 @@ const Order = (props) => {
 const useStyles = makeStyles({
   card: {
     minWidth: 275,
+    width: '60%',
+    margin: '8px',
   },
   cardClaimed: {
     minWidth: 275,
-    backgroundColor: 'yellow'
+    width: '60%',
+    margin: '8px',
+    backgroundColor: '#007d04'
   },
+
   cardUrgent: {
     minWidth: 275,
-    backgroundColor: 'red'
-  },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
+    width: '60%',
+    marginTop: '8px',
+    backgroundColor: '#990000'
   },
   title: {
     fontSize: 14,
+    fontStyle: 'italic',
   },
   pos: {
     marginBottom: 12,

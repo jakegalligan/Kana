@@ -8,6 +8,8 @@ import ModalDialog from 'react-bootstrap/ModalDialog';import ModalBody from 'rea
 import {submitOrder, setName, setNumber} from '../../actions';
 import uuidv1 from 'uuid';
 import Typography from '@material-ui/core/Typography';
+import Slide from '@material-ui/core/Slide';
+import Zoom from '@material-ui/core/Zoom';
 
 
 
@@ -65,7 +67,7 @@ const OrderSubmitBar = (props) => {
 
     return (
         <div className={classes.appBar}>
-           {showModal ?  <div>
+           {showModal ?  <Zoom in={true}><div>
            <StyledModalDialog>
                 <StyledModalBody> 
                 <Typography className={classes.label}>
@@ -100,7 +102,7 @@ const OrderSubmitBar = (props) => {
                 </div>
                 </StyledModalBody>
             </StyledModalDialog>
-        </div>: ''}
+        </div></Zoom>: ''}
         <AppBar position="static" className={classes.appBar}>
           <Toolbar className={classes.toolBar} >
            {showModal? <div></div>:<Button onClick={() => checkOut()} className = {classes.buttonCheckout}>Checkout</Button>}
