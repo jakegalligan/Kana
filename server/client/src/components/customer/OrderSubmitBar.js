@@ -70,20 +70,20 @@ const OrderSubmitBar = (props) => {
            {showModal ?  <Zoom in={true}><div>
            <StyledModalDialog>
                 <StyledModalBody> 
-                <Typography className={classes.label}>
+                <Typography className={classes.labelTitle}>
                   Before we can finalize your order we need some info
                 </Typography>
                 <form className={classes.container} noValidate autoComplete="off">
-                  <Typography className={classes.label}></Typography>
+                  <Typography className={classes.label}>Name (as it appears on license)</Typography>
                     <TextField className={classes.input}
                         onChange={handleNameInputChange}
                         id="outlined-name"
-                        label="FullName"
+                        label="Full Name"
                         className={classes.textField}
                         margin="normal"
                         variant="outlined"
                     />
-                    <Typography className={classes.label}></Typography>
+                    <Typography className={classes.label}>Phone Number (no spaces or dashes)</Typography>
                     <TextField className={classes.input}
                         onChange={handlePhoneNumberChange}
                         id="outlined-name"
@@ -144,13 +144,17 @@ const useStyles = makeStyles({
     },
     buttonModalSubmit: {
       color:'white',
-      backgroundColor: 'green',
+      // backgroundColor: 'green',
       marginRight: '5px',
+      borderStyle: 'solid',
+      borderWidth: '1px',
       width: '30vw'
     },
     buttonModalClose: {
       color: 'white',
-      backgroundColor: 'yellow',
+      // backgroundColor: 'yellow',
+      borderStyle: 'solid',
+      borderWidth: '1px',
       marginRight: '5px'
     },
     buttonCheckout: {
@@ -180,6 +184,15 @@ const useStyles = makeStyles({
     },
     menu: {
       width: 200,
+    },
+    label: {
+      fontSize: '10px',
+      color: 'white'
+    },
+    labelTitle: {
+      color: 'white',
+      fontSize: '15px',
+      marginBottom: '15px'
     }
 });
 
@@ -187,16 +200,14 @@ const StyledModalBody = styled(ModalBody)`
     height: 75vh;
     zindex: 10;
     border-style: solid;
-    border-color: purple;
-    border-width: 5px;
+    border-color: #282828;
+    border-width: 15px;
     background-color: black'
     width: 100%;
 `
 const StyledModalDialog = styled(ModalDialog)`
     zindex: 10;
     border-style: solid;
-    border-color: purple;
-    border-width: 20px;
     height: 80vh;
     width: 96.5vw;
     // text-align: center
