@@ -131,7 +131,13 @@ const useStyles = makeStyles({
    text-align: center;
    padding-right: 30px;
    position: sticky;
-//    background: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)
+   box-shadow: 0 3px 5px 2px rgba(255, 105, 135, .3);
+//    border-style: solid;
+//    border-bottom: 20px;
+//    border-top: 0px;
+
+   border-color: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)
+   
 
  `;
 

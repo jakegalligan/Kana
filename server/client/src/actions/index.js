@@ -66,10 +66,12 @@ export const decrementDrink = (drink) => {
     }
 }
 
-export const sendNotification = (number) => {
+export const sendNotification = (number,name) => {
     console.log(number)
+    console.log(name)
     let phoneNumberObj = {
-        phoneNumber: number
+        phoneNumber: number,
+        customerName: name
     }
     axios.post(`/notify`, phoneNumberObj)
     return {

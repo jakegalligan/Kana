@@ -3,6 +3,10 @@
 .modal-content{
     z-index: 10;
 }
+.modal-dialog{
+    top: 0;
+    position: fixed;
+}
 
 #root {
     background-color: #282828;

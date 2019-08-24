@@ -10,6 +10,8 @@ import uuidv1 from 'uuid';
 import Typography from '@material-ui/core/Typography';
 import Slide from '@material-ui/core/Slide';
 import Zoom from '@material-ui/core/Zoom';
+import Grow from '@material-ui/core/Grow';
+
 
 
 
@@ -105,9 +107,11 @@ const OrderSubmitBar = (props) => {
             </StyledModalDialog>
         </div></Zoom>: ''}
         <AppBar position="static" className={classes.appBar}>
+        <Grow in={true} timeout={800}>
           <Toolbar className={classes.toolBar} >
            {showModal? <div></div>:<Button onClick={() => checkOut()} className = {classes.buttonCheckout}>Checkout</Button>}
           </Toolbar>
+          </Grow>
         </AppBar>
         {redirect? renderRedirect() : ''}
       </div>
@@ -133,11 +137,12 @@ export default connect(mapStateToProps, mapDispatchToProps)(OrderSubmitBar);
 
 const useStyles = makeStyles({
     appBar: {
-      flexGrow: 1,
-      position: 'sticky',
+      flexGrow: 3,
+      position: 'fixed',
       top: 'auto',
       bottom: 0,
       zindex: 1,
+      background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
       // textAlign: 'center'
     },
     toolBar: {
@@ -167,7 +172,7 @@ const useStyles = makeStyles({
       height: 48,
       padding: '0 30px',
       zindex: 1,
-      top: -30,
+      // top: -30,
       left: 0,
       right: 0,
       margin: '0 auto',
@@ -213,6 +218,7 @@ const StyledModalBody = styled(ModalBody)`
 `
 const StyledModalDialog = styled(ModalDialog)`
     zindex: 10;
+    position: fixed;
     border-style: solid;
     height: 80vh;
     width: 96.5vw;

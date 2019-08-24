@@ -27,8 +27,8 @@ export default HeaderBar;
 
 //set styling for navbar
 const StyledNavbar = styled(Navbar)`
-background: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%);
-    height: 8vh;
+background: linear-gradient(to right top, #5c258d, #5e23a7, #5c22c3, #5222e0, #3826ff);
+height: 8vh;
 `;
 
 

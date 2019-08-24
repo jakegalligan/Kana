@@ -87,7 +87,7 @@ const OrderReview = (props) => {
 
 
     return (
-        <Container>
+        <Container className={classes.container}>
             <Link to = {`/customer/menu`}>Back to Menu</Link>
             {renderCart()}
             <Container >
@@ -117,7 +117,7 @@ const OrderReview = (props) => {
             <div className={classes.appBar}>
             <AppBar className={classes.appBar}>
                 <Toolbar className={classes.toolBar} >
-                    <Button onClick={()=>submitOrder()} className = {classes.buttonCheckout}>Submit</Button>
+                    <Button onClick={()=>submitOrder()} className = {classes.buttonCheckout}>Submit Order</Button>
                 </Toolbar>
             </AppBar>
             </div>
@@ -142,7 +142,7 @@ const OrderReview = (props) => {
   const useStyles = makeStyles(theme =>({
     appBar: {
       flexGrow: 1,
-      position: 'sticky',
+      position: 'fixed',
       top: 'auto',
       bottom: 0,
       zindex: 1
@@ -150,10 +150,7 @@ const OrderReview = (props) => {
     toolBar: {
       zindex: 1
     },
-    container: {
-        height: '100vh',
-        backgroundColor: 'black'
-    },
+
     buttonCheckout: {
       background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
       border: 0,
@@ -164,7 +161,7 @@ const OrderReview = (props) => {
       padding: '0 30px',
       zindex: 1,
       zIndex: 1,
-      top: -30,
+    //   top: -30,
       left: 0,
       right: 0,
       margin: '0 auto',
@@ -172,6 +169,7 @@ const OrderReview = (props) => {
     container: {
       display: 'flex',
       flexWrap: 'wrap',
+      height: '100vh'
     },
     textField: {
       marginLeft: theme.spacing(1),

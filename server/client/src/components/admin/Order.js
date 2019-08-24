@@ -64,7 +64,7 @@ const Order = (props) => {
       console.log('submit');
       // send drink to backend to have its isSubmitted property changed to true
       props.submitDrink(order.uId);
-      props.sendNotification(order.phoneNumber)
+      props.sendNotification(order.phoneNumber, order.customerName)
     
 
     }
