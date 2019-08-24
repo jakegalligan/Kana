@@ -9,6 +9,8 @@ import RemoveIcon from '@material-ui/icons/Remove'
 import {incrementDrink, decrementDrink,getCart} from '../../actions'
 import { connect } from 'react-redux';
 import { Typography } from '@material-ui/core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCaretUp, faCaretDown } from '@fortawesome/free-solid-svg-icons'
 
 
 const OrderCart = (props) => {
@@ -44,34 +46,31 @@ const OrderCart = (props) => {
             <Row>
                 <Col>
                     <Row>
-                        <Typography className={classes.drink}>
+                        <Typography className={classes.drinkName}>
                             {props.name}
                         </Typography>
                     </Row>
                     <Row>
-                    <Typography className={classes.drink}>
-                        {props.ABV}
-                    </Typography>
-                    </Row>
-                    <Row>
-                    <Typography className={classes.drink}>
-                        Quantity {props.quantity}
-                    </Typography>
+                        <Typography className={classes.drinkPrice}>
+                            Price: {props.price * props.quantity}
+                        </Typography>
                     </Row>
                 </Col>
-                <Col xs={{span:3, offset: 6}}>
+                <Col xs={{span:3, offset: 6}} className={classes.incdec}>
                     <Row>
-                        <Fab value={props.name} onClick={(e) =>incrementDrinkQuantity(e)} color="primary" aria-label="add" className={classes.fab}>
-                            <AddIcon />
-                        </Fab>
+                        {/* <Fab value={props.name} onClick={(e) =>incrementDrinkQuantity(e)} color="primary" aria-label="add" className={classes.fab}> */}
+                            <FontAwesomeIcon className={classes.down} icon={faCaretUp} onClick={(e) =>incrementDrinkQuantity(e)} />
+                        {/* </Fab> */}
                     </Row>
                     <Row>
-                        {props.price}
+                        <Typography className={classes.drinkQuantity}>
+                            {props.quantity}
+                        </Typography>
                     </Row>
                     <Row>
-                        <Fab value ={props.name} onClick={(e) =>decrementDrinkQuantity(e)} color="primary" aria-label="add" className={classes.fab}>
-                                <RemoveIcon />
-                        </Fab>
+                        {/* <Fab value ={props.name} onClick={(e) =>decrementDrinkQuantity(e)} color="primary" aria-label="add" className={classes.fab}> */}
+                        <FontAwesomeIcon className={classes.down} icon={faCaretDown}  onClick={(e) =>decrementDrinkQuantity(e)} />
+                        {/* </Fab> */}
                     </Row>
                 </Col>
             </Row>
@@ -90,15 +89,31 @@ export default connect(null, mapDispatchToProps)(OrderCart)
 const useStyles = makeStyles(theme => ({
     fab: {
       margin: theme.spacing(1),
-      zIndex: 3
+      zIndex: 3,
+      height: '6vh',
     },
     extendedIcon: {
       marginRight: theme.spacing(1),
     },
+    down: {
+        fontSize: '40px',
+        marginLeft: '50%'
+    },
+    incdec: {
+        textAlign: 'center'
+    },
     icon: {
         zIndex: 1
     },
-    drink: {
+    drinkName: {
+        color: 'white',
+        marginTop: '50%'
+    },
+    drinkPrice:{
         color: 'white'
+    },
+    drinkQuantity: {
+        color: 'white',
+        marginLeft: '60%'
     }
   }));

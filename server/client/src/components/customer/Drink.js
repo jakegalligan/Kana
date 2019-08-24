@@ -59,7 +59,7 @@ export default connect(null,mapDispatchToProps)(Drink);
 const useStyles = makeStyles(theme => ({
     fab: {
       margin: theme.spacing(1),
-      height: '6vh'
+      height: '6vh',
     },
     extendedIcon: {
       marginRight: theme.spacing(1),
