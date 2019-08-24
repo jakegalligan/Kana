@@ -10,6 +10,8 @@ import Typography from '@material-ui/core/Typography';
 import { connect } from 'react-redux';
 import moment from 'moment';
 import {sendNotification, claimDrink, submitDrink} from '../../actions'
+import { Grow } from '@material-ui/core';
+
 
 
 const Order = (props) => {
@@ -60,7 +62,7 @@ const Order = (props) => {
     return (
       // if the drink isClaimed render its background as yellow and if it is urgent render its backgorund as red
       //otherwise leave the background color as white
-
+      <Grow in={true} timeout={800}>
       <Card className={order.isClaimed ? classes.cardClaimed : urgent? classes.cardUrgent : classes.card}>
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
@@ -75,6 +77,7 @@ const Order = (props) => {
         <Button onClick={handleSubmitDrink} size="small">Submit</Button>
       </CardActions>
     </Card> 
+    </Grow>
   ) 
   };
 

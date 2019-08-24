@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import {fetchOrders} from '../../actions';
 import HeaderBar from '../shared/HeaderBar';
 import { makeStyles } from '@material-ui/core/styles';
+import { Grow } from '@material-ui/core';
 
 
 
@@ -24,7 +25,8 @@ const OrderBacklog = (props) => {
             return (
             <Order
                 order={individualOrder}
-            ></Order>
+            >
+            </Order>
             )
         })
     }
