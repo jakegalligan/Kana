@@ -15,31 +15,38 @@ import { Grow } from '@material-ui/core';
 
 
 const Order = (props) => {
+  const classes = useStyles()
   let order = props.order;
-  console.log(order)
-
-  let now = new Date();
+ 
+  let currentTime = new Date();
+  //format the time the order was submitted in order to be more easily parsed
   let timeSubmitted = new Date(order.timeOrderSubmitted);
-  let diff = moment.utc(moment(now,"DD/MM/YYYY HH:mm:ss").diff(moment(timeSubmitted,"DD/MM/YYYY H:mm:ss"))).format("HH:mm:ss")
-  let diffClaim
+  //get the time difference from when the order was submitted to the current time
+  let diffSubmitedAndNow = moment.utc(moment(currentTime,"DD/MM/YYYY HH:mm:ss").diff(moment(timeSubmitted,"DD/MM/YYYY H:mm:ss"))).format("HH:mm:ss")
+  //check to see if an order has been claimed
+  console.log(parseInt(diffSubmitedAndNow[4])>5);
+  console.log(parseInt(diffSubmitedAndNow[3])>0);
 
-  // console.log(diff);
+  let diffClaimedAndNow;
   if(order.timeOrderClaimed) {
+    //if so format the time it was claimed
     let timeClaimed = new Date(order.timeOrderClaimed);
-    console.log(timeClaimed)
-     diffClaim = moment.utc(moment(now,"DD/MM/YYYY HH:mm:ss").diff(moment(timeClaimed,"DD/MM/YYYY H:mm:ss"))).format("HH:mm:ss")
+    //get the time difference from when the order was claimed and now
+     diffClaimedAndNow = moment.utc(moment(currentTime,"DD/MM/YYYY HH:mm:ss").diff(moment(timeClaimed,"DD/MM/YYYY H:mm:ss"))).format("HH:mm:ss")
   }
 
-    const classes = useStyles()
     //store the relative time since the order was submitted and the current time
     let timeSinceOrdered = moment(order.timeOrderSubmitted).fromNow();
     //instantiate a variable to store urgency or order
     let urgent;
-    //if the order has been over ten mintues or an hour set urgent to true
-    if (timeSinceOrdered.includes('hour')) {
+    //if the order has been submitted for more than five minutes and not claimed make it urgent
+    if (parseInt(diffSubmitedAndNow[4])>5) {
+      console.log('yeah')
       urgent = true;
-    } else if (timeSinceOrdered.includes('minute') && timeSinceOrdered[1] !==' ') {
-      urgent=true
+    }
+    if (parseInt(diffSubmitedAndNow[3])>0) {
+      console.log('yeah')
+      urgent = true;
     }
     
     //when the claim buttons is clicked have the drink be claimed
@@ -47,9 +54,10 @@ const Order = (props) => {
       //if the drink is already claimed return nothing
       if (props.isClaimed == true) {
         return '';
-      }
+      } else {
       //send the drink to the server to have its claim property updated
       props.claimDrink(order.uId)
+      }
     }
 
     const handleSubmitDrink = () => {
@@ -80,10 +88,10 @@ const Order = (props) => {
       <Card className={order.isClaimed ? classes.cardClaimed : urgent? classes.cardUrgent : classes.card}>
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
-          Ordered: {diff}
+          Ordered: {diffSubmitedAndNow}
         </Typography>
         {order.isClaimed? <Typography className={classes.title} color="textSecondary" gutterBottom>
-          Claimed {diffClaim}
+          Claimed {diffClaimedAndNow}
         </Typography> : <div></div>}
         <Typography variant="body3" component="p">
           {order.customerName}
