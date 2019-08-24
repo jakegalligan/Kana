@@ -57,7 +57,8 @@ const OrderReview = (props) => {
     //go through all the drink in the cart and return the total price of all of them
     const getTotal = () => {
         return props.cart.reduce((sum, drink) => {
-            return sum + drink.price
+            let price = drink.price * drink.quantity
+            return sum + price
         }, 0)
     }
     //multiply total by sales tax and then round to nearest hundreths place

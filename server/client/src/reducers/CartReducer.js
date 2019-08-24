@@ -47,8 +47,8 @@ export default function (state = [], action) {
         let newState2 = [...state];
         return newState2;
         case FETCH_CART:
-            // letnew
-            return state;
+            let newState3 = [...state]
+            return newState3;
         //otherwise return the current state
         default:
             return state;
