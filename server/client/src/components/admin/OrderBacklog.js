@@ -15,8 +15,11 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
+import HistoryIcon from '@material-ui/icons/History';
+import NotesIcon from '@material-ui/icons/Notes';
+import SupervisorAccount from '@material-ui/icons/SupervisorAccount';
+import ContactSupport from '@material-ui/icons/ContactSupport';
+
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 
@@ -50,7 +53,7 @@ const OrderBacklog = (props) => {
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
           <Typography variant="h6" noWrap>
-            Clipped drawer
+            Kana
           </Typography>
         </Toolbar>
       </AppBar>
@@ -63,22 +66,15 @@ const OrderBacklog = (props) => {
       >
         <div className={classes.toolbar} />
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+          {['Order History', 'Timesheets', 'Manager Portal', 'Kana Support'].map((text, index) => (
+            <ListItem button  key={text}>
+              <ListItemIcon className={classes.icon}>{index === 0 ? <HistoryIcon /> : index === 1 ? <NotesIcon/>: index === 2? <SupervisorAccount/>: <ContactSupport/> }</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           ))}
         </List>
         <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
+   
       </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar} />
@@ -171,22 +167,35 @@ const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
+    background: '#282828',
+
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
+    background: '#282828',
+
+    
   },
   drawer: {
     width: drawerWidth,
     flexShrink: 0,
+    background: '#282828',
+
   },
   drawerPaper: {
     width: drawerWidth,
+    background: '#282828',
+    color: 'white'
+
   },
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
   },
   toolbar: theme.mixins.toolbar,
+  icon: {
+      color: 'white'
+  }
 }));
 
 
