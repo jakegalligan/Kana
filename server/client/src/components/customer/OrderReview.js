@@ -89,7 +89,7 @@ const OrderReview = (props) => {
     return (
         <Container className={classes.container}>
             <HeaderBar />
-            <Link to = {`/customer/menu`}>Back to Menu</Link>
+            <Link namey={props.name}to = {`/customer/menu`}>Back to Menu</Link>
             {renderCart()}
             <Container >
                 <Row>
