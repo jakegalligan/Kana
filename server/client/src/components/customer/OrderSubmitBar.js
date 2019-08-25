@@ -210,9 +210,9 @@ const useStyles = makeStyles({
 const StyledModalBody = styled(ModalBody)`
     height: 75vh;
     z-index: 10;
-    border-style: solid;
-    border-color: #282828;
-    border-width: 15px;
+    // border-style: solid;
+    // border-color: red;
+    // border-width: 15px;
     background-color: black'
     width: 100%;
 `
