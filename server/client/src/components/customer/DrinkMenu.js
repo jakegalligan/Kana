@@ -10,6 +10,8 @@ import Navbar from 'react-bootstrap/Navbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/styles';
 import {Container, Row, Col} from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
 
 
 
@@ -18,17 +20,19 @@ const Menu = (props) => {
     return (
         <div>
              <StyledNavbar>
-                 <Container className={connect.container}>
+                 <Container className={classes.container}>
                      <Row>
-                         <Col>
-                         <Typography className={classes.appTitle}>
-                K
-            </Typography>
+                         <Col xs={2}>
+                            <Typography className={classes.appTitle}>
+                                <Link to='/'>
+                                <FontAwesomeIcon icon={faAngleLeft} className={classes.icon}/>
+                                </Link>
+                            </Typography>
                          </Col>
-                         <Col >
-                         <Typography className={classes.appTitle}>
-                Kana
-            </Typography>
+                         <Col xs={{offset: 2}}>
+                            <Typography className={classes.appTitle}>
+                                Menu
+                            </Typography>
                          </Col>
                          <Col >
 
@@ -38,6 +42,9 @@ const Menu = (props) => {
         </StyledNavbar>
             <DrinkCategories />
             <DrinkMenuItems  />
+            <br />
+            <br />
+            <br />
             {props.cart.length>0? <OrderSubmitBar />: ''}
         </div>
     )

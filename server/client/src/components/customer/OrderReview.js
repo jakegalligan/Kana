@@ -12,7 +12,10 @@ import moment from 'moment'
 import Typography from '@material-ui/core/Typography';
 import { textAlign } from '@material-ui/system';
 import HeaderBar from '../shared/HeaderBar'
-import Spinner from 'react-bootstrap/Spinner'
+import Spinner from 'react-bootstrap/Spinner';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
+import Navbar from 'react-bootstrap/Navbar';
     
 const OrderReview = (props) => {
     console.log(props.cart);
@@ -91,7 +94,27 @@ const OrderReview = (props) => {
 
     return (
         <div>           
-             <HeaderBar />
+             {/* <HeaderBar /> */} <StyledNavbar>
+                 <Container className={classes.container}>
+                     <Row>
+                     <Col xs={2}>
+                            <Typography className={classes.appTitle}>
+                                <Link to='/'>
+                                <FontAwesomeIcon icon={faAngleLeft} className={classes.icon}/>
+                                </Link>
+                            </Typography>
+                         </Col>
+                         <Col xs={{offset: 2}}>
+                            <Typography className={classes.appTitle}>
+                                Menu
+                            </Typography>
+                        </Col>
+                         <Col >
+
+                         </Col>
+                     </Row>
+            </Container>
+        </StyledNavbar>
         <Container className={classes.container}>
             <Link namey={props.name}to = {`/customer/menu`}>Back to Menu</Link>
             {renderCart()}
@@ -227,3 +250,9 @@ const OrderReview = (props) => {
         alignText: 'left'
     }
 }));
+
+//set styling for navbar
+const StyledNavbar = styled(Navbar)`
+// background: linear-gradient(to right top, #5c258d, #5e23a7, #5c22c3, #5222e0, #3826ff);
+height: 8vh;
+`;
