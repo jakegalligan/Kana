@@ -12,13 +12,12 @@ import moment from 'moment'
 import Typography from '@material-ui/core/Typography';
 import { textAlign } from '@material-ui/system';
 import HeaderBar from '../shared/HeaderBar'
+import Spinner from 'react-bootstrap/Spinner'
     
 const OrderReview = (props) => {
     console.log(props.cart);
-    // useEffect(() => {
-    //     console.log('fetching all that')
-    // //     //fetch newly added orders every second
-        // setInterval(()=>{props.getCart(); console.log('bet')},1000);
+    const[showSpinner, setShowSpinner] = useState(false);
+
     
     const classes=useStyles();
     //initilaize state redirect which when true redirects user to completed order menu
@@ -27,6 +26,10 @@ const OrderReview = (props) => {
 
     //when the submit order button is clicked send order to bartenders
     const submitOrder = () => {
+        //wait a couple seconds after an order is submitted to give the user the feel that order is being sent
+        setTimeout(function() {setRedirect(true)}, 1000);
+        //set the showSpinner value to true when the submit Order buttons is clicked
+        setShowSpinner(true);
         //create a unique id to identify the order
         let uId1 = uuidv1();
         //get current date/time to know when data was made
@@ -42,7 +45,7 @@ const OrderReview = (props) => {
         }
         console.log(order);
         props.submitOrder(order)
-        setRedirect(true);
+        // setRedirect(true);
         console.log('submitting');
         // socket.emit('order', order)
     }
@@ -115,6 +118,9 @@ const OrderReview = (props) => {
                     </Col>
                 </Row>
             </Container>
+            {showSpinner? <Spinner className={classes.spinner} animation="border"  role="status">
+                <span className="sr-only">Loading...</span>
+                </Spinner>: ''}
             <div className={classes.appBar}>
             <AppBar className={classes.appBar}>
                 <Toolbar className={classes.toolBar} >
@@ -172,6 +178,12 @@ const OrderReview = (props) => {
     //   display: 'flex',
     //   flexWrap: 'wrap',
       height: '100vh'
+    },
+    spinner: {
+        fontSize: '20px',
+        color: 'white',
+        marginLeft: '50%',
+        zIndex: '10'
     },
     textField: {
       marginLeft: theme.spacing(1),
