@@ -196,13 +196,15 @@ const useStyles = makeStyles({
       borderStyle: 'solid',
       borderWidth: '1px',
       // width: '30vw'
+      marginTop: '-10px'
     },
     buttonModalClose: {
       color: 'white',
       // backgroundColor: 'yellow',
       borderStyle: 'solid',
       borderWidth: '1px',
-      marginRight: '5px'
+      marginRight: '5px',
+      marginTop: '-10px'
     },
     buttonCheckout: {
       background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
@@ -238,7 +240,7 @@ const useStyles = makeStyles({
       width: 200,
     },
     label: {
-      fontSize: '10px',
+      fontSize: '11px',
       color: 'white'
     },
     labelTitle: {
