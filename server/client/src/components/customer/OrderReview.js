@@ -177,7 +177,7 @@ const OrderReview = (props) => {
     container: {
     //   display: 'flex',
     //   flexWrap: 'wrap',
-      height: '100vh'
+        minHeight: '100vh'
     },
     spinner: {
         fontSize: '20px',
