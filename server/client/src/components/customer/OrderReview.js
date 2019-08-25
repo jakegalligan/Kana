@@ -90,8 +90,9 @@ const OrderReview = (props) => {
 
 
     return (
+        <div>           
+             <HeaderBar />
         <Container className={classes.container}>
-            <HeaderBar />
             <Link namey={props.name}to = {`/customer/menu`}>Back to Menu</Link>
             {renderCart()}
             <Container >
@@ -130,6 +131,8 @@ const OrderReview = (props) => {
             </div>
             {redirect? renderRedirect(): ''}
         </Container>
+        </div>
+
     )
   };
 
