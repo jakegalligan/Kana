@@ -64,7 +64,7 @@ const Order = (props) => {
       console.log('submit');
       // send drink to backend to have its isSubmitted property changed to true
       props.submitDrink(order.uId);
-      props.sendNotification(order.phoneNumber)
+      props.sendNotification(order.phoneNumber, order.customerName)
     
 
     }
@@ -74,9 +74,13 @@ const Order = (props) => {
       return order.cart.map(drink => {
         return (
           <div>
+          <Typography className={classes.drinkName}>
             {drink.name}
+          </Typography>
             <br />
+            <Typography className={classes.drinkQuantity}>
             Quantity: {drink.quantity}
+            </Typography>
           </div>
         )
       })
@@ -93,7 +97,7 @@ const Order = (props) => {
         {order.isClaimed? <Typography className={classes.title} color="textSecondary" gutterBottom>
           Claimed {diffClaimedAndNow}
         </Typography> : <div></div>}
-        <Typography variant="body3" component="p">
+        <Typography className={classes.name}>
           {order.customerName}
         </Typography>
         <Typography variant="body2" component="p">
@@ -101,8 +105,8 @@ const Order = (props) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button onClick={handleClaimDrink} size="small">Claim</Button>
-        <Button onClick={handleSubmitDrink} size="small">Submit</Button>
+        <Button className={classes.button} onClick={handleClaimDrink} size="small">Claim</Button>
+        <Button className={classes.button} onClick={handleSubmitDrink} size="small">Submit</Button>
       </CardActions>
     </Card> 
     </Grow>
@@ -124,25 +128,50 @@ const useStyles = makeStyles({
     minWidth: 275,
     width: '60%',
     margin: '8px',
+    background: '#282828',
+    boxShadow: '0 3px 5px 2px rgba(45, 45, 45, 1)',
+
   },
   cardClaimed: {
     minWidth: 275,
     width: '60%',
     margin: '8px',
-    backgroundColor: '#007d04'
+    borderStyle: 'solid',
+    borderColor: '#007d04',
+    background: '#282828',
+    boxShadow: '0 3px 5px 2px rgba(100, 45, 45, 1)',
+
   },
 
   cardUrgent: {
     minWidth: 275,
     width: '60%',
     marginTop: '8px',
-    backgroundColor: '#990000'
+    borderStyle: 'solid',
+    borderColor: '#990000',
+    background: '#282828',
+    boxShadow: '0 3px 5px 2px rgba(100, 45, 45, 1)',
+
   },
   title: {
+    color: 'white',
     fontSize: 14,
     fontStyle: 'italic',
   },
+  drinkName:{
+    color: 'white',
+    fontSize: 14,
+  },
+  drinkQuantity: {
+    color: 'white',
+    fontSize: 14,
+  },
   pos: {
     marginBottom: 12,
+    color: 'white',
+
   },
+  button: {
+    color: 'white'
+  }
 });

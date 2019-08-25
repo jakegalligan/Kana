@@ -21,11 +21,18 @@ const DrinkCategories = (props) => {
         props.fetchDrinks();
     }, []) 
 
-    //when a drink filter is clicked fetch the selected drinks
-    const getDrinks = (e) => {
-        console.log(e.target);
-        console.log(e.target.value);
-        props.fetchDrinks(e.target.value)
+    //Functions to get specific drinks from the server. Initially it was one dynamic function, but the svg icons were blocking the value of the elements
+    const getWine =() => {
+        props.fetchDrinks('Wine');
+    }
+    const getBeer =() => {
+        props.fetchDrinks('Beer');
+    }
+    const getCocktails =() => {
+        props.fetchDrinks('Cocktail');
+    }
+    const getSpecials =() => {
+        props.fetchDrinks('');
     }
 
 
@@ -40,23 +47,23 @@ const DrinkCategories = (props) => {
         <StyledContainer sticky='top'>
             <Row>
                 <Col xs={3} value='Specials'>
-                    <Button variant="contained"  className={classes.button} onClick={getDrinks} value='Specials'>
+                    <Button variant="contained"  className={classes.button} onClick={getSpecials} value='Specials'>
                     <FontAwesomeIcon icon={faGlassCheers} />
                     </Button>
                 </Col>
                 <Col xs={3}>
-                <Button variant="contained"  className={classes.button} onClick={getDrinks} value='Beer'>
-                    <FontAwesomeIcon icon={faBeer} />
+                <Button variant="contained"  className={classes.button} onClick={getBeer} value='Beer'>
+                    <FontAwesomeIcon icon={faCocktail} value='Beer' />
+                </Button>
+                </Col>
+                <Col xs={3}>
+                <Button className={classes.button} onClick={getCocktails} value='Cocktail'>
+                    <FontAwesomeIcon icon={faCocktail} value='Cocktail' />
                     </Button>
                 </Col>
                 <Col xs={3}>
-                <Button className={classes.button} onClick={getDrinks} value='Cocktail'>
-                    <FontAwesomeIcon icon={faCocktail} />
-                    </Button>
-                </Col>
-                <Col xs={3}>
-                <Button className={classes.button} onClick={getDrinks} value='Wine'>
-                    <FontAwesomeIcon icon={faWineGlass} />
+                <Button className={classes.button} onClick={getWine} value='Wine'>
+                    <FontAwesomeIcon icon={faWineGlass} value='Wine' />
                     </Button>
                 </Col>
             </Row>
@@ -73,12 +80,12 @@ const DrinkCategories = (props) => {
                 </Col>
                 <Col xs={3}>
                 <Typography className={classes.descriptor}>
-                        Wine
+                        Cocktails
                     </Typography>
                 </Col>
                 <Col xs={3}>
                 <Typography className={classes.descriptor}>
-                        Cocktais
+                        Wine
                     </Typography>
                 </Col>
             </Row>
@@ -113,6 +120,9 @@ const useStyles = makeStyles({
     descriptor: {
         color: 'white',
         marginTop: '3px'
+    },
+    buttonWrapper: {
+        zIndex: '10'
     }
   });
 
@@ -120,6 +130,15 @@ const useStyles = makeStyles({
    const StyledContainer = styled(Container)`
    text-align: center;
    padding-right: 30px;
+   position: sticky;
+   box-shadow: 0 3px 5px 2px rgba(255, 105, 135, .3);
+//    border-style: solid;
+//    border-bottom: 20px;
+//    border-top: 0px;
+
+   border-color: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)
+   
+
  `;
 
   

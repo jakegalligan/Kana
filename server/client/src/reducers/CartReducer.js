@@ -1,4 +1,4 @@
-import {ADD_TO_CART,INCREMENT_DRINK,DECREMENT_DRINK} from '../actions/types';
+import {ADD_TO_CART,INCREMENT_DRINK,DECREMENT_DRINK, FETCH_CART} from '../actions/types';
 
 export default function (state = [], action) {
     switch (action.type) {
@@ -28,8 +28,8 @@ export default function (state = [], action) {
                     state[i].quantity ++;
                 }
             }
-        console.log(state);
-        return state;
+        let newState1=[...state];
+        return newState1;
         case DECREMENT_DRINK:
         //if type is decrement drink find drink and decrease its quantity by 1
             for (let i = 0; i< state.length; i++) {
@@ -44,7 +44,11 @@ export default function (state = [], action) {
                 }
             }
         console.log(state);
-        return state;
+        let newState2 = [...state];
+        return newState2;
+        case FETCH_CART:
+            let newState3 = [...state]
+            return newState3;
         //otherwise return the current state
         default:
             return state;

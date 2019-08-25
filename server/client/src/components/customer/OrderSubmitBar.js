@@ -10,6 +10,8 @@ import uuidv1 from 'uuid';
 import Typography from '@material-ui/core/Typography';
 import Slide from '@material-ui/core/Slide';
 import Zoom from '@material-ui/core/Zoom';
+import Grow from '@material-ui/core/Grow';
+
 
 
 
@@ -70,20 +72,20 @@ const OrderSubmitBar = (props) => {
            {showModal ?  <Zoom in={true}><div>
            <StyledModalDialog>
                 <StyledModalBody> 
-                <Typography className={classes.label}>
+                <Typography className={classes.labelTitle}>
                   Before we can finalize your order we need some info
                 </Typography>
                 <form className={classes.container} noValidate autoComplete="off">
-                  <Typography className={classes.label}></Typography>
+                  <Typography className={classes.label}>Name (as it appears on license)</Typography>
                     <TextField className={classes.input}
                         onChange={handleNameInputChange}
                         id="outlined-name"
-                        label="FullName"
+                        label="Full Name"
                         className={classes.textField}
                         margin="normal"
                         variant="outlined"
                     />
-                    <Typography className={classes.label}></Typography>
+                    <Typography className={classes.label}>Phone Number (no spaces or dashes)</Typography>
                     <TextField className={classes.input}
                         onChange={handlePhoneNumberChange}
                         id="outlined-name"
@@ -93,10 +95,11 @@ const OrderSubmitBar = (props) => {
                         variant="outlined"
                     />
                 </form>
+                <Typography className={classes.labelNotes}>*This information allows us to identify your order as well as notify ou when it's ready!</Typography>
                 <div>
                   <br />
-                    <Button onClick={() =>closeModal()} className={classes.buttonModalClose}>Back To Menu</Button>
-                    <Button onClick={() => submitOrder()} className={classes.buttonModalSubmit}>submitOrder</Button>
+                    <Button onClick={() =>closeModal()} className={classes.buttonModalClose}>Back To<br /> Menu</Button>
+                    <Button onClick={() => submitOrder()} className={classes.buttonModalSubmit}>Review <br /> Order</Button>
                     <br />
                     <br />
                 </div>
@@ -104,9 +107,11 @@ const OrderSubmitBar = (props) => {
             </StyledModalDialog>
         </div></Zoom>: ''}
         <AppBar position="static" className={classes.appBar}>
+        <Grow in={true} timeout={800}>
           <Toolbar className={classes.toolBar} >
            {showModal? <div></div>:<Button onClick={() => checkOut()} className = {classes.buttonCheckout}>Checkout</Button>}
           </Toolbar>
+          </Grow>
         </AppBar>
         {redirect? renderRedirect() : ''}
       </div>
@@ -132,11 +137,12 @@ export default connect(mapStateToProps, mapDispatchToProps)(OrderSubmitBar);
 
 const useStyles = makeStyles({
     appBar: {
-      flexGrow: 1,
-      position: 'sticky',
+      flexGrow: 3,
+      position: 'fixed',
       top: 'auto',
       bottom: 0,
       zindex: 1,
+      background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
       // textAlign: 'center'
     },
     toolBar: {
@@ -144,13 +150,17 @@ const useStyles = makeStyles({
     },
     buttonModalSubmit: {
       color:'white',
-      backgroundColor: 'green',
+      // backgroundColor: 'green',
       marginRight: '5px',
-      width: '30vw'
+      borderStyle: 'solid',
+      borderWidth: '1px',
+      // width: '30vw'
     },
     buttonModalClose: {
       color: 'white',
-      backgroundColor: 'yellow',
+      // backgroundColor: 'yellow',
+      borderStyle: 'solid',
+      borderWidth: '1px',
       marginRight: '5px'
     },
     buttonCheckout: {
@@ -162,7 +172,7 @@ const useStyles = makeStyles({
       height: 48,
       padding: '0 30px',
       zindex: 1,
-      top: -30,
+      // top: -30,
       left: 0,
       right: 0,
       margin: '0 auto',
@@ -180,24 +190,37 @@ const useStyles = makeStyles({
     },
     menu: {
       width: 200,
+    },
+    label: {
+      fontSize: '10px',
+      color: 'white'
+    },
+    labelTitle: {
+      color: 'white',
+      fontSize: '15px',
+      marginBottom: '15px'
+    },
+    labelNotes: {
+      fontSize: '10px',
+      color: 'white',
+      marginTop: '20px'
     }
 });
 
 const StyledModalBody = styled(ModalBody)`
     height: 75vh;
-    zindex: 10;
+    z-index: 10;
     border-style: solid;
-    border-color: purple;
-    border-width: 5px;
+    border-color: #282828;
+    border-width: 15px;
     background-color: black'
     width: 100%;
 `
 const StyledModalDialog = styled(ModalDialog)`
-    zindex: 10;
+    z-index: 10;
+    position: fixed;
     border-style: solid;
-    border-color: purple;
-    border-width: 20px;
-    height: 80vh;
+    height: 90vh;
     width: 96.5vw;
     // text-align: center
 `

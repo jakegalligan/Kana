@@ -9,6 +9,9 @@ import AddIcon from '@material-ui/icons/Add';
 import Icon from '@material-ui/core/Icon';
 import {addToCart} from '../../actions'
 import Typography from '@material-ui/core/Typography';
+import Paper from '@material-ui/core/Paper';
+import { borderRadius } from '@material-ui/system';
+
 
 
 
@@ -56,14 +59,17 @@ export default connect(null,mapDispatchToProps)(Drink);
 const useStyles = makeStyles(theme => ({
     fab: {
       margin: theme.spacing(1),
-      height: '6vh'
+      height: '6vh',
     },
     extendedIcon: {
       marginRight: theme.spacing(1),
     },
     container: {
         textAlign: 'left',
-        marginTop: '10px'
+        marginTop: '10px',
+        boxShadow: '0 3px 5px 2px rgba(45, 45, 45, .3)',
+        
+
     },
     centeredcol: {
         textAlign: 'center'
@@ -80,6 +86,13 @@ const useStyles = makeStyles(theme => ({
         fontSize: '12px'
     },
     descriptor: {
-        color: 'white'
+        color: 'white',
+        marginTop: '50%',
+        fontStyle: 'italic'
+        // borderStyle: 'solid',
+        // borderWidth: '0px 0px 10px 0px',
+        // // borderRadius: '50%',
+        // width: '18vw',
+        // height: '7.5vh'
     }
   }));

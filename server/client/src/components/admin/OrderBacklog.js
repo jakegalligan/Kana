@@ -36,10 +36,10 @@ const OrderBacklog = (props) => {
         <HeaderBar />
         <Container className={classes.container}>
             <Row>
-                <Col md={6} className={classes.statscontainer}>
+                <Col md={4} className={classes.statscontainer}>
                     stats
                 </Col>
-                <Col md={{span: 6}}className={classes.orderscontainer}>
+                <Col md={{span: 8}}className={classes.orderscontainer}>
                     <Row>
                         {props.orders.length>=1?renderUncompletedOrders(): ''}
                     </Row>
@@ -62,12 +62,14 @@ const OrderBacklog = (props) => {
 
   const useStyles = makeStyles({
     container: {
-        backgroundColor: 'white',
-        height: '200vh',
-        paddingRight: '5%'
+        backgroundColor: '#282828;',
+        // height: '200vh',
+        paddingRight: '5%',
+        width: '100vw',
+        maxWidth: '100vw'
     },
     orderscontainer: {
-        backgroundColor: 'white',
+        // backgroundColor: 'white',
         // height: '100vh'
     },
     statscontainer: {

@@ -6,20 +6,19 @@ import AppBar from '@material-ui/core/AppBar';import Toolbar from '@material-ui/
 import styled from "styled-components";
 import {Container, Row, Col} from 'react-bootstrap';
 import { connect } from 'react-redux';
-import {submitOrder} from '../../actions';
+import {submitOrder, getCart} from '../../actions';
 import uuidv1 from 'uuid'
 import moment from 'moment'
 import Typography from '@material-ui/core/Typography';
 import { textAlign } from '@material-ui/system';
+import HeaderBar from '../shared/HeaderBar'
+import Spinner from 'react-bootstrap/Spinner'
     
 const OrderReview = (props) => {
     console.log(props.cart);
-    const[rerender, setRerender] = useState(false);
-    // useEffect(() => {
-    // //     //fetch newly added orders every second
-    //     setInterval(()=>{setRerender(true)},1000);
-        
-    // },[])
+    const[showSpinner, setShowSpinner] = useState(false);
+
+    
     const classes=useStyles();
     //initilaize state redirect which when true redirects user to completed order menu
     const [redirect, setRedirect] = useState(false);
@@ -27,6 +26,10 @@ const OrderReview = (props) => {
 
     //when the submit order button is clicked send order to bartenders
     const submitOrder = () => {
+        //wait a couple seconds after an order is submitted to give the user the feel that order is being sent
+        setTimeout(function() {setRedirect(true)}, 1000);
+        //set the showSpinner value to true when the submit Order buttons is clicked
+        setShowSpinner(true);
         //create a unique id to identify the order
         let uId1 = uuidv1();
         //get current date/time to know when data was made
@@ -42,7 +45,7 @@ const OrderReview = (props) => {
         }
         console.log(order);
         props.submitOrder(order)
-        setRedirect(true);
+        // setRedirect(true);
         console.log('submitting');
         // socket.emit('order', order)
     }
@@ -57,7 +60,8 @@ const OrderReview = (props) => {
     //go through all the drink in the cart and return the total price of all of them
     const getTotal = () => {
         return props.cart.reduce((sum, drink) => {
-            return sum + drink.price
+            let price = drink.price * drink.quantity
+            return sum + price
         }, 0)
     }
     //multiply total by sales tax and then round to nearest hundreths place
@@ -77,8 +81,7 @@ const OrderReview = (props) => {
                 descriptor={drink.descriptor}
                 ounce={drink.ounce}
                 key={drink._id}
-                setRerender={setRerender}
-                >
+                quantity={drink.quantity}                >
                 </OrderCart>
             )
              }
@@ -87,8 +90,9 @@ const OrderReview = (props) => {
 
 
     return (
-        <Container>
-            <Link to = {`/customer/menu`}>Back to Menu</Link>
+        <Container className={classes.container}>
+            <HeaderBar />
+            <Link namey={props.name}to = {`/customer/menu`}>Back to Menu</Link>
             {renderCart()}
             <Container >
                 <Row>
@@ -114,10 +118,13 @@ const OrderReview = (props) => {
                     </Col>
                 </Row>
             </Container>
+            {showSpinner? <Spinner className={classes.spinner} animation="border"  role="status">
+                <span className="sr-only">Loading...</span>
+                </Spinner>: ''}
             <div className={classes.appBar}>
             <AppBar className={classes.appBar}>
                 <Toolbar className={classes.toolBar} >
-                    <Button onClick={()=>submitOrder()} className = {classes.buttonCheckout}>Submit</Button>
+                    <Button onClick={()=>submitOrder()} className = {classes.buttonCheckout}>Submit Order</Button>
                 </Toolbar>
             </AppBar>
             </div>
@@ -134,7 +141,8 @@ const OrderReview = (props) => {
     }
 }
    const mapDispatchToProps = {
-       submitOrder: submitOrder
+       submitOrder: submitOrder,
+       getCart: getCart
    }
   export default connect(mapStateToProps,mapDispatchToProps)(OrderReview);
 
@@ -142,7 +150,7 @@ const OrderReview = (props) => {
   const useStyles = makeStyles(theme =>({
     appBar: {
       flexGrow: 1,
-      position: 'sticky',
+      position: 'fixed',
       top: 'auto',
       bottom: 0,
       zindex: 1
@@ -150,10 +158,7 @@ const OrderReview = (props) => {
     toolBar: {
       zindex: 1
     },
-    container: {
-        height: '100vh',
-        backgroundColor: 'black'
-    },
+
     buttonCheckout: {
       background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
       border: 0,
@@ -164,14 +169,21 @@ const OrderReview = (props) => {
       padding: '0 30px',
       zindex: 1,
       zIndex: 1,
-      top: -30,
+    //   top: -30,
       left: 0,
       right: 0,
       margin: '0 auto',
     },
     container: {
-      display: 'flex',
-      flexWrap: 'wrap',
+    //   display: 'flex',
+    //   flexWrap: 'wrap',
+      height: '100vh'
+    },
+    spinner: {
+        fontSize: '20px',
+        color: 'white',
+        marginLeft: '50%',
+        zIndex: '10'
     },
     textField: {
       marginLeft: theme.spacing(1),

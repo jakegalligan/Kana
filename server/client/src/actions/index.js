@@ -1,7 +1,7 @@
 import axios from 'axios'
 import {FETCH_DRINKS, ADD_TO_CART, SUBMIT_ORDER,
      ADD_NAME, ADD_NUMBER, INCREMENT_DRINK, 
-     DECREMENT_DRINK, SEND_NOTIFICATION, FETCH_ORDERS, CLAIM_DRINK} from '../actions/types'
+     DECREMENT_DRINK, SEND_NOTIFICATION, FETCH_ORDERS, CLAIM_DRINK,FETCH_CART} from '../actions/types'
 
 const ROOT_URL = 'http://localhost:8000';
 
@@ -22,6 +22,12 @@ export const addToCart = (drink) => {
         payload: drink
     }
 } 
+
+export const getCart =() => {
+    return {
+        type: FETCH_CART
+    }
+}
 
 export const submitOrder = (order) => dispatch => {
     console.log('hit action submit order')
@@ -66,10 +72,12 @@ export const decrementDrink = (drink) => {
     }
 }
 
-export const sendNotification = (number) => {
+export const sendNotification = (number,name) => {
     console.log(number)
+    console.log(name)
     let phoneNumberObj = {
-        phoneNumber: number
+        phoneNumber: number,
+        customerName: name
     }
     axios.post(`/notify`, phoneNumberObj)
     return {
