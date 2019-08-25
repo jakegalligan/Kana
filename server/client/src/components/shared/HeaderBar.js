@@ -14,9 +14,11 @@ const HeaderBar = () => {
     const classes= useStyles();
     return (
         <StyledNavbar>
+            <Link to ='/'>
             <Typography className={classes.appTitle}>
                 Kana
             </Typography>
+            </Link>
         </StyledNavbar>
     )
 }

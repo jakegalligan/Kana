@@ -93,7 +93,7 @@ const LoginPage = () => {
       },
       form: {
         //   background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-          height: '50vh',
+          height: '60vh',
         //   width: '50vw',
           width: '90%',
         //   borderWidth: '20px',
