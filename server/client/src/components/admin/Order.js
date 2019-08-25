@@ -74,9 +74,13 @@ const Order = (props) => {
       return order.cart.map(drink => {
         return (
           <div>
+          <Typography className={classes.drinkName}>
             {drink.name}
+          </Typography>
             <br />
+            <Typography className={classes.drinkQuantity}>
             Quantity: {drink.quantity}
+            </Typography>
           </div>
         )
       })
@@ -93,7 +97,7 @@ const Order = (props) => {
         {order.isClaimed? <Typography className={classes.title} color="textSecondary" gutterBottom>
           Claimed {diffClaimedAndNow}
         </Typography> : <div></div>}
-        <Typography variant="body3" component="p">
+        <Typography className={classes.name}>
           {order.customerName}
         </Typography>
         <Typography variant="body2" component="p">
@@ -153,6 +157,14 @@ const useStyles = makeStyles({
     color: 'white',
     fontSize: 14,
     fontStyle: 'italic',
+  },
+  drinkName:{
+    color: 'white',
+    fontSize: 14,
+  },
+  drinkQuantity: {
+    color: 'white',
+    fontSize: 14,
   },
   pos: {
     marginBottom: 12,
