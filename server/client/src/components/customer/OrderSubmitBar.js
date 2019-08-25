@@ -27,6 +27,10 @@ const OrderSubmitBar = (props) => {
     const [phoneNumber, setPhoneNumber] = useState('');
     //intialize a state redirect which redirects when true
     const [redirect, setRedirect] = useState(false);
+    //initialize a state errorTextName message which is renders the error text when true 
+    const [errorTextNumber, setErrorTextNumber] = useState(false);
+    //initialize a state errorTextName message which is renders the error text when true 
+    const [errorTextName, setErrorTextName] = useState(false);
 
   
     //function that will set the name state to whatever input is put in name form
@@ -40,6 +44,22 @@ const OrderSubmitBar = (props) => {
     }
     //submitInfo function will send user information as well as cart to server and redirect user to order completed page
     const submitOrder = () => {
+      //store the phone nubmer in a variable so it can be manipulated
+        let formattedNumber=phoneNumber
+        //if it is missing the +1 call add it
+        if (formattedNumber.length===10) {
+          console.log('hitting')
+          formattedNumber = '1'+phoneNumber;
+        }
+        if (formattedNumber.length!==11) {
+          return setErrorTextNumber(true);
+        }
+
+        //check to see if a name of at least 5 characters is entered
+        if (customerName.length < 5) {
+          return setErrorTextName(true);
+        }
+        console.log(formattedNumber);
         //format information to be properly stored in server
         props.setName(customerName);
         props.setNumber(phoneNumber);
@@ -65,6 +85,25 @@ const OrderSubmitBar = (props) => {
       console.log('close modal')
       setShowModal(false)
       }
+
+    const renderNumberError = () => {
+      return (
+      <div>
+        <Typography className={classes.errorText}>
+          Invalid phone number, please use format 1xxxxxxxxxx
+        </Typography>
+      </div>
+      )
+    }
+    const renderNameError = () => {
+      return (
+      <div>
+        <Typography className={classes.errorText}>
+          Invalid name, please use your first and last name
+        </Typography>
+      </div>
+      )
+    }
     
 
     return (
@@ -85,6 +124,7 @@ const OrderSubmitBar = (props) => {
                         margin="normal"
                         variant="outlined"
                     />
+                      {errorTextName? renderNameError(): ''}
                     <Typography className={classes.label}>Phone Number (no spaces or dashes)</Typography>
                     <TextField className={classes.input}
                         onChange={handlePhoneNumberChange}
@@ -95,6 +135,7 @@ const OrderSubmitBar = (props) => {
                         variant="outlined"
                     />
                 </form>
+                {errorTextNumber? renderNumberError(): ''}
                 <Typography className={classes.labelNotes}>*This information allows us to identify your order as well as notify ou when it's ready!</Typography>
                 <div>
                   <br />
@@ -187,6 +228,11 @@ const useStyles = makeStyles({
       // marginRight: theme.spacing(1),
     },
     dense: {
+    },
+    errorText: {
+      color: 'white',
+      fontStyle: 'italic',
+      fontSize: '10px'
     },
     menu: {
       width: 200,
