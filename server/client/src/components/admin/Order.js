@@ -127,9 +127,9 @@ const useStyles = makeStyles({
   card: {
     // minWidth: 275,
     // maxWidth: 275,
-    width: '50%',
+    width: '100%',
     // marginLeft: '1%',
-    marginTop: '8px',
+    margin: '1%',
     background: '#282828',
     boxShadow: '0 3px 5px 2px rgba(45, 45, 45, 1)',
 
@@ -137,9 +137,9 @@ const useStyles = makeStyles({
   cardClaimed: {
     // minWidth: 400,
     // maxWidth: 400,
-    width: '50%',
+    width: '100%',
     // marginLeft: '1%',
-    marginTop: '8px',
+    margin: '1%',
     borderStyle: 'solid',
     borderColor: '#007d04',
     background: '#282828',
@@ -150,9 +150,10 @@ const useStyles = makeStyles({
   cardUrgent: {
     // maxWidth: 400,
     // minWidth: 400,
-    width: '50%',
-    // marginLeft: '1%',
-    marginTop: '8px',
+    width: '100%',
+    // // marginLeft: '1%',
+    // marginTop: '8px',
+    margin: '1%',
     borderStyle: 'solid',
     borderColor: '#990000',
     background: '#282828',
