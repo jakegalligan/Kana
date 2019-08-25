@@ -105,8 +105,8 @@ const Order = (props) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button onClick={handleClaimDrink} size="small">Claim</Button>
-        <Button onClick={handleSubmitDrink} size="small">Submit</Button>
+        <Button className={classes.button} onClick={handleClaimDrink} size="small">Claim</Button>
+        <Button className={classes.button} onClick={handleSubmitDrink} size="small">Submit</Button>
       </CardActions>
     </Card> 
     </Grow>
@@ -171,4 +171,7 @@ const useStyles = makeStyles({
     color: 'white',
 
   },
+  button: {
+    color: 'white'
+  }
 });
