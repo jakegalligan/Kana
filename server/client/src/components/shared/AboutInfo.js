@@ -14,35 +14,41 @@ const AboutInfo = () => {
     return (
         <div>
             <StyledContainer>
-                <Row>
-                    <Col>
-                        <Typography>
+                        <Typography className={classes.mainTitle}>
                             How it works
                         </Typography>
-                    </Col>
-                </Row>
-                <Row  className={classes.describe}>
-                    <Col className={classes.describe}>
-                        <Row>
+                        <BodyContainer>
+                        <Typography className={classes.title}>
+                            1.Order
+                        </Typography >
+                        <Typography className={classes.body}>
+                            body
+                        </Typography>
+                        <Typography className={classes.title}>
+                            2. Review
+                        </Typography >
+                        <Typography className={classes.body}>
+                            body
+                        </Typography>
+                        <Typography className={classes.title}>
+                            3. Submit
+                        </Typography>
+                        <Typography className={classes.body}>
+                            body
+                        </Typography>
+                        <Typography className={classes.title}>
+                            4. Get Notified
+                        </Typography>
+                        <Typography className={classes.body}>
+                            body
+                        </Typography>
+                        </BodyContainer>
+        
+            
                             <LocalDrink className={classes.icon}/>
-                        </Row>
-                        <Row>
-                        <Typography>
-                            How it works
-                        </Typography>
-                        </Row>
-                    </Col>
-                    <Col  className={classes.describe}>
-                    <Row>
-                            <PhoneIphone className={classes.icon}/>
-                        </Row>
-                        <Row>
-                        <Typography>
-                            How it works
-                        </Typography>
-                        </Row>
-                    </Col>
-                </Row>
+                
+            
+                       
             </StyledContainer>
         </div>
     )
@@ -52,9 +58,15 @@ export default AboutInfo;
 
 
 const useStyles = makeStyles({
-    appTitle: {
+    mainTitle: {
         color: 'White',
-        fontSize: '30px'
+        fontSize: '30px',
+    },
+    body: {
+        color: 'white'
+    },
+    title: {
+    color: 'White',
     },
     icon: {
         color: 'white',
@@ -62,7 +74,8 @@ const useStyles = makeStyles({
     },
     describe: {
         textAlign: 'center',
-        // marginLeft: '5%'
+        // marginLeft: '15%',
+        // display: 'unset'
     }
 })
 
@@ -72,3 +85,8 @@ const useStyles = makeStyles({
   background: linear-gradient(to right top, #5c258d, #5e23a7, #5c22c3, #5222e0, #3826ff);
   text-align: center;
   `;
+
+  const BodyContainer = styled (Container)`
+  background: linear-gradient(to right top, #5c258d, #5e23a7, #5c22c3, #5222e0, #3826ff);
+  text-align: left;
+  `

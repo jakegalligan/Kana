@@ -47,14 +47,14 @@ const LandingPage = () => {
                   </Link> 
           </StyledJumbotron>
           </StyledDiv>
-          <AboutInfo />
+          {/* <AboutInfo /> */}
         </Fragment>
     )
   };
 
   //create styling for jumbotron
   const StyledJumbotron = styled(Jumbotron)`
-    height: 80vh;
+    height: 100vh;
     // background-color: linear-gradient(to right top, #5c258d, #5e23a7, #5c22c3, #5222e0, #3826ff);
     // background-image: url('http://www.wineclassifieds.co.za/wp-content/uploads/2016/12/1480606941_champagne-bottle-label-bocal.png');
     // width: 40vw;
@@ -64,7 +64,7 @@ const LandingPage = () => {
   `;
 
   const StyledDiv = styled(Container)`
-  // height: 80vh;
+  // height: 100vh;
   // width: 400;
   background: linear-gradient(to right top, #5c258d, #5e23a7, #5c22c3, #5222e0, #3826ff);
   // background-image: url('https://cdn4.iconfinder.com/data/icons/food-vol-3-2/48/147-512.png');

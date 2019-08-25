@@ -125,17 +125,21 @@ const Order = (props) => {
 
 const useStyles = makeStyles({
   card: {
-    minWidth: 275,
-    width: '60%',
-    margin: '8px',
+    // minWidth: 275,
+    // maxWidth: 275,
+    width: '50%',
+    // marginLeft: '1%',
+    marginTop: '8px',
     background: '#282828',
     boxShadow: '0 3px 5px 2px rgba(45, 45, 45, 1)',
 
   },
   cardClaimed: {
-    minWidth: 275,
-    width: '60%',
-    margin: '8px',
+    // minWidth: 400,
+    // maxWidth: 400,
+    width: '50%',
+    // marginLeft: '1%',
+    marginTop: '8px',
     borderStyle: 'solid',
     borderColor: '#007d04',
     background: '#282828',
@@ -144,8 +148,10 @@ const useStyles = makeStyles({
   },
 
   cardUrgent: {
-    minWidth: 275,
-    width: '60%',
+    // maxWidth: 400,
+    // minWidth: 400,
+    width: '50%',
+    // marginLeft: '1%',
     marginTop: '8px',
     borderStyle: 'solid',
     borderColor: '#990000',
@@ -157,8 +163,13 @@ const useStyles = makeStyles({
     color: 'white',
     fontSize: 14,
     fontStyle: 'italic',
+    // width: '50%'
   },
   drinkName:{
+    color: 'white',
+    fontSize: 14,
+  },
+  name: {
     color: 'white',
     fontSize: 14,
   },

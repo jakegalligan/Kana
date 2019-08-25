@@ -6,6 +6,15 @@ import {fetchOrders} from '../../actions';
 import HeaderBar from '../shared/HeaderBar';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grow } from '@material-ui/core';
+import Drawer from '@material-ui/core/Drawer';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import List from '@material-ui/core/List';
+import Typography from '@material-ui/core/Typography';
+import Divider from '@material-ui/core/Divider';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
 
 
 
@@ -33,15 +42,39 @@ const OrderBacklog = (props) => {
         
     return (
         <div>
+
         <HeaderBar />
         <Container className={classes.container}>
             <Row>
-                <Col md={4} className={classes.statscontainer}>
-                    stats
+                <Col className={classes.sideBar} md={2}>
+                    <Container className={classes.sideBarContent}>
+                        <Container className={classes.sideBarItem}>
+                        Order History
+                        </Container>
+                        <Container className={classes.sideBarItem}>
+                        Drink Recipes
+                        </Container>
+                        <Container className={classes.sideBarItem}>
+                       Timesheets
+                        </Container>
+                        <Container className={classes.sideBarItem}>
+                        Manager Portal
+                        </Container>
+                        <Container className={classes.sideBarItem}>
+                        Kana Support 
+                        </Container>
+                    </Container>
                 </Col>
-                <Col md={{span: 8}}className={classes.orderscontainer}>
+                <Col md={{span: 9}}className={classes.orderscontainer}>
                     <Row>
+                        <Container className={classes.ordersHeader}>
+                           Orders
+                        </Container>
+                    </Row>
+                    <Row>
+                        {/* <Col> */}
                         {props.orders.length>=1?renderUncompletedOrders(): ''}
+                        {/* </Col> */}
                     </Row>
                 </Col>
             </Row>
@@ -66,13 +99,41 @@ const OrderBacklog = (props) => {
         // height: '200vh',
         paddingRight: '5%',
         width: '100vw',
-        maxWidth: '100vw'
+        maxWidth: '100vw',
+        marginTop: '1%'
     },
     orderscontainer: {
-        // backgroundColor: 'white',
-        // height: '100vh'
+        backgroundColor: 'white',
+        height: '100vh',
+        textAlign: 'center'
     },
+    ordersHeader: {
+        background: 'linear-gradient(to right top, #5c258d, #5e23a7, #5c22c3, #5222e0, #3826ff)',
+        height: '8vh',
+        width: '100vw',
+        maxWidth: '2000px',
+        color: 'white',
+        fontSize: '30px'
+  },
     statscontainer: {
-        height:'100vh'
+        // height:'100vh'
+    },
+    sideBarContent: {
+        // marginTop: '5%',
+        color: 'white',
+        fontSize: '25px',
+        width: '120%'
+
+    },
+    sideBarItem: {
+        // margin: '10%',
+        // borderTop: 'solid 2px',
+        // borderBottom: 'solid 2px',
+        boxShadow: '0 3px 5px 2px rgba(60, 60, 60, .5)',
+        width: '100%',
+        marginLeft: '-8%',
+        height: '10vh',
+        padding: '10%'
+
     }
 });
