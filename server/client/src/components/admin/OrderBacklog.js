@@ -43,11 +43,14 @@ const OrderBacklog = (props) => {
     return (
         <div>
 
-        <HeaderBar />
+        {/* <HeaderBar /> */}
         <Container className={classes.container}>
             <Row>
                 <Col className={classes.sideBar} md={2}>
                     <Container className={classes.sideBarContent}>
+                    <Container className={classes.sideBarTitle}>
+                        Kana
+                        </Container>
                         <Container className={classes.sideBarItem}>
                         Order History
                         </Container>
@@ -104,11 +107,11 @@ const OrderBacklog = (props) => {
     },
     orderscontainer: {
         backgroundColor: 'white',
-        height: '100vh',
+        height: '200vh',
         textAlign: 'center'
     },
     ordersHeader: {
-        background: 'linear-gradient(to right top, #5c258d, #5e23a7, #5c22c3, #5222e0, #3826ff)',
+        background: '#282828',
         height: '8vh',
         width: '100vw',
         maxWidth: '2000px',
@@ -118,6 +121,9 @@ const OrderBacklog = (props) => {
     statscontainer: {
         // height:'100vh'
     },
+    sideBar: {
+        background: '#282828',
+    },
     sideBarContent: {
         // marginTop: '5%',
         color: 'white',
@@ -125,11 +131,17 @@ const OrderBacklog = (props) => {
         width: '120%'
 
     },
+    sideBarTitle: {
+        color: 'white',
+        fontSize: '30px',
+        marginBottom: '20%'
+    },
     sideBarItem: {
         // margin: '10%',
         // borderTop: 'solid 2px',
-        // borderBottom: 'solid 2px',
-        boxShadow: '0 3px 5px 2px rgba(60, 60, 60, .5)',
+        borderBottom: 'solid 2px',
+        borderColor: 'white',
+        // boxShadow: '0 3px 5px 2px rgba(60, 60, 60, .5)',
         width: '100%',
         marginLeft: '-8%',
         height: '10vh',
