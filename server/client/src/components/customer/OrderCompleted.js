@@ -20,7 +20,7 @@ const OrderCompleted = (props) => {
     const classes=useStyles();
     return (
         <div>
-        <HeaderBar />
+        {/* <HeaderBar /> */}
        <Container className={classes.container}>
            <Row>
                <Col>
@@ -73,15 +73,22 @@ const useStyles = makeStyles({
       textAlign: 'center',
       margin: '5px',
       color: 'white',
-      marginTop: '5%'
+      marginTop: '5%',
+      fontFamily: '\'Raleway\', sans-serif',
+
   },
   mainHeader: {
       fontSize: '50px',
-      color: 'white'
+      color: 'white',
+      marginTop: '25%',
+      fontFamily: '\'Raleway\', sans-serif',
+
   },
   mainBody: {
       fontSize: '20px',
       color: 'white',
+      fontFamily: '\'Raleway\', sans-serif',
+
   },
   icon: {
       fontSize: '60px',

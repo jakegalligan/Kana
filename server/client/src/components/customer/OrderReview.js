@@ -115,7 +115,6 @@ const OrderReview = (props) => {
             </Container>
         </StyledNavbar>
         <Container className={classes.container}>
-            <Link namey={props.name}to = {`/customer/menu`}>Back to Menu</Link>
             {renderCart()}
             <Container >
                 <Row className={classes.subTotalRow}>
@@ -178,14 +177,16 @@ const OrderReview = (props) => {
       position: 'fixed',
       top: 'auto',
       bottom: 0,
-      zindex: 1
+      zindex: 1,
+      background: 'linear-gradient(to right top, #5c258d, #5e23a7, #5c22c3, #5222e0, #3826ff)',
+
     },
     toolBar: {
       zindex: 1
     },
 
     buttonCheckout: {
-      background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+      background: 'linear-gradient(to right top, #5c258d, #5e23a7, #5c22c3, #5222e0, #3826ff)',
       border: 0,
       borderRadius: 3,
       boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
@@ -227,6 +228,8 @@ const OrderReview = (props) => {
         fontSize: '20px',
         color: 'white',
         textAlign: 'right',
+        fontFamily: '\'Raleway\', sans-serif',
+
         // marginTop: '40%' 
 
     },
@@ -239,22 +242,31 @@ const OrderReview = (props) => {
         color: 'white',
         textAlign: 'left',
         // marginTop: '40%' 
+        fontFamily: '\'Raleway\', sans-serif',
+
     },
     total: {
         fontSize: '25px',
         color: 'white',
-        textAlign: 'right'
+        textAlign: 'right',
+        fontFamily: '\'Raleway\', sans-serif',
+
     },
     totalcolumn: {
         alignText: 'left'
     },
     appTitle: {
         color: 'White',
-        fontSize: '30px'
+        fontSize: '30px',
+        fontFamily: '\'Raleway\', sans-serif',
+
     },
     containerNavBar: {
       textAlign: 'center' ,
       display: 'in-line' 
+    },
+    icon: {
+        color:'white'
     }
 }));
 

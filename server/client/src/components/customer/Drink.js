@@ -60,6 +60,9 @@ const useStyles = makeStyles(theme => ({
     fab: {
       margin: theme.spacing(1),
       height: '6vh',
+      background: 'linear-gradient(to right top, #5c258d, #5e23a7, #5c22c3, #5222e0, #3826ff)',
+
+      
     },
     extendedIcon: {
       marginRight: theme.spacing(1),
@@ -75,18 +78,25 @@ const useStyles = makeStyles(theme => ({
         textAlign: 'center'
     },
     name: {
-        color: 'white'
+        color: 'white',
+        fontFamily: '\'Raleway\', sans-serif',
+
     },
     abv: {
         color: 'white',
-        fontSize: '12px'
+        fontSize: '12px',
+        fontFamily: '\'Raleway\', sans-serif',
+
     },
     price: {
         color: 'white',
-        fontSize: '12px'
+        fontSize: '12px',
+        fontFamily: '\'Raleway\', sans-serif',
+
     },
     descriptor: {
         color: 'white',
+        fontFamily: '\'Raleway\', sans-serif',
         marginTop: '50%',
         fontStyle: 'italic'
         // borderStyle: 'solid',

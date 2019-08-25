@@ -69,6 +69,6 @@ const useStyles = makeStyles({
 
   //create styling for container
   const StyledContainer = styled(Container)`
-    background-color: gray;
-    text-align: center;
+  background: linear-gradient(to right top, #5c258d, #5e23a7, #5c22c3, #5222e0, #3826ff);
+  text-align: center;
   `;

@@ -9,8 +9,9 @@ import uuidv1 from 'uuid'
 import Typography from '@material-ui/core/Typography';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserLock } from '@fortawesome/free-solid-svg-icons';
-import {Container, Row, Col} from 'react-bootstrap';
 import AboutInfo from './AboutInfo';
+import {Container, Row, Col} from 'react-bootstrap';
+
 
 
 
@@ -21,8 +22,10 @@ const LandingPage = () => {
 
     return (
         <Fragment>
-          <HeaderBar/>
+          {/* <HeaderBar/> */}
+          <StyledDiv>
           <StyledJumbotron>
+            {/* <img className={classes.picture} src='http://www.wineclassifieds.co.za/wp-content/uploads/2016/12/1480606941_champagne-bottle-label-bocal.png' /> */}
               <Typography className={classes.header}>
                 Kana
               </Typography>
@@ -43,6 +46,7 @@ const LandingPage = () => {
                   </Button>
                   </Link> 
           </StyledJumbotron>
+          </StyledDiv>
           <AboutInfo />
         </Fragment>
     )
@@ -51,11 +55,24 @@ const LandingPage = () => {
   //create styling for jumbotron
   const StyledJumbotron = styled(Jumbotron)`
     height: 80vh;
-    background-color: gray;
-    // background-image: url('https://static.vecteezy.com/system/resources/previews/000/207/756/non_2x/people-drinking-in-a-busy-bar-vector.jpg');
+    // background-color: linear-gradient(to right top, #5c258d, #5e23a7, #5c22c3, #5222e0, #3826ff);
+    // background-image: url('http://www.wineclassifieds.co.za/wp-content/uploads/2016/12/1480606941_champagne-bottle-label-bocal.png');
+    // width: 40vw;
+
     text-align: center;
-    background-size: 1000px
+    // background-size: 1000px
   `;
+
+  const StyledDiv = styled(Container)`
+  // height: 80vh;
+  // width: 400;
+  background: linear-gradient(to right top, #5c258d, #5e23a7, #5c22c3, #5222e0, #3826ff);
+  // background-image: url('https://cdn4.iconfinder.com/data/icons/food-vol-3-2/48/147-512.png');
+  background-repeat: no-repeat
+  text-align: center;
+  // background-size: 800px
+  // margin-right: 50%
+`;
 
     //create styline for button
 const useStyles = makeStyles({
@@ -67,15 +84,18 @@ const useStyles = makeStyles({
       color: 'white',
       height: 48,
       padding: '0 30px',
+      fontFamily: '\'Roboto\', sans-serif'
+
     },
     header: {
       color: 'white',
       fontFamily: '\'Raleway\', sans-serif',
-      fontSize: '15vh'
+      fontSize: '15vh',
+
     },
     body: {
       color: 'white',
-      fontFamily: '\'Roboto\', sans-serif'
+      fontFamily: '\'Raleway\', sans-serif',
     }
   });
 

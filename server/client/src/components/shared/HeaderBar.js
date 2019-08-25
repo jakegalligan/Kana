@@ -38,7 +38,8 @@ height: 8vh;
 const useStyles = makeStyles({
     appTitle: {
         color: 'White',
-        fontSize: '30px'
+        fontSize: '30px',
+        fontFamily: '\'Raleway\', sans-serif',
     }
 })
 

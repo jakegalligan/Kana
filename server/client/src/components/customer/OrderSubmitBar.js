@@ -183,7 +183,7 @@ const useStyles = makeStyles({
       top: 'auto',
       bottom: 0,
       zindex: 1,
-      background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+      background: 'linear-gradient(to right top, #5c258d, #5e23a7, #5c22c3, #5222e0, #3826ff)',
       // textAlign: 'center'
     },
     toolBar: {
@@ -207,7 +207,7 @@ const useStyles = makeStyles({
       marginTop: '-10px'
     },
     buttonCheckout: {
-      background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+      background: 'linear-gradient(to right top, #5c258d, #5e23a7, #5c22c3, #5222e0, #3826ff)',
       border: 0,
       borderRadius: 3,
       boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
@@ -241,17 +241,23 @@ const useStyles = makeStyles({
     },
     label: {
       fontSize: '11px',
-      color: 'white'
+      color: 'white',
+      fontFamily: '\'Raleway\', sans-serif',
+
     },
     labelTitle: {
       color: 'white',
       fontSize: '15px',
-      marginBottom: '15px'
+      marginBottom: '15px',
+      fontFamily: '\'Raleway\', sans-serif',
+
     },
     labelNotes: {
       fontSize: '10px',
       color: 'white',
-      marginTop: '20px'
+      marginTop: '20px',
+      fontFamily: '\'Raleway\', sans-serif',
+
     }
 });
 
