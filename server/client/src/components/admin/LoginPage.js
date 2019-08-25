@@ -21,7 +21,7 @@ const LoginPage = () => {
     const handleLogIn = (e) => {
         e.preventDefault();
         //if the username and password are correct set the redirect value to true
-        if (username =='admin' && password=='jg1996') {
+        if (username =='admin' && password=='password') {
             setRedirect(true);
         } else {
             setErrortext(true)
@@ -54,8 +54,9 @@ const LoginPage = () => {
 
 
     return (
+        <div>
+        <HeaderBar  />
         <Container className={classes.container}>
-            <HeaderBar  />
             <br />
             <Typography className={classes.loginHeader}> Login</Typography>
             <br />
@@ -77,6 +78,7 @@ const LoginPage = () => {
             {redirect? renderRedirect(): ''}
             </Container>
         </Container>
+        </div>
     )
   };
 
@@ -93,20 +95,21 @@ const LoginPage = () => {
         //   background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
           height: '50vh',
         //   width: '50vw',
-          width: '50%',
+          width: '90%',
         //   borderWidth: '20px',
-        //   borderStyle: 'solid',
-        //   borderColor: 'purple',
+          borderStyle: 'solid',
+          borderColor: 'white',
       },
       container: {
           height: '100vh',
           width: '100vw',
           textAlign: 'center',
           alignItems: 'center',
-          borderStyle: 'solid',
-          borderColor: 'purple',  
-          borderWidth: '15px',        
-          background: 'url(http://redpithemes.com/Documentation/assets/img/page_bg/page_bg_blur02.jpg)',
+        //   borderStyle: 'solid',
+        //   borderColor: 'purple',  
+        //   borderWidth: '15px', 
+            maxWidth: '100vw',      
+          background: 'url(https://www.bevspot.com/hubfs/bigstock-Classic-bar-counter-with-bottl-44764840-1396x900.jpg)',
     },
       button: {
         background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',

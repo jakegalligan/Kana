@@ -124,25 +124,39 @@ const useStyles = makeStyles({
     minWidth: 275,
     width: '60%',
     margin: '8px',
+    background: '#282828',
+    boxShadow: '0 3px 5px 2px rgba(45, 45, 45, 1)',
+
   },
   cardClaimed: {
     minWidth: 275,
     width: '60%',
     margin: '8px',
-    backgroundColor: '#007d04'
+    borderStyle: 'solid',
+    borderColor: '#007d04',
+    background: '#282828',
+    boxShadow: '0 3px 5px 2px rgba(100, 45, 45, 1)',
+
   },
 
   cardUrgent: {
     minWidth: 275,
     width: '60%',
     marginTop: '8px',
-    backgroundColor: '#990000'
+    borderStyle: 'solid',
+    borderColor: '#990000',
+    background: '#282828',
+    boxShadow: '0 3px 5px 2px rgba(100, 45, 45, 1)',
+
   },
   title: {
+    color: 'white',
     fontSize: 14,
     fontStyle: 'italic',
   },
   pos: {
     marginBottom: 12,
+    color: 'white',
+
   },
 });
