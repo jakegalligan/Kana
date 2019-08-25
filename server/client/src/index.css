@@ -37,4 +37,8 @@
     margin-top: 13px !important;
 }
 
+.navbar>.container {
+    display: inline !important;
+}
+
 

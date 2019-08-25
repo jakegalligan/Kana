@@ -48,22 +48,22 @@ const DrinkCategories = (props) => {
             <Row>
                 <Col xs={3} value='Specials'>
                     <Button variant="contained"  className={classes.button} onClick={getSpecials} value='Specials'>
-                    <FontAwesomeIcon icon={faGlassCheers} />
+                    <FontAwesomeIcon className={classes.icon} icon={faGlassCheers} />
                     </Button>
                 </Col>
                 <Col xs={3}>
                 <Button variant="contained"  className={classes.button} onClick={getBeer} value='Beer'>
-                    <FontAwesomeIcon icon={faCocktail} value='Beer' />
+                    <FontAwesomeIcon className={classes.icon} icon={faBeer} value='Beer' />
                 </Button>
                 </Col>
                 <Col xs={3}>
                 <Button className={classes.button} onClick={getCocktails} value='Cocktail'>
-                    <FontAwesomeIcon icon={faCocktail} value='Cocktail' />
+                    <FontAwesomeIcon className={classes.icon} icon={faCocktail} value='Cocktail' />
                     </Button>
                 </Col>
                 <Col xs={3}>
                 <Button className={classes.button} onClick={getWine} value='Wine'>
-                    <FontAwesomeIcon icon={faWineGlass} value='Wine' />
+                    <FontAwesomeIcon className={classes.icon} icon={faWineGlass} value='Wine' />
                     </Button>
                 </Col>
             </Row>
@@ -123,6 +123,9 @@ const useStyles = makeStyles({
     },
     buttonWrapper: {
         zIndex: '10'
+    },
+    icon: {
+        fontSize: '30px'
     }
   });
 

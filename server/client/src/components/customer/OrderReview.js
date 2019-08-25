@@ -96,26 +96,26 @@ const OrderReview = (props) => {
             <Link namey={props.name}to = {`/customer/menu`}>Back to Menu</Link>
             {renderCart()}
             <Container >
-                <Row>
+                <Row className={classes.subTotalRow}>
                     <Col>
                     <Typography className={classes.subtotalPlusTax}>Subtotal</Typography>
                     </Col>
                     <Col xs={{span:2, offset: 6}}>
-                        <Typography className={classes.subtotal}> {getTotal()}</Typography>
+                        <Typography className={classes.subtotal}>${getTotal()}</Typography>
                     </Col>
                 </Row>
-                <Row>
+                <Row className={classes.taxRow}>
                     <Col>
                         <Typography className={classes.subtotalPlusTax}>Tax</Typography>
                     </Col>
                     <Col xs={{span:3, offset: 6}}>
-                        <Typography className={classes.subtotal}>{getTax(getTotal())}</Typography>
+                        <Typography className={classes.subtotal}>${getTax(getTotal())}</Typography>
                     </Col>
                 </Row>
                 <Row>
                     <Col className={classes.totalcolumn} xs={{span:3, offset: 9}}>
                     <Typography className={classes.total}>Total</Typography>
-                    <Typography className={classes.total}>{getTax(getTotal()) + getTotal()}</Typography>    
+                    <Typography className={classes.total}>${getTax(getTotal()) + getTotal()}</Typography>    
                     </Col>
                 </Row>
             </Container>
@@ -198,15 +198,25 @@ const OrderReview = (props) => {
     menu: {
       width: 200,
     },
+    taxRow: {
+        marginBottom: '20%'
+    },
     subtotal: {
-        fontSize: '15px',
+        fontSize: '20px',
         color: 'white',
-        textAlign: 'right'
+        textAlign: 'right',
+        // marginTop: '40%' 
+
+    },
+    subTotalRow: {
+        marginTop: '10%',
+        marginBottom: '10%',
     },
     subtotalPlusTax: {
-        fontSize: '15px',
+        fontSize: '20px',
         color: 'white',
-        textAlign: 'left'   
+        textAlign: 'left',
+        // marginTop: '40%' 
     },
     total: {
         fontSize: '25px',

@@ -42,7 +42,7 @@ const OrderCart = (props) => {
         props.incrementDrink(props.name);
     }
     return (
-        <Container>
+        <Container className={classes.container}>
             <Row>
                 <Col>
                     <Row>
@@ -52,7 +52,7 @@ const OrderCart = (props) => {
                     </Row>
                     <Row>
                         <Typography className={classes.drinkPrice}>
-                            Price: {props.price * props.quantity}
+                            ${props.price * props.quantity}
                         </Typography>
                     </Row>
                 </Col>
@@ -102,6 +102,9 @@ const useStyles = makeStyles(theme => ({
     },
     rightsideContainer: {
         textAlign: 'center'
+    },
+    container: {
+        boxShadow: '0 3px 5px 2px rgba(45, 45, 45, .3)',
     },
     icon: {
         zIndex: 1
