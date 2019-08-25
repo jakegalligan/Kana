@@ -94,25 +94,24 @@ const OrderReview = (props) => {
 
     return (
         <div>           
-             {/* <HeaderBar /> */} <StyledNavbar>
-                 <Container className={classes.container}>
-                     <Row>
-                     <Col xs={2}>
-                            <Typography className={classes.appTitle}>
-                                <Link to='/'>
-                                <FontAwesomeIcon icon={faAngleLeft} className={classes.icon}/>
-                                </Link>
-                            </Typography>
-                         </Col>
-                         <Col xs={{offset: 2}}>
-                            <Typography className={classes.appTitle}>
-                                Menu
-                            </Typography>
-                        </Col>
-                         <Col >
-
-                         </Col>
-                     </Row>
+        <StyledNavbar>
+            <Container className={classes.containerNavbar}>
+                <Row>
+                <Col xs={2}>
+                    <Typography className={classes.appTitle}>
+                        <Link to='/customer/menu'>
+                        <FontAwesomeIcon icon={faAngleLeft} className={classes.icon}/>
+                        </Link>
+                    </Typography>
+                    </Col>
+                    <Col xs={{offset: 3}}>
+                    <Typography className={classes.appTitle}>
+                        Tab
+                    </Typography>
+                </Col>
+                    <Col >\
+                    </Col>
+                </Row>
             </Container>
         </StyledNavbar>
         <Container className={classes.container}>
@@ -248,6 +247,14 @@ const OrderReview = (props) => {
     },
     totalcolumn: {
         alignText: 'left'
+    },
+    appTitle: {
+        color: 'White',
+        fontSize: '30px'
+    },
+    containerNavBar: {
+      textAlign: 'center' ,
+      display: 'in-line' 
     }
 }));
 

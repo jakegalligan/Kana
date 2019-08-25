@@ -11,6 +11,7 @@ import { makeStyles } from '@material-ui/styles';
 
 
 const HeaderBar = () => {
+    
     const classes= useStyles();
     return (
         <StyledNavbar>
@@ -29,7 +30,7 @@ export default HeaderBar;
 
 //set styling for navbar
 const StyledNavbar = styled(Navbar)`
-background: linear-gradient(to right top, #5c258d, #5e23a7, #5c22c3, #5222e0, #3826ff);
+// background: linear-gradient(to right top, #5c258d, #5e23a7, #5c22c3, #5222e0, #3826ff);
 height: 8vh;
 `;
 
@@ -40,3 +41,4 @@ const useStyles = makeStyles({
         fontSize: '30px'
     }
 })
+

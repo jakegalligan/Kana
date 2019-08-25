@@ -52,8 +52,9 @@ const LandingPage = () => {
   const StyledJumbotron = styled(Jumbotron)`
     height: 80vh;
     background-color: gray;
-    // background-image: url('https://media.istockphoto.com/photos/empty-wooden-bar-counter-picture-id624494724?k=6&m=624494724&s=612x612&w=0&h=_rBlLq5e6ZklWpz2gCDI06IUmms2I4LuntrbxFo5w3A=');
+    // background-image: url('https://static.vecteezy.com/system/resources/previews/000/207/756/non_2x/people-drinking-in-a-busy-bar-vector.jpg');
     text-align: center;
+    background-size: 1000px
   `;
 
     //create styline for button

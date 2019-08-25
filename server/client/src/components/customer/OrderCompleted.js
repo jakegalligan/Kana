@@ -27,6 +27,7 @@ const OrderCompleted = (props) => {
                     <Typography className={classes.mainHeader}>
                     Cheers {props.name}
                     </Typography>
+                    <img className={classes.image} src='https://cdn0.iconfinder.com/data/icons/modern-icons-supermix-3/100/cheers-512.png' />
                     <Typography className={classes.mainBody}>
                     Your order has been submitted!
                     </Typography>
@@ -34,17 +35,16 @@ const OrderCompleted = (props) => {
            </Row>
            <Row>
                <Col xs={12}>
-                   <Paper className={classes.paper}>
+                   {/* <Paper className={classes.paper}> */}
                <Typography className={classes.bodyHeader}>
-                    <PhoneIphone className={classes.icon} />
                     </Typography>
                     <Typography className={classes.body}>
-                    When your order is ready you will be texted
+                    Upon complettion of your order you will be notified via text
                     </Typography>
                     <Link to ='/'>
-                        <Button className={classes.button}>Back To Menu</Button>
+                        <Button className={classes.button}>Back To Homepage</Button>
                     </Link>
-                    </Paper>
+                    {/* </Paper> */}
                </Col>
             </Row>
        </Container>
@@ -55,7 +55,8 @@ const OrderCompleted = (props) => {
 
   const mapStateToProps =(state) => {
 	return {
-		name: state.name
+        name: state.name,
+        number: state.number
 	}
 }
 
@@ -71,7 +72,8 @@ const useStyles = makeStyles({
   body: {
       textAlign: 'center',
       margin: '5px',
-      color: 'white'
+      color: 'white',
+      marginTop: '5%'
   },
   mainHeader: {
       fontSize: '50px',
@@ -79,7 +81,7 @@ const useStyles = makeStyles({
   },
   mainBody: {
       fontSize: '20px',
-      color: 'white'
+      color: 'white',
   },
   icon: {
       fontSize: '60px',
@@ -93,8 +95,15 @@ const useStyles = makeStyles({
 
   },
   button: {
+      marginTop: '10%',
+      borderWidth: '5px',
       borderStyle: 'solid',
-      borderColor: 'white'
+      borderColor: 'white',
+      color: 'white'
+  }, 
+  image: {
+      width: '80%',
+      marginTop: '-10%'
   }
   });
 
