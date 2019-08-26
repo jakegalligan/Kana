@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';import {Link, Redirect} from 'r
 import { makeStyles } from '@material-ui/core/styles';import AppBar from '@material-ui/core/AppBar';import Toolbar from '@material-ui/core/Toolbar';import Button from '@material-ui/core/Button';import TextField from '@material-ui/core/TextField';
 import styled from "styled-components";import ModalDialog from 'react-bootstrap/ModalDialog';import ModalBody from 'react-bootstrap/ModalBody';import {submitOrder, setName, setNumber} from '../../actions';
 import uuidv1 from 'uuid';import Typography from '@material-ui/core/Typography';import Slide from '@material-ui/core/Slide';
-import Zoom from '@material-ui/core/Zoom';import Grow from '@material-ui/core/Grow';
+import Zoom from '@material-ui/core/Zoom';import Grow from '@material-ui/core/Grow';import {Container, Row, Col} from 'react-bootstrap';
 
 const OrderSubmitBar = (props) => {
     //import styling
@@ -88,7 +88,17 @@ const OrderSubmitBar = (props) => {
       </div>
       )
     }
-    
+    const numItemsInCart = () => {
+        return props.cart.reduce((sum, drink) => {
+          console.log(drink.quantity);
+          return sum + drink.quantity
+      }, 0)
+    }
+    useEffect(() => {
+      //rerender number of carts every second
+      setInterval(()=>{numItemsInCart()},3000);
+      
+  },[props.cart[0]])
 
     return (
         <div className={classes.appBar}>
@@ -134,7 +144,17 @@ const OrderSubmitBar = (props) => {
         <AppBar position="static" className={classes.appBar}>
         <Grow in={true} timeout={800}>
           <Toolbar className={classes.toolBar} >
+            <Container className={classes.bottomBar}>
+            <Row>
            {showModal? <div></div>:<Button onClick={() => checkOut()} className = {classes.buttonCheckout}>Checkout</Button>}
+           </Row>
+           <Row className={classes.items}>
+             <Col xs={{span: 4, offset: 4}}>
+           Drinks: {numItemsInCart()}
+           </Col>
+
+           </Row>
+           </Container>
           </Toolbar>
           </Grow>
         </AppBar>
@@ -194,6 +214,7 @@ const useStyles = makeStyles({
       left: 0,
       right: 0,
       margin: '0 auto',
+      marginBottom: '-5%'
     },
     container: {
       display: 'flex',
@@ -209,8 +230,21 @@ const useStyles = makeStyles({
       fontStyle: 'italic',
       fontSize: '10px'
     },
+    items: {
+      // marginLeft: '50%'
+      marginBottom: '2%',
+      fontfamily: '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji',
+      fontSize: '12px',
+      fontWeight: '400',
+      lineHeight: '1.5', 
+      // marginTop: '-90%',
+      fontStyle: 'italic'
+       },
     menu: {
       width: 200,
+    },
+    bottomBar: {
+      textAlign: 'center',
     },
     label: {
       fontSize: '11px',

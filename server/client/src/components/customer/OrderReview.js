@@ -6,12 +6,13 @@ import Typography from '@material-ui/core/Typography';import { textAlign } from 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';import Navbar from 'react-bootstrap/Navbar';
     
 const OrderReview = (props) => {
+    let uId1 = uuidv1();
+
     const classes=useStyles();
     //create state to store whether or not to render the spinner
     const[showSpinner, setShowSpinner] = useState(false);
     //initilaize state redirect which when true redirects user to completed order menu
     const [redirect, setRedirect] = useState(false);
-    //map through the cart and render each time
 
     //when the submit order button is clicked send order to bartenders
     const submitOrder = () => {
@@ -20,7 +21,6 @@ const OrderReview = (props) => {
         //set the showSpinner value to true when the submit Order buttons is clicked
         setShowSpinner(true);
         //create a unique id to identify the order
-        let uId1 = uuidv1();
         //get current date/time to know when data was made
         let currentDate = new Date();
         //format information to be properly stored in server
@@ -55,8 +55,11 @@ const OrderReview = (props) => {
         return Math.round(100 * tax)/100;
     }
     const renderCart = () => {
+        console.log(props.cart);
          return props.cart.map((drink) => {
+             console.log(drink);
              if (drink.quantity >=1) {
+                 console.log(drink.name)
             return (
                 <OrderCart
                 name={drink.name}
@@ -101,7 +104,7 @@ const OrderReview = (props) => {
                     <Col>
                     <Typography className={classes.subtotalPlusTax}>Subtotal</Typography>
                     </Col>
-                    <Col xs={{span:2, offset: 6}}>
+                    <Col >
                         <Typography className={classes.subtotal}>${getTotal()}</Typography>
                     </Col>
                 </Row>
