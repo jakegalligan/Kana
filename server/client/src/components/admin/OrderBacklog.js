@@ -20,7 +20,7 @@ import HistoryIcon from '@material-ui/icons/History';
 import NotesIcon from '@material-ui/icons/Notes';
 import SupervisorAccount from '@material-ui/icons/SupervisorAccount';
 import ContactSupport from '@material-ui/icons/ContactSupport';
-
+import moment from 'moment'
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 
@@ -53,11 +53,21 @@ const OrderBacklog = (props) => {
       <CssBaseline />
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
+            <Container>
+            <Row>
+                <Col>
             <Link to ='/'>
           <Typography className={classes.headerText} variant="h6" noWrap>
-            Kana
+            Kana 
           </Typography>
           </Link>
+          </Col>
+          <Col md={{span:2, offset: 6}}>
+          <Typography className={classes.clock} variant="h6" noWrap>
+            {moment().format('hh:mm:ss')}
+          </Typography>
+          </Col></Row>
+          </Container>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -190,6 +200,11 @@ const useStyles = makeStyles(theme => ({
     background: '#282828',
     color: 'white'
 
+  },
+  clock: {
+    //   marginLeft: '70%',
+    color: 'white',
+    fontSize: '30px'
   },
   content: {
     flexGrow: 1,
