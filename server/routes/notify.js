@@ -21,7 +21,7 @@ const client = require('twilio')(keys.ACCOUNT_SID, keys.AUTH_TOKEN);
 
       client.messages
     .create({
-       body: `${customerName} Thanks for checking out my project! Feel free to connect with me on linkedin at: https://www.linkedin.com/in/jakegalligan/` ,
+       body: `${customerName} thanks for checking out my project! Feel free to connect with me on linkedin at: https://www.linkedin.com/in/jakegalligan/` ,
        from: '+19842144330',
        to: phoneNumber
      })
@@ -30,7 +30,7 @@ const client = require('twilio')(keys.ACCOUNT_SID, keys.AUTH_TOKEN);
     //send text message to the user
     client.messages
     .create({
-       body: `${customerName} Your order is ready! Remember to bring you driver's license and payment method when picking up your drink` ,
+       body: `${customerName} your order is ready! Remember to bring you driver's license and payment method when picking up your drink` ,
        from: '+19842144330',
        to: `+${phoneNumber}`
      })
