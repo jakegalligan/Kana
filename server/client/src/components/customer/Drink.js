@@ -1,12 +1,13 @@
 import React, {useState} from 'react';import { connect } from 'react-redux';import {Container, Row, Col} from 'react-bootstrap';import Button from 'react-bootstrap/Button';import styled from "styled-components";
 import { makeStyles } from '@material-ui/core/styles';import Fab from '@material-ui/core/Fab';import AddIcon from '@material-ui/icons/Add';import Icon from '@material-ui/core/Icon';
-import {addToCart} from '../../actions';import Typography from '@material-ui/core/Typography';import Paper from '@material-ui/core/Paper';import { borderRadius } from '@material-ui/system';
+import {addToCart, addItem} from '../../actions';import Typography from '@material-ui/core/Typography';import Paper from '@material-ui/core/Paper';import { borderRadius } from '@material-ui/system';
 
 const Drink = (props) => {
     const classes=useStyles();
     //when add drink button is clicked, add drink to cart
     const addDrink = (drink) => {
         props.addToCart(drink)
+        props.addItem();
     }
 
     return (
@@ -37,7 +38,8 @@ const Drink = (props) => {
 }
 
 const mapDispatchToProps = {
-    addToCart: addToCart
+    addToCart: addToCart,
+    addItem: addItem
 }
 export default connect(null,mapDispatchToProps)(Drink);
 

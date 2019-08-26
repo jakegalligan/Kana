@@ -10,3 +10,4 @@ export const FETCH_ORDERS = 'fetch_orders';
 export const CLAIM_DRINK = 'claim_drink';
 export const SUBMIT_DRINK = 'submit_drink';
 export const FETCH_CART = 'fetch_cart';
+export const ADD_ITEM= 'add_item';

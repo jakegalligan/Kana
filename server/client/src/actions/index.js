@@ -1,7 +1,7 @@
 import axios from 'axios'
 import {FETCH_DRINKS, ADD_TO_CART, SUBMIT_ORDER,
      ADD_NAME, ADD_NUMBER, INCREMENT_DRINK, 
-     DECREMENT_DRINK, SEND_NOTIFICATION, FETCH_ORDERS, CLAIM_DRINK,FETCH_CART} from '../actions/types'
+     DECREMENT_DRINK, SEND_NOTIFICATION, FETCH_ORDERS, CLAIM_DRINK,FETCH_CART, ADD_ITEM} from '../actions/types'
 
 const ROOT_URL = 'http://localhost:8000';
 
@@ -106,6 +106,12 @@ export const submitDrink = (drinkId) => dispatch => {
     })
     .catch (error => {
     })
+}
+
+export const addItem = () => {
+    return {
+        type: ADD_ITEM
+    }
 }
  
  

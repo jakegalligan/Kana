@@ -57,6 +57,13 @@ const mapDispatchToProps = {
     decrementDrink: decrementDrink,
     getCart: getCart
 }
+
+const mapStateToProps =(state) => {
+	return {
+        name: state.name,
+        number: state.number
+	}
+}
 export default connect(null, mapDispatchToProps)(OrderCart)
 
 

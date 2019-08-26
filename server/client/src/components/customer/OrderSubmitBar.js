@@ -94,11 +94,6 @@ const OrderSubmitBar = (props) => {
           return sum + drink.quantity
       }, 0)
     }
-    useEffect(() => {
-      //rerender number of carts every second
-      setInterval(()=>{numItemsInCart()},3000);
-      
-  },[props.cart[0]])
 
     return (
         <div className={classes.appBar}>
@@ -146,11 +141,11 @@ const OrderSubmitBar = (props) => {
           <Toolbar className={classes.toolBar} >
             <Container className={classes.bottomBar}>
             <Row>
-           {showModal? <div></div>:<Button onClick={() => checkOut()} className = {classes.buttonCheckout}>Checkout</Button>}
+           {showModal? <div></div>:<Button onClick={() => checkOut()} className = {classes.buttonCheckout}>Checkout          <br/> Drinks: {numItemsInCart()}
+</Button>}
            </Row>
            <Row className={classes.items}>
              <Col xs={{span: 4, offset: 4}}>
-           Drinks: {numItemsInCart()}
            </Col>
 
            </Row>
@@ -165,7 +160,8 @@ const OrderSubmitBar = (props) => {
 
 const mapStateToProps =(state) => {
 	return {
-		cart : state.cart
+    cart : state.cart,
+    addItem: state.addItem
 	}
 }
 

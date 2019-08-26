@@ -10,7 +10,8 @@ export default function (state = [], action) {
                 //if so increment the quantity of the drink and return state
                 if (state[i].name == drink.name) {
                     state[i].quantity ++;
-                    return state;
+                    let newCart = [...state];
+                    return newCart;
                 }
             }
             //if not add the drink to the cart
