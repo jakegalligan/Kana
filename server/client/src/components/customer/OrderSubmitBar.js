@@ -183,34 +183,39 @@ const useStyles = makeStyles({
       top: 'auto',
       bottom: 0,
       zindex: 1,
+      boxShadow: '0 3px 5px 2px rgba(45, 45, 45, .3)',
       background: 'linear-gradient(to right top, #5c258d, #5e23a7, #5c22c3, #5222e0, #3826ff)',
       // textAlign: 'center'
     },
     toolBar: {
-      zindex: 1
+      zindex: 1,
+      boxShadow: '0 3px 5px 2px rgba(45, 45, 45, .3)',
     },
     buttonModalSubmit: {
       color:'white',
       // backgroundColor: 'green',
       marginRight: '5px',
-      borderStyle: 'solid',
-      borderWidth: '1px',
+      // borderStyle: 'solid',
+      boxShadow: '0 3px 5px 2px rgba(25, 25, 25, .3)',
+      // borderWidth: '1px',
       // width: '30vw'
       marginTop: '-10px'
     },
     buttonModalClose: {
       color: 'white',
+      boxShadow: '0 3px 5px 2px rgba(25, 25, 25, .3)',
       // backgroundColor: 'yellow',
-      borderStyle: 'solid',
-      borderWidth: '1px',
+      // borderStyle: 'solid',
+      // borderWidth: '1px',
       marginRight: '5px',
       marginTop: '-10px'
     },
     buttonCheckout: {
-      background: 'linear-gradient(to right top, #5c258d, #5e23a7, #5c22c3, #5222e0, #3826ff)',
-      border: 0,
-      borderRadius: 3,
-      boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+      // background: 'linear-gradient(to right top, #5c258d, #5e23a7, #5c22c3, #5222e0, #3826ff)',
+      // border: 0,
+      // borderRadius: 3,
+      // boxShadow: '0 3px 5px 2px rgba(45, 45, 45, .3)',
+      // boxShadow: '0 3px 5px 2px rgba(45, 45, 45, .3)',
       color: 'white',
       height: 48,
       padding: '0 30px',

@@ -108,7 +108,7 @@ const useStyles = makeStyles({
       background: 'linear-gradient(to right top, #5c258d, #5e23a7, #5c22c3, #5222e0, #3826ff)',
       border: 0,
       borderRadius: 9,
-      boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+      boxShadow: '0 3px 5px 2px rgba(45, 45, 45, .3)',
       color: 'white',
       height: 48,
       width: '10px',
@@ -135,7 +135,7 @@ const useStyles = makeStyles({
    text-align: center;
    padding-right: 30px;
    position: sticky;
-   box-shadow: 0 3px 5px 2px rgba(255, 105, 135, .3);
+   box-shadow: 0 0px 3px 1px rgba(45, 45, 45, .1);
 //    border-style: solid;
 //    border-bottom: 20px;
 //    border-top: 0px;

@@ -243,6 +243,8 @@ const OrderReview = (props) => {
         textAlign: 'left',
         // marginTop: '40%' 
         fontFamily: '\'Raleway\', sans-serif',
+                fontStyle: 'italic'
+
 
     },
     total: {
@@ -250,10 +252,14 @@ const OrderReview = (props) => {
         color: 'white',
         textAlign: 'right',
         fontFamily: '\'Raleway\', sans-serif',
+        fontStyle: 'italic'
+
 
     },
     totalcolumn: {
-        alignText: 'left'
+        alignText: 'left',
+        fontStyle: 'italic'
+
     },
     appTitle: {
         color: 'White',

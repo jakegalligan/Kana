@@ -15,9 +15,9 @@ const HeaderBar = () => {
     const classes= useStyles();
     return (
         <StyledNavbar>
-            <Link to ='/'>
+            <Link to ='/admin/login'>
             <Typography className={classes.appTitle}>
-                Kana
+                Admin
             </Typography>
             </Link>
         </StyledNavbar>

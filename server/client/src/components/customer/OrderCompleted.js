@@ -103,10 +103,10 @@ const useStyles = makeStyles({
   },
   button: {
       marginTop: '10%',
-      borderWidth: '5px',
+      borderWidth: '2px',
       borderStyle: 'solid',
       borderColor: 'white',
-      color: 'white'
+      color: 'white',
   }, 
   image: {
       width: '80%',

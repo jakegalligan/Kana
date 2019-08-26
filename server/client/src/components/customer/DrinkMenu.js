@@ -45,6 +45,7 @@ const Menu = (props) => {
             <br />
             <br />
             <br />
+            <br />
             {props.cart.length>0? <OrderSubmitBar />: ''}
         </div>
     )

@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Order from './Order';
 import {Container, Row, Col} from 'react-bootstrap';
+import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import {fetchOrders} from '../../actions';
 import HeaderBar from '../shared/HeaderBar';
@@ -52,9 +53,11 @@ const OrderBacklog = (props) => {
       <CssBaseline />
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
-          <Typography variant="h6" noWrap>
+            <Link to ='/'>
+          <Typography className={classes.headerText} variant="h6" noWrap>
             Kana
           </Typography>
+          </Link>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -195,6 +198,10 @@ const useStyles = makeStyles(theme => ({
   toolbar: theme.mixins.toolbar,
   icon: {
       color: 'white'
+  },
+  headerText: {
+      color: 'white',
+      fontSize: '25px'
   }
 }));
 
