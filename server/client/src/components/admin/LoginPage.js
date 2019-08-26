@@ -55,7 +55,7 @@ const LoginPage = () => {
 
     return (
         <div>
-        <HeaderBar  />
+        {/* <HeaderBar  /> */}
         <Container className={classes.container}>
             <br />
             <Typography className={classes.loginHeader}> Login</Typography>
@@ -93,7 +93,7 @@ const LoginPage = () => {
       },
       form: {
         //   background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-          height: '50vh',
+          height: '60vh',
         //   width: '50vw',
           width: '90%',
         //   borderWidth: '20px',
@@ -109,16 +109,17 @@ const LoginPage = () => {
         //   borderColor: 'purple',  
         //   borderWidth: '15px', 
             maxWidth: '100vw',      
-          background: 'url(https://www.bevspot.com/hubfs/bigstock-Classic-bar-counter-with-bottl-44764840-1396x900.jpg)',
+        //   background: 'url(https://www.bevspot.com/hubfs/bigstock-Classic-bar-counter-with-bottl-44764840-1396x900.jpg)',
     },
       button: {
-        background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+        background: 'linear-gradient(to right top, #5c258d, #5e23a7, #5c22c3, #5222e0, #3826ff)',
         margin: '10px',
-        width: '100px'
+        width: '100px',
+        color: 'white'
       },
       loginHeader: {
         color: 'white',
-        fontFamily: '\'Roboto\', sans-serif',
+        fontFamily: '\'Raleway\', sans-serif',
         fontSize: '70px',
       }
   });

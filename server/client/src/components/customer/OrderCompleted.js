@@ -20,13 +20,14 @@ const OrderCompleted = (props) => {
     const classes=useStyles();
     return (
         <div>
-        <HeaderBar />
+        {/* <HeaderBar /> */}
        <Container className={classes.container}>
            <Row>
                <Col>
                     <Typography className={classes.mainHeader}>
                     Cheers {props.name}
                     </Typography>
+                    <img className={classes.image} src='https://cdn0.iconfinder.com/data/icons/modern-icons-supermix-3/100/cheers-512.png' />
                     <Typography className={classes.mainBody}>
                     Your order has been submitted!
                     </Typography>
@@ -34,17 +35,16 @@ const OrderCompleted = (props) => {
            </Row>
            <Row>
                <Col xs={12}>
-                   <Paper className={classes.paper}>
+                   {/* <Paper className={classes.paper}> */}
                <Typography className={classes.bodyHeader}>
-                    <PhoneIphone className={classes.icon} />
                     </Typography>
                     <Typography className={classes.body}>
-                    When your order is ready you will be texted
+                    Upon complettion of your order you will be notified via text
                     </Typography>
                     <Link to ='/'>
-                        <Button className={classes.button}>Back To Menu</Button>
+                        <Button className={classes.button}>Back To Homepage</Button>
                     </Link>
-                    </Paper>
+                    {/* </Paper> */}
                </Col>
             </Row>
        </Container>
@@ -55,7 +55,8 @@ const OrderCompleted = (props) => {
 
   const mapStateToProps =(state) => {
 	return {
-		name: state.name
+        name: state.name,
+        number: state.number
 	}
 }
 
@@ -71,15 +72,23 @@ const useStyles = makeStyles({
   body: {
       textAlign: 'center',
       margin: '5px',
-      color: 'white'
+      color: 'white',
+      marginTop: '5%',
+      fontFamily: '\'Raleway\', sans-serif',
+
   },
   mainHeader: {
       fontSize: '50px',
-      color: 'white'
+      color: 'white',
+      marginTop: '25%',
+      fontFamily: '\'Raleway\', sans-serif',
+
   },
   mainBody: {
       fontSize: '20px',
-      color: 'white'
+      color: 'white',
+      fontFamily: '\'Raleway\', sans-serif',
+
   },
   icon: {
       fontSize: '60px',
@@ -93,8 +102,15 @@ const useStyles = makeStyles({
 
   },
   button: {
+      marginTop: '10%',
+      borderWidth: '2px',
       borderStyle: 'solid',
-      borderColor: 'white'
+      borderColor: 'white',
+      color: 'white',
+  }, 
+  image: {
+      width: '80%',
+      marginTop: '-10%'
   }
   });
 

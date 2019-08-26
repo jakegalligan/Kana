@@ -9,8 +9,9 @@ import uuidv1 from 'uuid'
 import Typography from '@material-ui/core/Typography';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserLock } from '@fortawesome/free-solid-svg-icons';
-import {Container, Row, Col} from 'react-bootstrap';
 import AboutInfo from './AboutInfo';
+import {Container, Row, Col} from 'react-bootstrap';
+
 
 
 
@@ -21,8 +22,15 @@ const LandingPage = () => {
 
     return (
         <Fragment>
-          <HeaderBar/>
+          {/* <HeaderBar/> */}
+          <Link to ='/admin/login'>
+            <Typography className={classes.appTitle}>
+                Admin
+            </Typography>
+            </Link>
+          <StyledDiv>
           <StyledJumbotron>
+            {/* <img className={classes.picture} src='http://www.wineclassifieds.co.za/wp-content/uploads/2016/12/1480606941_champagne-bottle-label-bocal.png' /> */}
               <Typography className={classes.header}>
                 Kana
               </Typography>
@@ -37,24 +45,35 @@ const LandingPage = () => {
                   <br />
                   <br />
               </Link>
-              <Link to = '/admin/login'>
-                 <Button className={classes.button}>
-                      Admin
-                  </Button>
-                  </Link> 
           </StyledJumbotron>
-          <AboutInfo />
+          </StyledDiv>
+          {/* <AboutInfo /> */}
         </Fragment>
     )
   };
 
   //create styling for jumbotron
   const StyledJumbotron = styled(Jumbotron)`
-    height: 80vh;
-    background-color: gray;
-    // background-image: url('https://media.istockphoto.com/photos/empty-wooden-bar-counter-picture-id624494724?k=6&m=624494724&s=612x612&w=0&h=_rBlLq5e6ZklWpz2gCDI06IUmms2I4LuntrbxFo5w3A=');
+    height: 100vh;
+    // background: linear-gradient(to right top, #5c258d, #5e23a7, #5c22c3, #5222e0, #3826ff);
+    background-image: url('https://images.vexels.com/media/users/3/157118/isolated/preview/b727153e9914545f716099e511ade298-wine-bottle-flat-icon-by-vexels.png');
+    // width: 40vw;
+    backgrounds-ize: 180% 100%;
     text-align: center;
+    // background-size: 1000px
   `;
+
+  const StyledDiv = styled(Container)`
+  // height: 100vh;
+  // width: 400;
+  background: linear-gradient(to right top, #5c258d, #5e23a7, #5c22c3, #5222e0, #3826ff);
+  // background-image: url('https://ijcnlp2008.org/images/alcohol-clipart-glassware-2.png');
+  background-repeat: no-repeat
+  text-align: center;
+  // background-size: 800px
+  // margin-right: 50%,
+  // backgroundSize: '180% 100%'
+`;
 
     //create styline for button
 const useStyles = makeStyles({
@@ -66,15 +85,22 @@ const useStyles = makeStyles({
       color: 'white',
       height: 48,
       padding: '0 30px',
+      fontFamily: '\'Roboto\', sans-serif'
+
     },
     header: {
       color: 'white',
       fontFamily: '\'Raleway\', sans-serif',
-      fontSize: '15vh'
+      fontSize: '15vh',
+
+    },
+    appTitle: {
+      color: 'white',
+      background: 'none'
     },
     body: {
       color: 'white',
-      fontFamily: '\'Roboto\', sans-serif'
+      fontFamily: '\'Raleway\', sans-serif',
     }
   });
 

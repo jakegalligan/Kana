@@ -10,7 +10,7 @@ import {incrementDrink, decrementDrink,getCart} from '../../actions'
 import { connect } from 'react-redux';
 import { Typography } from '@material-ui/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCaretUp, faCaretDown } from '@fortawesome/free-solid-svg-icons'
+import { faAngleUp, faAngleDown } from '@fortawesome/free-solid-svg-icons'
 
 
 const OrderCart = (props) => {
@@ -42,7 +42,7 @@ const OrderCart = (props) => {
         props.incrementDrink(props.name);
     }
     return (
-        <Container>
+        <Container className={classes.container}>
             <Row>
                 <Col>
                     <Row>
@@ -52,14 +52,14 @@ const OrderCart = (props) => {
                     </Row>
                     <Row>
                         <Typography className={classes.drinkPrice}>
-                            Price: {props.price * props.quantity}
+                            ${props.price * props.quantity}
                         </Typography>
                     </Row>
                 </Col>
                 <Col xs={{span:3, offset: 6}} className={classes.rightsideContainer}>
                     <Row>
                         {/* <Fab value={props.name} onClick={(e) =>incrementDrinkQuantity(e)} color="primary" aria-label="add" className={classes.fab}> */}
-                            <FontAwesomeIcon className={classes.caret} icon={faCaretUp} onClick={(e) =>incrementDrinkQuantity(e)} />
+                            <FontAwesomeIcon className={classes.caret} icon={faAngleUp} onClick={(e) =>incrementDrinkQuantity(e)} />
                         {/* </Fab> */}
                     </Row>
                     <Row>
@@ -69,7 +69,7 @@ const OrderCart = (props) => {
                     </Row>
                     <Row>
                         {/* <Fab value ={props.name} onClick={(e) =>decrementDrinkQuantity(e)} color="primary" aria-label="add" className={classes.fab}> */}
-                        <FontAwesomeIcon className={classes.caret} icon={faCaretDown}  onClick={(e) =>decrementDrinkQuantity(e)} />
+                        <FontAwesomeIcon className={classes.caret} icon={faAngleDown}  onClick={(e) =>decrementDrinkQuantity(e)} />
                         {/* </Fab> */}
                     </Row>
                 </Col>
@@ -102,6 +102,9 @@ const useStyles = makeStyles(theme => ({
     },
     rightsideContainer: {
         textAlign: 'center'
+    },
+    container: {
+        boxShadow: '0 3px 5px 2px rgba(45, 45, 45, .3)',
     },
     icon: {
         zIndex: 1

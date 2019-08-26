@@ -12,7 +12,10 @@ import moment from 'moment'
 import Typography from '@material-ui/core/Typography';
 import { textAlign } from '@material-ui/system';
 import HeaderBar from '../shared/HeaderBar'
-import Spinner from 'react-bootstrap/Spinner'
+import Spinner from 'react-bootstrap/Spinner';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
+import Navbar from 'react-bootstrap/Navbar';
     
 const OrderReview = (props) => {
     console.log(props.cart);
@@ -90,31 +93,50 @@ const OrderReview = (props) => {
 
 
     return (
+        <div>           
+        <StyledNavbar>
+            <Container className={classes.containerNavbar}>
+                <Row>
+                <Col xs={2}>
+                    <Typography className={classes.appTitle}>
+                        <Link to='/customer/menu'>
+                        <FontAwesomeIcon icon={faAngleLeft} className={classes.icon}/>
+                        </Link>
+                    </Typography>
+                    </Col>
+                    <Col xs={{offset: 3}}>
+                    <Typography className={classes.appTitle}>
+                        Tab
+                    </Typography>
+                </Col>
+                    <Col >\
+                    </Col>
+                </Row>
+            </Container>
+        </StyledNavbar>
         <Container className={classes.container}>
-            <HeaderBar />
-            <Link namey={props.name}to = {`/customer/menu`}>Back to Menu</Link>
             {renderCart()}
             <Container >
-                <Row>
+                <Row className={classes.subTotalRow}>
                     <Col>
                     <Typography className={classes.subtotalPlusTax}>Subtotal</Typography>
                     </Col>
                     <Col xs={{span:2, offset: 6}}>
-                        <Typography className={classes.subtotal}> {getTotal()}</Typography>
+                        <Typography className={classes.subtotal}>${getTotal()}</Typography>
                     </Col>
                 </Row>
-                <Row>
+                <Row className={classes.taxRow}>
                     <Col>
                         <Typography className={classes.subtotalPlusTax}>Tax</Typography>
                     </Col>
                     <Col xs={{span:3, offset: 6}}>
-                        <Typography className={classes.subtotal}>{getTax(getTotal())}</Typography>
+                        <Typography className={classes.subtotal}>${getTax(getTotal())}</Typography>
                     </Col>
                 </Row>
                 <Row>
                     <Col className={classes.totalcolumn} xs={{span:3, offset: 9}}>
                     <Typography className={classes.total}>Total</Typography>
-                    <Typography className={classes.total}>{getTax(getTotal()) + getTotal()}</Typography>    
+                    <Typography className={classes.total}>${getTax(getTotal()) + getTotal()}</Typography>    
                     </Col>
                 </Row>
             </Container>
@@ -130,6 +152,8 @@ const OrderReview = (props) => {
             </div>
             {redirect? renderRedirect(): ''}
         </Container>
+        </div>
+
     )
   };
 
@@ -153,17 +177,19 @@ const OrderReview = (props) => {
       position: 'fixed',
       top: 'auto',
       bottom: 0,
-      zindex: 1
+      zindex: 1,
+      background: 'linear-gradient(to right top, #5c258d, #5e23a7, #5c22c3, #5222e0, #3826ff)',
+
     },
     toolBar: {
       zindex: 1
     },
 
     buttonCheckout: {
-      background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+      background: 'linear-gradient(to right top, #5c258d, #5e23a7, #5c22c3, #5222e0, #3826ff)',
       border: 0,
       borderRadius: 3,
-      boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    //   boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
       color: 'white',
       height: 48,
       padding: '0 30px',
@@ -177,7 +203,7 @@ const OrderReview = (props) => {
     container: {
     //   display: 'flex',
     //   flexWrap: 'wrap',
-      height: '100vh'
+        minHeight: '100vh'
     },
     spinner: {
         fontSize: '20px',
@@ -195,22 +221,63 @@ const OrderReview = (props) => {
     menu: {
       width: 200,
     },
+    taxRow: {
+        marginBottom: '20%'
+    },
     subtotal: {
-        fontSize: '15px',
+        fontSize: '20px',
         color: 'white',
-        textAlign: 'right'
+        textAlign: 'right',
+        fontFamily: '\'Raleway\', sans-serif',
+
+        // marginTop: '40%' 
+
+    },
+    subTotalRow: {
+        marginTop: '10%',
+        marginBottom: '10%',
     },
     subtotalPlusTax: {
-        fontSize: '15px',
+        fontSize: '20px',
         color: 'white',
-        textAlign: 'left'   
+        textAlign: 'left',
+        // marginTop: '40%' 
+        fontFamily: '\'Raleway\', sans-serif',
+                fontStyle: 'italic'
+
+
     },
     total: {
         fontSize: '25px',
         color: 'white',
-        textAlign: 'right'
+        textAlign: 'right',
+        fontFamily: '\'Raleway\', sans-serif',
+        fontStyle: 'italic'
+
+
     },
     totalcolumn: {
-        alignText: 'left'
+        alignText: 'left',
+        fontStyle: 'italic'
+
+    },
+    appTitle: {
+        color: 'White',
+        fontSize: '30px',
+        fontFamily: '\'Raleway\', sans-serif',
+
+    },
+    containerNavBar: {
+      textAlign: 'center' ,
+      display: 'in-line' 
+    },
+    icon: {
+        color:'white'
     }
 }));
+
+//set styling for navbar
+const StyledNavbar = styled(Navbar)`
+// background: linear-gradient(to right top, #5c258d, #5e23a7, #5c22c3, #5222e0, #3826ff);
+height: 8vh;
+`;

@@ -22,7 +22,7 @@ const Order = (props) => {
   //format the time the order was submitted in order to be more easily parsed
   let timeSubmitted = new Date(order.timeOrderSubmitted);
   //get the time difference from when the order was submitted to the current time
-  let diffSubmitedAndNow = moment.utc(moment(currentTime,"DD/MM/YYYY HH:mm:ss").diff(moment(timeSubmitted,"DD/MM/YYYY H:mm:ss"))).format("HH:mm:ss")
+  let diffSubmitedAndNow = moment.utc(moment(currentTime,"DD/MM/YYYY hh:mm:ss").diff(moment(timeSubmitted,"DD/MM/YYYY hh:mm:ss"))).format("HH:mm:ss")
   //check to see if an order has been claimed
   console.log(parseInt(diffSubmitedAndNow[4])>5);
   console.log(parseInt(diffSubmitedAndNow[3])>0);
@@ -32,7 +32,7 @@ const Order = (props) => {
     //if so format the time it was claimed
     let timeClaimed = new Date(order.timeOrderClaimed);
     //get the time difference from when the order was claimed and now
-     diffClaimedAndNow = moment.utc(moment(currentTime,"DD/MM/YYYY HH:mm:ss").diff(moment(timeClaimed,"DD/MM/YYYY H:mm:ss"))).format("HH:mm:ss")
+     diffClaimedAndNow = moment.utc(moment(currentTime,"DD/MM/YYYY hh:mm:ss").diff(moment(timeClaimed,"DD/MM/YYYY hh:mm:ss"))).format("HH:mm:ss")
   }
 
     //store the relative time since the order was submitted and the current time
@@ -40,7 +40,7 @@ const Order = (props) => {
     //instantiate a variable to store urgency or order
     let urgent;
     //if the order has been submitted for more than five minutes and not claimed make it urgent
-    if (parseInt(diffSubmitedAndNow[4])>5) {
+    if (parseInt(diffSubmitedAndNow[4])>4) {
       console.log('yeah')
       urgent = true;
     }
@@ -95,7 +95,7 @@ const Order = (props) => {
           Ordered: {diffSubmitedAndNow}
         </Typography>
         {order.isClaimed? <Typography className={classes.title} color="textSecondary" gutterBottom>
-          Claimed {diffClaimedAndNow}
+          Claimed {diffClaimedAndNow} ago
         </Typography> : <div></div>}
         <Typography className={classes.name}>
           {order.customerName}
@@ -125,40 +125,52 @@ const Order = (props) => {
 
 const useStyles = makeStyles({
   card: {
-    minWidth: 275,
-    width: '60%',
-    margin: '8px',
+    // minWidth: 275,
+    // maxWidth: 275,
+    width: '80%',
+    // marginLeft: '1%',
+    margin: '1%',
     background: '#282828',
-    boxShadow: '0 3px 5px 2px rgba(45, 45, 45, 1)',
+    // boxShadow: '0 3px 5px 2px rgba(45, 45, 45, 1)',
 
   },
   cardClaimed: {
-    minWidth: 275,
-    width: '60%',
-    margin: '8px',
+    // minWidth: 400,
+    // maxWidth: 400,
+    width: '80%',
+    // marginLeft: '1%',
+    margin: '1%',
     borderStyle: 'solid',
     borderColor: '#007d04',
     background: '#282828',
-    boxShadow: '0 3px 5px 2px rgba(100, 45, 45, 1)',
+    // boxShadow: '0 3px 5px 2px rgba(100, 45, 45, 1)',
 
   },
 
   cardUrgent: {
-    minWidth: 275,
-    width: '60%',
-    marginTop: '8px',
+    // maxWidth: 400,
+    // minWidth: 400,
+    width: '80%',
+    // // marginLeft: '1%',
+    // marginTop: '8px',
+    margin: '1%',
     borderStyle: 'solid',
-    borderColor: '#990000',
+    borderColor: '#780800',
     background: '#282828',
-    boxShadow: '0 3px 5px 2px rgba(100, 45, 45, 1)',
+    // boxShadow: '0 3px 5px 2px rgba(100, 45, 45, 1)',
 
   },
   title: {
     color: 'white',
     fontSize: 14,
     fontStyle: 'italic',
+    // width: '50%'
   },
   drinkName:{
+    color: 'white',
+    fontSize: 14,
+  },
+  name: {
     color: 'white',
     fontSize: 14,
   },

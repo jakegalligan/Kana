@@ -11,12 +11,15 @@ import { makeStyles } from '@material-ui/styles';
 
 
 const HeaderBar = () => {
+    
     const classes= useStyles();
     return (
         <StyledNavbar>
+            <Link to ='/admin/login'>
             <Typography className={classes.appTitle}>
-                Kana
+                Admin
             </Typography>
+            </Link>
         </StyledNavbar>
     )
 }
@@ -27,7 +30,7 @@ export default HeaderBar;
 
 //set styling for navbar
 const StyledNavbar = styled(Navbar)`
-background: linear-gradient(to right top, #5c258d, #5e23a7, #5c22c3, #5222e0, #3826ff);
+// background: linear-gradient(to right top, #5c258d, #5e23a7, #5c22c3, #5222e0, #3826ff);
 height: 8vh;
 `;
 
@@ -35,6 +38,8 @@ height: 8vh;
 const useStyles = makeStyles({
     appTitle: {
         color: 'White',
-        fontSize: '30px'
+        fontSize: '30px',
+        fontFamily: '\'Raleway\', sans-serif',
     }
 })
+

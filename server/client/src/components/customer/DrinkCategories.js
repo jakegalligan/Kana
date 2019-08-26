@@ -48,22 +48,22 @@ const DrinkCategories = (props) => {
             <Row>
                 <Col xs={3} value='Specials'>
                     <Button variant="contained"  className={classes.button} onClick={getSpecials} value='Specials'>
-                    <FontAwesomeIcon icon={faGlassCheers} />
+                    <FontAwesomeIcon className={classes.icon} icon={faGlassCheers} />
                     </Button>
                 </Col>
                 <Col xs={3}>
                 <Button variant="contained"  className={classes.button} onClick={getBeer} value='Beer'>
-                    <FontAwesomeIcon icon={faCocktail} value='Beer' />
+                    <FontAwesomeIcon className={classes.icon} icon={faBeer} value='Beer' />
                 </Button>
                 </Col>
                 <Col xs={3}>
                 <Button className={classes.button} onClick={getCocktails} value='Cocktail'>
-                    <FontAwesomeIcon icon={faCocktail} value='Cocktail' />
+                    <FontAwesomeIcon className={classes.icon} icon={faCocktail} value='Cocktail' />
                     </Button>
                 </Col>
                 <Col xs={3}>
                 <Button className={classes.button} onClick={getWine} value='Wine'>
-                    <FontAwesomeIcon icon={faWineGlass} value='Wine' />
+                    <FontAwesomeIcon className={classes.icon} icon={faWineGlass} value='Wine' />
                     </Button>
                 </Col>
             </Row>
@@ -105,10 +105,10 @@ const DrinkCategories = (props) => {
 const useStyles = makeStyles({
     button: {  
       marginTop: '15px',
-      background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+      background: 'linear-gradient(to right top, #5c258d, #5e23a7, #5c22c3, #5222e0, #3826ff)',
       border: 0,
       borderRadius: 9,
-      boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+      boxShadow: '0 3px 5px 2px rgba(45, 45, 45, .3)',
       color: 'white',
       height: 48,
       width: '10px',
@@ -119,10 +119,14 @@ const useStyles = makeStyles({
     },
     descriptor: {
         color: 'white',
-        marginTop: '3px'
+        marginTop: '3px',
+        fontFamily: '\'Raleway\', sans-serif',
     },
     buttonWrapper: {
         zIndex: '10'
+    },
+    icon: {
+        fontSize: '30px'
     }
   });
 
@@ -131,7 +135,7 @@ const useStyles = makeStyles({
    text-align: center;
    padding-right: 30px;
    position: sticky;
-   box-shadow: 0 3px 5px 2px rgba(255, 105, 135, .3);
+   box-shadow: 0 0px 3px 1px rgba(45, 45, 45, .1);
 //    border-style: solid;
 //    border-bottom: 20px;
 //    border-top: 0px;

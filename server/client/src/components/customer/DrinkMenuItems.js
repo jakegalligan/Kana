@@ -26,7 +26,7 @@ const DrinkMenuItems = (props) => {
     }
     return (
         <StyledContainer>
-            <Typography className={classes.menuTitle}>Drinks</Typography>
+            {/* <Typography className={classes.menuTitle}>Drinks</Typography> */}
          {renderDrinks()}  
         </StyledContainer>
     )

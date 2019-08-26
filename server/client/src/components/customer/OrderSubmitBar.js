@@ -27,6 +27,10 @@ const OrderSubmitBar = (props) => {
     const [phoneNumber, setPhoneNumber] = useState('');
     //intialize a state redirect which redirects when true
     const [redirect, setRedirect] = useState(false);
+    //initialize a state errorTextName message which is renders the error text when true 
+    const [errorTextNumber, setErrorTextNumber] = useState(false);
+    //initialize a state errorTextName message which is renders the error text when true 
+    const [errorTextName, setErrorTextName] = useState(false);
 
   
     //function that will set the name state to whatever input is put in name form
@@ -40,6 +44,22 @@ const OrderSubmitBar = (props) => {
     }
     //submitInfo function will send user information as well as cart to server and redirect user to order completed page
     const submitOrder = () => {
+      //store the phone nubmer in a variable so it can be manipulated
+        let formattedNumber=phoneNumber
+        //if it is missing the +1 call add it
+        if (formattedNumber.length===10) {
+          console.log('hitting')
+          formattedNumber = '1'+phoneNumber;
+        }
+        if (formattedNumber.length!==11) {
+          return setErrorTextNumber(true);
+        }
+
+        //check to see if a name of at least 5 characters is entered
+        if (customerName.length < 5) {
+          return setErrorTextName(true);
+        }
+        console.log(formattedNumber);
         //format information to be properly stored in server
         props.setName(customerName);
         props.setNumber(phoneNumber);
@@ -65,6 +85,25 @@ const OrderSubmitBar = (props) => {
       console.log('close modal')
       setShowModal(false)
       }
+
+    const renderNumberError = () => {
+      return (
+      <div>
+        <Typography className={classes.errorText}>
+          Invalid phone number, please use format 1xxxxxxxxxx
+        </Typography>
+      </div>
+      )
+    }
+    const renderNameError = () => {
+      return (
+      <div>
+        <Typography className={classes.errorText}>
+          Invalid name, please use your first and last name
+        </Typography>
+      </div>
+      )
+    }
     
 
     return (
@@ -85,6 +124,7 @@ const OrderSubmitBar = (props) => {
                         margin="normal"
                         variant="outlined"
                     />
+                      {errorTextName? renderNameError(): ''}
                     <Typography className={classes.label}>Phone Number (no spaces or dashes)</Typography>
                     <TextField className={classes.input}
                         onChange={handlePhoneNumberChange}
@@ -95,6 +135,7 @@ const OrderSubmitBar = (props) => {
                         variant="outlined"
                     />
                 </form>
+                {errorTextNumber? renderNumberError(): ''}
                 <Typography className={classes.labelNotes}>*This information allows us to identify your order as well as notify ou when it's ready!</Typography>
                 <div>
                   <br />
@@ -142,32 +183,39 @@ const useStyles = makeStyles({
       top: 'auto',
       bottom: 0,
       zindex: 1,
-      background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+      boxShadow: '0 3px 5px 2px rgba(45, 45, 45, .3)',
+      background: 'linear-gradient(to right top, #5c258d, #5e23a7, #5c22c3, #5222e0, #3826ff)',
       // textAlign: 'center'
     },
     toolBar: {
-      zindex: 1
+      zindex: 1,
+      boxShadow: '0 3px 5px 2px rgba(45, 45, 45, .3)',
     },
     buttonModalSubmit: {
       color:'white',
       // backgroundColor: 'green',
       marginRight: '5px',
-      borderStyle: 'solid',
-      borderWidth: '1px',
+      // borderStyle: 'solid',
+      boxShadow: '0 3px 5px 2px rgba(25, 25, 25, .3)',
+      // borderWidth: '1px',
       // width: '30vw'
+      marginTop: '-10px'
     },
     buttonModalClose: {
       color: 'white',
+      boxShadow: '0 3px 5px 2px rgba(25, 25, 25, .3)',
       // backgroundColor: 'yellow',
-      borderStyle: 'solid',
-      borderWidth: '1px',
-      marginRight: '5px'
+      // borderStyle: 'solid',
+      // borderWidth: '1px',
+      marginRight: '5px',
+      marginTop: '-10px'
     },
     buttonCheckout: {
-      background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-      border: 0,
-      borderRadius: 3,
-      boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+      // background: 'linear-gradient(to right top, #5c258d, #5e23a7, #5c22c3, #5222e0, #3826ff)',
+      // border: 0,
+      // borderRadius: 3,
+      // boxShadow: '0 3px 5px 2px rgba(45, 45, 45, .3)',
+      // boxShadow: '0 3px 5px 2px rgba(45, 45, 45, .3)',
       color: 'white',
       height: 48,
       padding: '0 30px',
@@ -188,31 +236,42 @@ const useStyles = makeStyles({
     },
     dense: {
     },
+    errorText: {
+      color: 'white',
+      fontStyle: 'italic',
+      fontSize: '10px'
+    },
     menu: {
       width: 200,
     },
     label: {
-      fontSize: '10px',
-      color: 'white'
+      fontSize: '11px',
+      color: 'white',
+      fontFamily: '\'Raleway\', sans-serif',
+
     },
     labelTitle: {
       color: 'white',
       fontSize: '15px',
-      marginBottom: '15px'
+      marginBottom: '15px',
+      fontFamily: '\'Raleway\', sans-serif',
+
     },
     labelNotes: {
       fontSize: '10px',
       color: 'white',
-      marginTop: '20px'
+      marginTop: '20px',
+      fontFamily: '\'Raleway\', sans-serif',
+
     }
 });
 
 const StyledModalBody = styled(ModalBody)`
     height: 75vh;
     z-index: 10;
-    border-style: solid;
-    border-color: #282828;
-    border-width: 15px;
+    // border-style: solid;
+    // border-color: red;
+    // border-width: 15px;
     background-color: black'
     width: 100%;
 `
