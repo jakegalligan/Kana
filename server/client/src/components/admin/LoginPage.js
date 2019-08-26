@@ -1,11 +1,5 @@
-import React, {useState} from 'react';
-import {Link, Redirect} from 'react-router-dom';
-import {Container, Row, Col, Doo} from 'react-bootstrap';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/styles';
-import Input from '@material-ui/core/Input';
-import Button from '@material-ui/core/Button';
-import HeaderBar from '../shared/HeaderBar'
+import React, {useState} from 'react';import {Redirect} from 'react-router-dom';import {Container, Row, Col, Doo} from 'react-bootstrap';
+import Typography from '@material-ui/core/Typography';import { makeStyles } from '@material-ui/styles';import Input from '@material-ui/core/Input';import Button from '@material-ui/core/Button';
 
 
 
@@ -55,7 +49,6 @@ const LoginPage = () => {
 
     return (
         <div>
-        {/* <HeaderBar  /> */}
         <Container className={classes.container}>
             <br />
             <Typography className={classes.loginHeader}> Login</Typography>
@@ -92,24 +85,17 @@ const LoginPage = () => {
           margin: '40px'
       },
       form: {
-        //   background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
           height: '60vh',
-        //   width: '50vw',
           width: '90%',
-        //   borderWidth: '20px',
           borderStyle: 'solid',
           borderColor: 'white',
       },
       container: {
-          height: '100vh',
-          width: '100vw',
-          textAlign: 'center',
-          alignItems: 'center',
-        //   borderStyle: 'solid',
-        //   borderColor: 'purple',  
-        //   borderWidth: '15px', 
-            maxWidth: '100vw',      
-        //   background: 'url(https://www.bevspot.com/hubfs/bigstock-Classic-bar-counter-with-bottl-44764840-1396x900.jpg)',
+        height: '100vh',
+        width: '100vw',
+        textAlign: 'center',
+        alignItems: 'center', 
+        maxWidth: '100vw',      
     },
       button: {
         background: 'linear-gradient(to right top, #5c258d, #5e23a7, #5c22c3, #5222e0, #3826ff)',

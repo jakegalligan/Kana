@@ -1,28 +1,14 @@
-import React, {useState, useEffect} from 'react';
-import {Link, Redirect} from 'react-router-dom';
-import OrderCart from './OrderCart';
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';import Toolbar from '@material-ui/core/Toolbar';import Button from '@material-ui/core/Button';import TextField from '@material-ui/core/TextField';
-import styled from "styled-components";
-import {Container, Row, Col} from 'react-bootstrap';
-import { connect } from 'react-redux';
-import {submitOrder, getCart} from '../../actions';
-import uuidv1 from 'uuid'
-import moment from 'moment'
-import Typography from '@material-ui/core/Typography';
-import { textAlign } from '@material-ui/system';
-import HeaderBar from '../shared/HeaderBar'
-import Spinner from 'react-bootstrap/Spinner';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
-import Navbar from 'react-bootstrap/Navbar';
+import React, {useState, useEffect} from 'react';import {Link, Redirect} from 'react-router-dom';import OrderCart from './OrderCart';
+import { makeStyles } from '@material-ui/core/styles';import AppBar from '@material-ui/core/AppBar';import Toolbar from '@material-ui/core/Toolbar';import Button from '@material-ui/core/Button';import TextField from '@material-ui/core/TextField';
+import styled from "styled-components";import {Container, Row, Col} from 'react-bootstrap';import { connect } from 'react-redux';
+import {submitOrder, getCart} from '../../actions';import uuidv1 from 'uuid';import moment from 'moment'
+import Typography from '@material-ui/core/Typography';import { textAlign } from '@material-ui/system';import HeaderBar from '../shared/HeaderBar';import Spinner from 'react-bootstrap/Spinner';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';import Navbar from 'react-bootstrap/Navbar';
     
 const OrderReview = (props) => {
-    console.log(props.cart);
-    const[showSpinner, setShowSpinner] = useState(false);
-
-    
     const classes=useStyles();
+    //create state to store whether or not to render the spinner
+    const[showSpinner, setShowSpinner] = useState(false);
     //initilaize state redirect which when true redirects user to completed order menu
     const [redirect, setRedirect] = useState(false);
     //map through the cart and render each time
@@ -46,11 +32,7 @@ const OrderReview = (props) => {
           isSubmitted: true,
           timeOrderSubmitted: currentDate,   
         }
-        console.log(order);
         props.submitOrder(order)
-        // setRedirect(true);
-        console.log('submitting');
-        // socket.emit('order', order)
     }
 
     //when redirect is set to true this function will run and redirect the user
@@ -73,7 +55,6 @@ const OrderReview = (props) => {
         return Math.round(100 * tax)/100;
     }
     const renderCart = () => {
-        console.log('rere')
          return props.cart.map((drink) => {
              if (drink.quantity >=1) {
             return (
@@ -84,13 +65,12 @@ const OrderReview = (props) => {
                 descriptor={drink.descriptor}
                 ounce={drink.ounce}
                 key={drink._id}
-                quantity={drink.quantity}                >
+                quantity={drink.quantity} >
                 </OrderCart>
             )
              }
         })
     }
-
 
     return (
         <div>           
@@ -189,20 +169,16 @@ const OrderReview = (props) => {
       background: 'linear-gradient(to right top, #5c258d, #5e23a7, #5c22c3, #5222e0, #3826ff)',
       border: 0,
       borderRadius: 3,
-    //   boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
       color: 'white',
       height: 48,
       padding: '0 30px',
       zindex: 1,
       zIndex: 1,
-    //   top: -30,
       left: 0,
       right: 0,
       margin: '0 auto',
     },
     container: {
-    //   display: 'flex',
-    //   flexWrap: 'wrap',
         minHeight: '100vh'
     },
     spinner: {
@@ -229,9 +205,6 @@ const OrderReview = (props) => {
         color: 'white',
         textAlign: 'right',
         fontFamily: '\'Raleway\', sans-serif',
-
-        // marginTop: '40%' 
-
     },
     subTotalRow: {
         marginTop: '10%',
@@ -241,11 +214,8 @@ const OrderReview = (props) => {
         fontSize: '20px',
         color: 'white',
         textAlign: 'left',
-        // marginTop: '40%' 
         fontFamily: '\'Raleway\', sans-serif',
-                fontStyle: 'italic'
-
-
+        fontStyle: 'italic'
     },
     total: {
         fontSize: '25px',
@@ -253,8 +223,6 @@ const OrderReview = (props) => {
         textAlign: 'right',
         fontFamily: '\'Raleway\', sans-serif',
         fontStyle: 'italic'
-
-
     },
     totalcolumn: {
         alignText: 'left',
@@ -265,7 +233,6 @@ const OrderReview = (props) => {
         color: 'White',
         fontSize: '30px',
         fontFamily: '\'Raleway\', sans-serif',
-
     },
     containerNavBar: {
       textAlign: 'center' ,

@@ -1,18 +1,7 @@
-import React, {useState} from 'react';
-import {Container, Row, Col} from 'react-bootstrap';
-import { makeStyles } from '@material-ui/core/styles';
-import HeaderBar from '../shared/HeaderBar'
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import { connect } from 'react-redux';
-import moment from 'moment';
-import {sendNotification, claimDrink, submitDrink} from '../../actions'
-import { Grow } from '@material-ui/core';
-
-
+import React, {useState} from 'react';import {Container, Row, Col} from 'react-bootstrap';
+import { makeStyles } from '@material-ui/core/styles';import Card from '@material-ui/core/Card';import CardActions from '@material-ui/core/CardActions';import CardContent from '@material-ui/core/CardContent';
+import Button from '@material-ui/core/Button';import Typography from '@material-ui/core/Typography';import { connect } from 'react-redux';
+import moment from 'moment';import {sendNotification, claimDrink, submitDrink} from '../../actions';import { Grow } from '@material-ui/core';
 
 const Order = (props) => {
   const classes = useStyles()
@@ -23,10 +12,8 @@ const Order = (props) => {
   let timeSubmitted = new Date(order.timeOrderSubmitted);
   //get the time difference from when the order was submitted to the current time
   let diffSubmitedAndNow = moment.utc(moment(currentTime,"DD/MM/YYYY hh:mm:ss").diff(moment(timeSubmitted,"DD/MM/YYYY hh:mm:ss"))).format("HH:mm:ss")
+  
   //check to see if an order has been claimed
-  console.log(parseInt(diffSubmitedAndNow[4])>5);
-  console.log(parseInt(diffSubmitedAndNow[3])>0);
-
   let diffClaimedAndNow;
   if(order.timeOrderClaimed) {
     //if so format the time it was claimed
@@ -41,11 +28,9 @@ const Order = (props) => {
     let urgent;
     //if the order has been submitted for more than five minutes and not claimed make it urgent
     if (parseInt(diffSubmitedAndNow[4])>4) {
-      console.log('yeah')
       urgent = true;
     }
     if (parseInt(diffSubmitedAndNow[3])>0) {
-      console.log('yeah')
       urgent = true;
     }
     
@@ -61,7 +46,6 @@ const Order = (props) => {
     }
 
     const handleSubmitDrink = () => {
-      console.log('submit');
       // send drink to backend to have its isSubmitted property changed to true
       props.submitDrink(order.uId);
       props.sendNotification(order.phoneNumber, order.customerName)
@@ -125,46 +109,32 @@ const Order = (props) => {
 
 const useStyles = makeStyles({
   card: {
-    // minWidth: 275,
-    // maxWidth: 275,
     width: '80%',
-    // marginLeft: '1%',
     margin: '1%',
     background: '#282828',
-    // boxShadow: '0 3px 5px 2px rgba(45, 45, 45, 1)',
 
   },
   cardClaimed: {
-    // minWidth: 400,
-    // maxWidth: 400,
     width: '80%',
-    // marginLeft: '1%',
     margin: '1%',
     borderStyle: 'solid',
     borderColor: '#007d04',
     background: '#282828',
-    // boxShadow: '0 3px 5px 2px rgba(100, 45, 45, 1)',
 
   },
 
   cardUrgent: {
-    // maxWidth: 400,
-    // minWidth: 400,
     width: '80%',
-    // // marginLeft: '1%',
-    // marginTop: '8px',
     margin: '1%',
     borderStyle: 'solid',
     borderColor: '#780800',
     background: '#282828',
-    // boxShadow: '0 3px 5px 2px rgba(100, 45, 45, 1)',
 
   },
   title: {
     color: 'white',
     fontSize: 14,
     fontStyle: 'italic',
-    // width: '50%'
   },
   drinkName:{
     color: 'white',

@@ -10,26 +10,23 @@ export default function (state = [], action) {
                 //if so increment the quantity of the drink and return state
                 if (state[i].name == drink.name) {
                     state[i].quantity ++;
-                    console.log(state);
                     return state;
                 }
             }
             //if not add the drink to the cart
             drink.quantity = 1;
             let newCart = [...state, drink]
-            console.log(newCart);
             return newCart
         //if type is increment drink find the drink and increase its quantity by 1
         //if drink isn't in cart throw error
         case INCREMENT_DRINK:
-            console.log('hit reducer')
             for (let i = 0; i< state.length; i++) {
                 if (state[i].name = action.payload) {
                     state[i].quantity ++;
                 }
             }
-        let newState1=[...state];
-        return newState1;
+            let newState1=[...state];
+            return newState1;
         case DECREMENT_DRINK:
         //if type is decrement drink find drink and decrease its quantity by 1
             for (let i = 0; i< state.length; i++) {
@@ -37,15 +34,12 @@ export default function (state = [], action) {
                     state[i].quantity --;
                         //if the quantity of the drink is 0 remove it from the cart
                         if (state[i].quantity == 0) {
-                            console.log(state)
                             state.splice(i,1);
-                            console.log(state);
                         }
                 }
             }
-        console.log(state);
-        let newState2 = [...state];
-        return newState2;
+            let newState2 = [...state];
+            return newState2;
         case FETCH_CART:
             let newState3 = [...state]
             return newState3;

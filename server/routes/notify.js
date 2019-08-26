@@ -12,15 +12,12 @@ const client = require('twilio')(keys.ACCOUNT_SID, keys.AUTH_TOKEN);
       // if the number is only nine digits add a 1 at the begining
       if (phoneNumber.length <= 10) {
           if (phoneNumber.length === 10) {
-            console.log('its hittin')
               phoneNumber ='1'+phoneNumber
           //if the number is less than nine digits return an error
           } else {
             res.status(400).send('Phone number must have at lease nine digits')
           }
       }
-      console.log(phoneNumber)
-      console.log('inside of notify')
 
       client.messages
     .create({

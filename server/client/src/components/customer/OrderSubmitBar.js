@@ -1,22 +1,10 @@
-import React, {useState, useEffect} from 'react';
-import {Link, Redirect} from 'react-router-dom';
-import { connect } from 'react-redux';
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';import Toolbar from '@material-ui/core/Toolbar';import Button from '@material-ui/core/Button';import TextField from '@material-ui/core/TextField';
-import styled from "styled-components";
-import ModalDialog from 'react-bootstrap/ModalDialog';import ModalBody from 'react-bootstrap/ModalBody'
-import {submitOrder, setName, setNumber} from '../../actions';
-import uuidv1 from 'uuid';
-import Typography from '@material-ui/core/Typography';
-import Slide from '@material-ui/core/Slide';
-import Zoom from '@material-ui/core/Zoom';
-import Grow from '@material-ui/core/Grow';
-
-
-
+import React, {useState, useEffect} from 'react';import {Link, Redirect} from 'react-router-dom';import { connect } from 'react-redux';
+import { makeStyles } from '@material-ui/core/styles';import AppBar from '@material-ui/core/AppBar';import Toolbar from '@material-ui/core/Toolbar';import Button from '@material-ui/core/Button';import TextField from '@material-ui/core/TextField';
+import styled from "styled-components";import ModalDialog from 'react-bootstrap/ModalDialog';import ModalBody from 'react-bootstrap/ModalBody';import {submitOrder, setName, setNumber} from '../../actions';
+import uuidv1 from 'uuid';import Typography from '@material-ui/core/Typography';import Slide from '@material-ui/core/Slide';
+import Zoom from '@material-ui/core/Zoom';import Grow from '@material-ui/core/Grow';
 
 const OrderSubmitBar = (props) => {
-
     //import styling
     const classes = useStyles();
     //initialize state with showModal set to false
@@ -48,7 +36,6 @@ const OrderSubmitBar = (props) => {
         let formattedNumber=phoneNumber
         //if it is missing the +1 call add it
         if (formattedNumber.length===10) {
-          console.log('hitting')
           formattedNumber = '1'+phoneNumber;
         }
         if (formattedNumber.length!==11) {
@@ -59,7 +46,6 @@ const OrderSubmitBar = (props) => {
         if (customerName.length < 5) {
           return setErrorTextName(true);
         }
-        console.log(formattedNumber);
         //format information to be properly stored in server
         props.setName(customerName);
         props.setNumber(phoneNumber);
@@ -77,12 +63,10 @@ const OrderSubmitBar = (props) => {
 
     //when the checkout button is clicked set showmodal to true have modal pop up that has user inpu their name and phone number
     const checkOut = () => {
-      console.log('clickedcheckout button');
       setShowModal(true);
     }
     //closeModal function will set the value of showModal to false and close the modal
     const closeModal = () => {
-      console.log('close modal')
       setShowModal(false)
       }
 
@@ -185,7 +169,6 @@ const useStyles = makeStyles({
       zindex: 1,
       boxShadow: '0 3px 5px 2px rgba(45, 45, 45, .3)',
       background: 'linear-gradient(to right top, #5c258d, #5e23a7, #5c22c3, #5222e0, #3826ff)',
-      // textAlign: 'center'
     },
     toolBar: {
       zindex: 1,
@@ -193,34 +176,21 @@ const useStyles = makeStyles({
     },
     buttonModalSubmit: {
       color:'white',
-      // backgroundColor: 'green',
       marginRight: '5px',
-      // borderStyle: 'solid',
       boxShadow: '0 3px 5px 2px rgba(25, 25, 25, .3)',
-      // borderWidth: '1px',
-      // width: '30vw'
       marginTop: '-10px'
     },
     buttonModalClose: {
       color: 'white',
       boxShadow: '0 3px 5px 2px rgba(25, 25, 25, .3)',
-      // backgroundColor: 'yellow',
-      // borderStyle: 'solid',
-      // borderWidth: '1px',
       marginRight: '5px',
       marginTop: '-10px'
     },
     buttonCheckout: {
-      // background: 'linear-gradient(to right top, #5c258d, #5e23a7, #5c22c3, #5222e0, #3826ff)',
-      // border: 0,
-      // borderRadius: 3,
-      // boxShadow: '0 3px 5px 2px rgba(45, 45, 45, .3)',
-      // boxShadow: '0 3px 5px 2px rgba(45, 45, 45, .3)',
       color: 'white',
       height: 48,
       padding: '0 30px',
       zindex: 1,
-      // top: -30,
       left: 0,
       right: 0,
       margin: '0 auto',
@@ -231,8 +201,6 @@ const useStyles = makeStyles({
     },
     textField: {
       color: 'white',
-      // marginLeft: theme.spacing(1),
-      // marginRight: theme.spacing(1),
     },
     dense: {
     },
@@ -269,9 +237,6 @@ const useStyles = makeStyles({
 const StyledModalBody = styled(ModalBody)`
     height: 75vh;
     z-index: 10;
-    // border-style: solid;
-    // border-color: red;
-    // border-width: 15px;
     background-color: black'
     width: 100%;
 `
@@ -281,5 +246,4 @@ const StyledModalDialog = styled(ModalDialog)`
     border-style: solid;
     height: 90vh;
     width: 96.5vw;
-    // text-align: center
 `

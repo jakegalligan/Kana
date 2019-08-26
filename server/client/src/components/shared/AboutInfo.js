@@ -1,16 +1,9 @@
-import React, {useState} from 'react';
-import {Container, Row, Col} from 'react-bootstrap';
-import styled from "styled-components";
-import { makeStyles } from '@material-ui/styles';
-import LocalDrink from '@material-ui/icons/LocalDrink';
-import PhoneIphone from '@material-ui/icons/PhoneIphone';
-import Typography from '@material-ui/core/Typography';
-
-
+import React, {useState} from 'react';import {Container, Row, Col} from 'react-bootstrap';import styled from "styled-components";
+import { makeStyles } from '@material-ui/styles';import LocalDrink from '@material-ui/icons/LocalDrink';
+import PhoneIphone from '@material-ui/icons/PhoneIphone';import Typography from '@material-ui/core/Typography';
 
 const AboutInfo = () => {
     const classes= useStyles();
-
     return (
         <div>
             <StyledContainer>
@@ -43,12 +36,7 @@ const AboutInfo = () => {
                             body
                         </Typography>
                         </BodyContainer>
-        
-            
-                            <LocalDrink className={classes.icon}/>
-                
-            
-                       
+                        <LocalDrink className={classes.icon}/>    
             </StyledContainer>
         </div>
     )
@@ -74,8 +62,6 @@ const useStyles = makeStyles({
     },
     describe: {
         textAlign: 'center',
-        // marginLeft: '15%',
-        // display: 'unset'
     }
 })
 

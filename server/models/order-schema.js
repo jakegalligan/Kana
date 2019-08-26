@@ -15,18 +15,4 @@ const OrderSchema = new Schema({
     timeOrderCompleted: Date,
 })
 
-// OrderSchema.pre('save', function(next) {
-//     let currentDate = new Date();
-//     //set timeOrderSubmitted to current time on first save 
-//     if (!this.timeOrderSubmitted) {
-//         this.timeOrderSubmitted = currentDate;
-//     }
-//     //set submitted value to true on first save
-//     if (!this.isSubmitted) {
-//         this.isSubmitted = true;
-//     }
-
-//      next();
-// })
-
 module.exports = mongoose.model('order', OrderSchema);

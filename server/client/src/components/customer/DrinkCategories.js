@@ -1,18 +1,6 @@
-import React, {useState, useEffect} from 'react';
-import { connect } from 'react-redux';
-import {Link} from 'react-router-dom';
-import {Container, Row, Col, Doo} from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBeer, faWineGlass, faCocktail, faGlassCheers } from '@fortawesome/free-solid-svg-icons'
-import Button from '@material-ui/core/Button';
-import {fetchDrinks} from '../../actions';
-import { makeStyles } from '@material-ui/styles';
-import Typography from '@material-ui/core/Typography';
-import ArrowBack from '@material-ui/icons/ArrowBack';
-import styled from "styled-components";
-
-
-
+import React, {useState, useEffect} from 'react';import { connect } from 'react-redux';import {Container, Row, Col, Doo} from 'react-bootstrap';import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';import { faBeer, faWineGlass, faCocktail, faGlassCheers } from '@fortawesome/free-solid-svg-icons'
+import Button from '@material-ui/core/Button';import {fetchDrinks} from '../../actions';import { makeStyles } from '@material-ui/styles';
+import Typography from '@material-ui/core/Typography';import styled from "styled-components";
 
 const DrinkCategories = (props) => {
     const classes = useStyles();
@@ -113,10 +101,6 @@ const useStyles = makeStyles({
       height: 48,
       width: '10px',
     },
-    nav: {
-        // marginLeft: '5px',
-        // marginTop: 'px'
-    },
     descriptor: {
         color: 'white',
         marginTop: '3px',
@@ -136,10 +120,6 @@ const useStyles = makeStyles({
    padding-right: 30px;
    position: sticky;
    box-shadow: 0 0px 3px 1px rgba(45, 45, 45, .1);
-//    border-style: solid;
-//    border-bottom: 20px;
-//    border-top: 0px;
-
    border-color: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)
    
 
