@@ -21,6 +21,15 @@ const client = require('twilio')(keys.ACCOUNT_SID, keys.AUTH_TOKEN);
       }
       console.log(phoneNumber)
       console.log('inside of notify')
+
+      client.messages
+    .create({
+       body: `${customerName} Thanks for checking out my project! Feel free to connect with me on linkedin at: https://www.linkedin.com/in/jakegalligan/` ,
+       from: '+19842144330',
+       to: phoneNumber
+     })
+    .then(message => console.log(message.sid));
+    
     //send text message to the user
     client.messages
     .create({
@@ -29,14 +38,7 @@ const client = require('twilio')(keys.ACCOUNT_SID, keys.AUTH_TOKEN);
        to: `+${phoneNumber}`
      })
     .then(message => console.log(message.sid));
-    client.messages
-    .create({
-       body: `${customerName} Here is my linked in` ,
-       from: '+19842144330',
-       to: phoneNumber
-     })
-    .then(message => console.log(message.sid));
-
+  
      res.end();
   })
 
