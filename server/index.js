@@ -6,7 +6,6 @@ const bodyParser = require('body-parser');
 const keys = require('./config/key');
 
 // const socket = require('socket.io')
-
 mongoose.connect(keys.MONGODB_URI,  { useNewUrlParser: true });
 
 //instantiate an express server with middleware
@@ -47,13 +46,5 @@ const port = process.env.PORT || 8000;
 const server = http.createServer(app);
 server.listen(port);
 console.log('Server listening on:', port);
-// const io = socket(server);
-
-// io.on('connection', (socket) => {
-//     console.log('connection made')
-//     socket.on('order', (data) => {
-//         io.sockets.emit('new order', data)
-//     })
-// })
 
 

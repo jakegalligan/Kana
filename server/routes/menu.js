@@ -5,7 +5,6 @@ const Drink = require('../models/drink-schema');
 router.get('/', (req,res) => {
     let query = req.query.category;
     let filter;
-    console.log('hit backend');
 
     //if variable is not defined or specials set the query to search for the specials value 
     //otherwise set the query to search for drink by category number

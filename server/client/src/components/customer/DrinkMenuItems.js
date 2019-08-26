@@ -1,11 +1,6 @@
-import React, {useState} from 'react';
-import {Link} from 'react-router-dom';
-import { connect } from 'react-redux';
-import Drink from './Drink';
-import {Container, Row, Col, Doo} from 'react-bootstrap';
-import styled from 'styled-components';
-import { Typography } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import React, {useState} from 'react';import {Link} from 'react-router-dom';import { connect } from 'react-redux';
+import Drink from './Drink';import {Container, Row, Col, Doo} from 'react-bootstrap';import styled from 'styled-components';
+import { Typography } from '@material-ui/core';import { makeStyles } from '@material-ui/core/styles';
 
 
 const DrinkMenuItems = (props) => {
@@ -26,12 +21,10 @@ const DrinkMenuItems = (props) => {
     }
     return (
         <StyledContainer>
-            {/* <Typography className={classes.menuTitle}>Drinks</Typography> */}
          {renderDrinks()}  
         </StyledContainer>
     )
 }
-
 
 const mapStateToProps =(state) => {
     return{
@@ -47,7 +40,6 @@ export default connect(mapStateToProps)(DrinkMenuItems);
  padding-right: 30px;
 
 `;
-
 
 const useStyles = makeStyles({
     menuTitle: {
