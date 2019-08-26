@@ -21,14 +21,11 @@ export default function (state = [], action) {
         //if type is increment drink find the drink and increase its quantity by 1
         //if drink isn't in cart throw error
         case INCREMENT_DRINK:
-            console.log(action.payload);
-            console.log('before',state)
             for (let i = 0; i< state.length; i++) {
                 if (state[i].name == action.payload) {
                     state[i].quantity ++;
                 }
             }
-            console.log('after',state);
             let newState1=[...state];
             return newState1;
         case DECREMENT_DRINK:

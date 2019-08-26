@@ -87,7 +87,8 @@ const useStyles = makeStyles(theme => ({
         color: 'white',
         fontFamily: '\'Raleway\', sans-serif',
         marginTop: '50%',
-        fontStyle: 'italic'
+        fontStyle: 'italic',
+        marginLeft: '-50%',
         // borderStyle: 'solid',
         // borderWidth: '0px 0px 10px 0px',
         // // borderRadius: '50%',

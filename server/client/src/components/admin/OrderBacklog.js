@@ -54,9 +54,9 @@ const OrderBacklog = (props) => {
         }}
       >
         <div className={classes.toolbar} />
-        <List>
+        <List className={classes.listIt}>
           {['Order History', 'Timesheets', 'Manager Portal', 'Kana Support'].map((text, index) => (
-            <ListItem button  key={text}>
+            <ListItem className={classes.listIt} button  key={text}>
               <ListItemIcon className={classes.icon}>{index === 0 ? <HistoryIcon /> : index === 1 ? <NotesIcon/>: index === 2? <SupervisorAccount/>: <ContactSupport/> }</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
@@ -105,6 +105,8 @@ const useStyles = makeStyles(theme => ({
     width: drawerWidth,
     flexShrink: 0,
     background: '#282828',
+    fontSize: 20,
+
 
   },
   drawerPaper: {
@@ -120,14 +122,19 @@ const useStyles = makeStyles(theme => ({
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
+    fontSize: 20,
+
   },
   toolbar: theme.mixins.toolbar,
   icon: {
       color: 'white'
   },
+  listIt: {
+    fontSize: 20,
+  },
   headerText: {
       color: 'white',
-      fontSize: '25px'
+      fontSize: '40px'
   }
 }));
 

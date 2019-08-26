@@ -90,7 +90,6 @@ const OrderSubmitBar = (props) => {
     }
     const numItemsInCart = () => {
         return props.cart.reduce((sum, drink) => {
-          console.log(drink.quantity);
           return sum + drink.quantity
       }, 0)
     }
@@ -141,8 +140,13 @@ const OrderSubmitBar = (props) => {
           <Toolbar className={classes.toolBar} >
             <Container className={classes.bottomBar}>
             <Row>
-           {showModal? <div></div>:<Button onClick={() => checkOut()} className = {classes.buttonCheckout}>Checkout          <br/> Drinks: {numItemsInCart()}
-</Button>}
+           {showModal? <div></div>:
+           <Button onClick={() => checkOut()} className = {classes.buttonCheckout}>Checkout</Button>}
+           <Typography className={classes.drinkCount}>
+             <Container className={classes.drinkCountContainer} >
+           Drinks:<br /> {numItemsInCart()}
+           </Container >
+           </Typography>
            </Row>
            <Row className={classes.items}>
              <Col xs={{span: 4, offset: 4}}>
@@ -210,7 +214,9 @@ const useStyles = makeStyles({
       left: 0,
       right: 0,
       margin: '0 auto',
-      marginBottom: '-5%'
+      marginLeft: '30%',
+      // marginTop: '5%'
+      // marginBottom: '-5%',
     },
     container: {
       display: 'flex',
@@ -220,6 +226,22 @@ const useStyles = makeStyles({
       color: 'white',
     },
     dense: {
+    },
+    drinkCount: {
+      paddingLeft: '3%',
+      fontStyle: 'italic'
+    },
+    drinkCountContainer: {
+      // backgroundColor: '#282828',
+      borderLeft: '3px solid',
+      borderColor: '#282828',
+      padding: 0,
+      marginleft: '10%',
+      marginTop: '-3%',
+      height: '250%',
+      width: '150%',
+      marginRight: '10%',
+      marginLeft: '-15%'
     },
     errorText: {
       color: 'white',
@@ -236,6 +258,9 @@ const useStyles = makeStyles({
       // marginTop: '-90%',
       fontStyle: 'italic'
        },
+      numDrinks: {
+        // fontStyle: 'italic !important'
+      },
     menu: {
       width: 200,
     },

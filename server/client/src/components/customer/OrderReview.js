@@ -55,11 +55,8 @@ const OrderReview = (props) => {
         return Math.round(100 * tax)/100;
     }
     const renderCart = () => {
-        console.log(props.cart);
          return props.cart.map((drink) => {
-             console.log(drink);
              if (drink.quantity >=1) {
-                 console.log(drink.name)
             return (
                 <OrderCart
                 name={drink.name}

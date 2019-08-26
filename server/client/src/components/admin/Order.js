@@ -133,20 +133,20 @@ const useStyles = makeStyles({
   },
   title: {
     color: 'white',
-    fontSize: 14,
+    fontSize: 20,
     fontStyle: 'italic',
   },
   drinkName:{
     color: 'white',
-    fontSize: 14,
+    fontSize: 20,
   },
   name: {
     color: 'white',
-    fontSize: 14,
+    fontSize: 20,
   },
   drinkQuantity: {
     color: 'white',
-    fontSize: 14,
+    fontSize: 20,
   },
   pos: {
     marginBottom: 12,
@@ -154,6 +154,8 @@ const useStyles = makeStyles({
 
   },
   button: {
-    color: 'white'
+    color: 'white',
+    fontSize: 20,
+
   }
 });

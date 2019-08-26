@@ -8,15 +8,12 @@ import { faAngleUp, faAngleDown } from '@fortawesome/free-solid-svg-icons'
 
 const OrderCart = (props) => {
     const classes = useStyles();
-    console.log(props);
     //when this function runs the quantity of this drink in the cart is decreased by 1
     const decrementDrinkQuantity = (e) => {
         props.decrementDrink(props.name);
-        console.log(props.name);
     }
     //when this function runs the quantity of this drink in the cart is increment by 1
     const incrementDrinkQuantity = (e) => {
-        console.log(props.name);
         props.incrementDrink(props.name);
     }
     return (

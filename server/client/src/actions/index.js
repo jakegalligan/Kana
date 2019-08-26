@@ -52,7 +52,6 @@ export const setNumber = (number) => {
 } 
 
 export const incrementDrink = (drinkName) => {
-    console.log('increment',drinkName)
     return {
         type: INCREMENT_DRINK,
         payload: drinkName
@@ -60,7 +59,6 @@ export const incrementDrink = (drinkName) => {
 }
 
 export const decrementDrink = (drink) => {
-    console.log(drink);
     return {
         type: DECREMENT_DRINK,
         payload: drink
