@@ -142,11 +142,11 @@ const OrderSubmitBar = (props) => {
             <Row>
            {showModal? <div></div>:
            <Button onClick={() => checkOut()} className = {classes.buttonCheckout}>Checkout</Button>}
-           <Typography className={classes.drinkCount}>
+           {showModal? <div></div>:<Typography className={classes.drinkCount}>
              <Container className={classes.drinkCountContainer} >
            Drinks:<br /> {numItemsInCart()}
            </Container >
-           </Typography>
+           </Typography>}
            </Row>
            <Row className={classes.items}>
              <Col xs={{span: 4, offset: 4}}>
