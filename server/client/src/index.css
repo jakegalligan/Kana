@@ -18,6 +18,7 @@
     box-shadow: 0 3px 5px 2px rgb(26, 26, 26);
     border-color:  #282828 !important;
     border-width: 15px !important;
+    height: 87vh !important;
 }
 .MuiInputBase-input {
     color: white !important;
