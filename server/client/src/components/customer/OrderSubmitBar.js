@@ -215,8 +215,6 @@ const useStyles = makeStyles({
       right: 0,
       margin: '0 auto',
       marginLeft: '30%',
-      // marginTop: '5%'
-      // marginBottom: '-5%',
     },
     container: {
       display: 'flex',
@@ -232,7 +230,6 @@ const useStyles = makeStyles({
       fontStyle: 'italic'
     },
     drinkCountContainer: {
-      // backgroundColor: '#282828',
       borderLeft: '3px solid',
       borderColor: '#282828',
       padding: 0,
@@ -249,17 +246,14 @@ const useStyles = makeStyles({
       fontSize: '10px'
     },
     items: {
-      // marginLeft: '50%'
       marginBottom: '2%',
       fontfamily: '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji',
       fontSize: '12px',
       fontWeight: '400',
       lineHeight: '1.5', 
-      // marginTop: '-90%',
       fontStyle: 'italic'
        },
       numDrinks: {
-        // fontStyle: 'italic !important'
       },
     menu: {
       width: 200,

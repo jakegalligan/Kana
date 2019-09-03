@@ -4,48 +4,59 @@ export default function (state = [], action) {
     switch (action.type) {
         //if the dispatch is addtocart create a new cart array and add the new drink to it
         case ADD_TO_CART:
-            let drink = Object.assign({}, action.payload)
-            //loop through the current state and see if any of the drinks in the cart match the drink to be added
-            for (let i =0; i < state.length; i++) {
-                //if so increment the quantity of the drink and return state
-                if (state[i].name == drink.name) {
-                    state[i].quantity ++;
-                    let newCart = [...state];
-                    return newCart;
-                }
+            let isDrinkAlreadyInCart = findDrinkInCart(state, action.payload.name);
+            console.log('test', isDrinkAlreadyInCart);
+            //if the drink is already in the cart increment its quantity
+            if (isDrinkAlreadyInCart) {
+                console.log('in true')
+                isDrinkAlreadyInCart.quantity ++;
+                let newState = [...state];
+                return newState;
             }
-            //if not add the drink to the cart
-            drink.quantity = 1;
-            let newCart = [...state, drink]
-            return newCart
-        //if type is increment drink find the drink and increase its quantity by 1
-        //if drink isn't in cart throw error
+            //if the drink is not in the cart already add it to the cart and increment its cart by 1
+            if (!isDrinkAlreadyInCart) {
+                console.log('in false');
+                let drink = Object.assign({}, action.payload);
+                drink.quantity = 1;
+                let newState = [...state, drink]
+                return newState;
+            }
+   
         case INCREMENT_DRINK:
-            for (let i = 0; i< state.length; i++) {
-                if (state[i].name == action.payload) {
-                    state[i].quantity ++;
-                }
+            //get the drink to be incremented in the cart
+            let drinkToBeIncremented = findDrinkInCart(state, action.payload)
+            //if the drink to be incremented is in the cart  increase its quantity by 1
+            if (drinkToBeIncremented) {
+                drinkToBeIncremented.quantity++;
+                let newState = [...state];
+                return newState
             }
-            let newState1=[...state];
-            return newState1;
         case DECREMENT_DRINK:
-        //if type is decrement drink find drink and decrease its quantity by 1
-            for (let i = 0; i< state.length; i++) {
-                if (state[i].name == action.payload) {
-                    state[i].quantity --;
-                        //if the quantity of the drink is 0 remove it from the cart
-                        if (state[i].quantity == 0) {
-                            state.splice(i,1);
-                        }
-                }
+            //get the drink to be decremented in the cart
+            let drinkToBeDecremented=findDrinkInCart(state,action.payload);
+            //if the drink to be incremented is in the cart decrease its quantity by 1
+            if (drinkToBeDecremented) {
+                drinkToBeDecremented.quantity --;
             }
-            let newState2 = [...state];
-            return newState2;
+            let newState = [...state];
+            return newState;
         case FETCH_CART:
-            let newState3 = [...state]
-            return newState3;
+            let cart = [...state]
+            return cart;
         //otherwise return the current state
         default:
             return state;
     }
+}
+
+//helper function that finds the match for the drink
+//takes in a cart array and a drink to be matched with
+const findDrinkInCart = (cart, drink) => {
+    //find the drink in the cart that matches the name of the drink to be matched with
+    let matchedItem = cart.find(cartItem => {
+        console.log(cartItem.name);
+        return cartItem.name == drink
+    });
+    console.log(matchedItem);
+    return matchedItem;
 }
