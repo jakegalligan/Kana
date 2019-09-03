@@ -12,7 +12,7 @@ const OrderBacklog = (props) => {
         setInterval(()=>{props.fetchOrders()},1000);
         
     },[])
-    //go throuhg all unCompleted orders in database and render them
+    //go through all unCompleted orders in database and render them
     const renderUncompletedOrders = () => {
         return props.orders[0].map(individualOrder => {
             return (

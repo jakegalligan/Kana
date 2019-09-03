@@ -31,7 +31,6 @@ const DrinkCategories = (props) => {
 
     return (
         <div>
-        {/* <Link to='/'><ArrowBack className={classes.nav} /></Link> */}
         <StyledContainer sticky='top'>
             <Row>
                 <Col xs={3} value='Specials'>

@@ -54,7 +54,6 @@ const LandingPage = () => {
     //create styline for button
 const useStyles = makeStyles({
     button: {  
-      // background: 'linear-gradient(to right top, #5c258d, #5e23a7, #5c22c3, #5222e0, #3826ff)',
       border: 0,
       borderRadius: 3,
       boxShadow: '0 3px 5px 2px rgba(68, 0, 158, .3)',
