@@ -1,8 +1,7 @@
-import React, {useState, useEffect} from 'react';import {Link, Redirect} from 'react-router-dom';import { connect } from 'react-redux';
+import React, {useState} from 'react';import { Redirect} from 'react-router-dom';import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';import AppBar from '@material-ui/core/AppBar';import Toolbar from '@material-ui/core/Toolbar';import Button from '@material-ui/core/Button';import TextField from '@material-ui/core/TextField';
 import styled from "styled-components";import ModalDialog from 'react-bootstrap/ModalDialog';import ModalBody from 'react-bootstrap/ModalBody';import {submitOrder, setName, setNumber} from '../../actions';
-import uuidv1 from 'uuid';import Typography from '@material-ui/core/Typography';import Slide from '@material-ui/core/Slide';
-import Zoom from '@material-ui/core/Zoom';import Grow from '@material-ui/core/Grow';import {Container, Row, Col} from 'react-bootstrap';
+import Typography from '@material-ui/core/Typography';import Zoom from '@material-ui/core/Zoom';import Grow from '@material-ui/core/Grow';import {Container, Row, Col} from 'react-bootstrap';
 
 const OrderSubmitBar = (props) => {
     //import styling

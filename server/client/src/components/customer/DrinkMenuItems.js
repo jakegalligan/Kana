@@ -1,6 +1,6 @@
-import React, {useState} from 'react';import {Link} from 'react-router-dom';import { connect } from 'react-redux';
-import Drink from './Drink';import {Container, Row, Col, Doo} from 'react-bootstrap';import styled from 'styled-components';
-import { Typography } from '@material-ui/core';import { makeStyles } from '@material-ui/core/styles';
+import React from 'react';import { connect } from 'react-redux';
+import Drink from './Drink';import {Container} from 'react-bootstrap';import styled from 'styled-components';
+import { makeStyles } from '@material-ui/core/styles';
 
 
 const DrinkMenuItems = (props) => {

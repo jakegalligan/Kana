@@ -1,4 +1,4 @@
-import React, {useState} from 'react';import {Container, Row, Col} from 'react-bootstrap';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';import Card from '@material-ui/core/Card';import CardActions from '@material-ui/core/CardActions';import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';import Typography from '@material-ui/core/Typography';import { connect } from 'react-redux';
 import moment from 'moment';import {sendNotification, claimDrink, submitDrink} from '../../actions';import { Grow } from '@material-ui/core';
@@ -37,7 +37,7 @@ const Order = (props) => {
     //when the claim buttons is clicked have the drink be claimed
     const handleClaimDrink = () => {
       //if the drink is already claimed return nothing
-      if (props.isClaimed == true) {
+      if (props.isClaimed === true) {
         return '';
       } else {
       //send the drink to the server to have its claim property updated

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';import { connect } from 'react-redux';import {Container, Row, Col, Doo} from 'react-bootstrap';import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';import { faBeer, faWineGlass, faCocktail, faGlassCheers } from '@fortawesome/free-solid-svg-icons'
+import React, { useEffect} from 'react';import { connect } from 'react-redux';import {Container, Row, Col} from 'react-bootstrap';import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';import { faBeer, faWineGlass, faCocktail, faGlassCheers } from '@fortawesome/free-solid-svg-icons'
 import Button from '@material-ui/core/Button';import {fetchDrinks} from '../../actions';import { makeStyles } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';import styled from "styled-components";
 
