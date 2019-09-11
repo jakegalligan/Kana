@@ -6,6 +6,9 @@
 .modal-dialog{
     top: 0;
     position: fixed !important;
+    max-width: 100vw !important;
+    margin: .5rem !important;
+    width: 90vw !important;
 }
 
 #root {
@@ -44,6 +47,18 @@
 
 .jumbotron {
     background-color: transparent !important
+}
+
+.MuiFormControl-root {
+    border: 0;
+    margin: 0;
+    display: inline-flex;
+    padding: 0;
+    position: relative;
+    min-width: 100% !important;
+    flex-direction: row;
+    vertical-align: top;
+    margin-right: 100% !important;
 }
 
 

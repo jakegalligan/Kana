@@ -124,7 +124,7 @@ const OrderSubmitBar = (props) => {
                     />
                 </form>
                 {errorTextNumber? renderNumberError(): ''}
-                <Typography className={classes.labelNotes}>*This information allows us to identify your order as well as notify ou when it's ready!</Typography>
+                <Typography className={classes.labelNotes}>*This information allows us to identify your order as well as notify you when it's ready!</Typography>
                 <div>
                   <br />
                     <Button onClick={() =>closeModal()} className={classes.buttonModalClose}>Back To<br /> Menu</Button>
