@@ -1,4 +1,4 @@
-import React, {useState} from 'react';import {Redirect} from 'react-router-dom';import {Container, Row, Col, Doo} from 'react-bootstrap';
+import React, {useState} from 'react';import {Redirect} from 'react-router-dom';import {Container, Row, Col} from 'react-bootstrap';
 import Typography from '@material-ui/core/Typography';import { makeStyles } from '@material-ui/styles';import Input from '@material-ui/core/Input';import Button from '@material-ui/core/Button';
 
 
@@ -15,7 +15,7 @@ const LoginPage = () => {
     const handleLogIn = (e) => {
         e.preventDefault();
         //if the username and password are correct set the redirect value to true
-        if (username =='admin' && password=='password') {
+        if (username ==='admin' && password === 'password') {
             setRedirect(true);
         } else {
             setErrortext(true)

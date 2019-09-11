@@ -1,7 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import {Link} from 'react-router-dom';import {Container, Row, Col} from 'react-bootstrap';import Button from 'react-bootstrap/Button';
-import { makeStyles } from '@material-ui/core/styles';import Fab from '@material-ui/core/Fab';import AddIcon from '@material-ui/icons/Add';
-import RemoveIcon from '@material-ui/icons/Remove';import {incrementDrink, decrementDrink,getCart} from '../../actions'
+import React from 'react';import {Container, Row, Col} from 'react-bootstrap';
+import { makeStyles } from '@material-ui/core/styles';import {incrementDrink, decrementDrink,getCart} from '../../actions'
 import { connect } from 'react-redux';import { Typography } from '@material-ui/core';import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleUp, faAngleDown } from '@fortawesome/free-solid-svg-icons'
 

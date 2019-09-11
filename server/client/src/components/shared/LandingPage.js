@@ -1,8 +1,7 @@
-import React, {Fragment} from 'react';import {Redirect, Link} from 'react-router-dom';import styled from "styled-components";
-import Jumbotron from 'react-bootstrap/Jumbotron';import { makeStyles } from '@material-ui/styles';import Button from '@material-ui/core/Button';
-import HeaderBar from './HeaderBar';import uuidv1 from 'uuid';import Typography from '@material-ui/core/Typography';
+import React from 'react';import {Link} from 'react-router-dom';import styled from "styled-components";
+import Jumbotron from 'react-bootstrap/Jumbotron';import { makeStyles } from '@material-ui/styles';import Button from '@material-ui/core/Button';import Typography from '@material-ui/core/Typography';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserLock } from '@fortawesome/free-solid-svg-icons';import AboutInfo from './AboutInfo';import {Container, Row, Col} from 'react-bootstrap';
+import { faUserLock } from '@fortawesome/free-solid-svg-icons';import AboutInfo from './AboutInfo';import {Container} from 'react-bootstrap';
 
 const LandingPage = () => {
     //import styling for material ui components
@@ -67,7 +66,6 @@ const useStyles = makeStyles({
       color: 'white',
       fontFamily: '\'Raleway\', sans-serif',
       fontSize: '15vh',
-      marginTop: '15%'
 
     },
     appTitle: {

@@ -1,6 +1,5 @@
-import React, {useState} from 'react';import {Container, Row, Col} from 'react-bootstrap';import styled from "styled-components";
-import { makeStyles } from '@material-ui/styles';import LocalDrink from '@material-ui/icons/LocalDrink';
-import PhoneIphone from '@material-ui/icons/PhoneIphone';import Typography from '@material-ui/core/Typography';
+import React from 'react';import {Container} from 'react-bootstrap';import styled from "styled-components";
+import { makeStyles } from '@material-ui/styles';import LocalDrink from '@material-ui/icons/LocalDrink';import Typography from '@material-ui/core/Typography';
 
 const AboutInfo = () => {
     const classes= useStyles();

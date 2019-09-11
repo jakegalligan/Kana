@@ -1,4 +1,4 @@
-import React, {useState} from 'react';import {Link} from 'react-router-dom';import { connect } from 'react-redux';
+import React from 'react';import {Link} from 'react-router-dom';import { connect } from 'react-redux';
 import DrinkCategories from './DrinkCategories';import DrinkMenuItems from './DrinkMenuItems';
 import OrderSubmitBar from './OrderSubmitBar';import styled from "styled-components";import Navbar from 'react-bootstrap/Navbar';
 import Typography from '@material-ui/core/Typography';import { makeStyles } from '@material-ui/styles';import {Container, Row, Col} from 'react-bootstrap';

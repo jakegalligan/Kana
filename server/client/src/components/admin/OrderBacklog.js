@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';import Order from './Order';import {Container, Row, Col} from 'react-bootstrap';import {Link} from 'react-router-dom';import { connect } from 'react-redux';import {fetchOrders} from '../../actions';
+import React, { useEffect} from 'react';import Order from './Order';import {Container, Row, Col} from 'react-bootstrap';import {Link} from 'react-router-dom';import { connect } from 'react-redux';import {fetchOrders} from '../../actions';
 import { makeStyles } from '@material-ui/core/styles';import Drawer from '@material-ui/core/Drawer';import AppBar from '@material-ui/core/AppBar';import Toolbar from '@material-ui/core/Toolbar';import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';import Divider from '@material-ui/core/Divider';import ListItem from '@material-ui/core/ListItem';import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';import HistoryIcon from '@material-ui/icons/History';import NotesIcon from '@material-ui/icons/Notes';
@@ -123,6 +123,7 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
     padding: theme.spacing(3),
     fontSize: 20,
+    height: '100vh'
 
   },
   toolbar: theme.mixins.toolbar,

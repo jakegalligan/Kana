@@ -1,8 +1,8 @@
-import React, {useState, useEffect} from 'react';import {Link, Redirect} from 'react-router-dom';import OrderCart from './OrderCart';
-import { makeStyles } from '@material-ui/core/styles';import AppBar from '@material-ui/core/AppBar';import Toolbar from '@material-ui/core/Toolbar';import Button from '@material-ui/core/Button';import TextField from '@material-ui/core/TextField';
+import React, {useState} from 'react';import {Link, Redirect} from 'react-router-dom';import OrderCart from './OrderCart';
+import { makeStyles } from '@material-ui/core/styles';import AppBar from '@material-ui/core/AppBar';import Toolbar from '@material-ui/core/Toolbar';import Button from '@material-ui/core/Button';
 import styled from "styled-components";import {Container, Row, Col} from 'react-bootstrap';import { connect } from 'react-redux';
-import {submitOrder, getCart} from '../../actions';import uuidv1 from 'uuid';import moment from 'moment'
-import Typography from '@material-ui/core/Typography';import { textAlign } from '@material-ui/system';import HeaderBar from '../shared/HeaderBar';import Spinner from 'react-bootstrap/Spinner';
+import {submitOrder, getCart} from '../../actions';import uuidv1 from 'uuid';
+import Typography from '@material-ui/core/Typography';import Spinner from 'react-bootstrap/Spinner';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';import Navbar from 'react-bootstrap/Navbar';
     
 const OrderReview = (props) => {
@@ -184,7 +184,7 @@ const OrderReview = (props) => {
     spinner: {
         fontSize: '20px',
         color: 'white',
-        marginLeft: '50%',
+        marginLeft: '55%',
         zIndex: '10'
     },
     textField: {
