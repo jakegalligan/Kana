@@ -184,7 +184,7 @@ const OrderReview = (props) => {
     spinner: {
         fontSize: '20px',
         color: 'white',
-        marginLeft: '50%',
+        marginLeft: '55%',
         zIndex: '10'
     },
     textField: {
