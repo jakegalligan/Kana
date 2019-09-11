@@ -67,7 +67,6 @@ const useStyles = makeStyles({
       color: 'white',
       fontFamily: '\'Raleway\', sans-serif',
       fontSize: '15vh',
-      marginTop: '15%'
 
     },
     appTitle: {

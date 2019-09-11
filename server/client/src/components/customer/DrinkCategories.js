@@ -97,12 +97,12 @@ const useStyles = makeStyles({
       borderRadius: 9,
       boxShadow: '0 3px 5px 2px rgba(45, 45, 45, .3)',
       color: 'white',
-      height: 48,
-      width: '10px',
+      height: '100%',
+      width: '75%',
     },
     descriptor: {
         color: 'white',
-        marginTop: '3px',
+        marginTop: '15%',
         fontFamily: '\'Raleway\', sans-serif',
     },
     buttonWrapper: {
