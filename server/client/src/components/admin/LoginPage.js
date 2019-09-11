@@ -15,7 +15,7 @@ const LoginPage = () => {
     const handleLogIn = (e) => {
         e.preventDefault();
         //if the username and password are correct set the redirect value to true
-        if (username ==='admin' && password === ~'password') {
+        if (username ==='admin' && password === 'password') {
             setRedirect(true);
         } else {
             setErrortext(true)
