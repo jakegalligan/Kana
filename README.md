@@ -7,7 +7,7 @@ Jake Galligan
  Kana is a mobile first application that expedites the drink ordering process at bars for both customers and bartenders by allowing patrons to use their phone to order drinks and receive notifications the moment they’re ready. Bartenders are able to view and claim a drink from a stack of orders, as well as access a continuous stream of rich data, in order to better serve customers.
 
  ## Link:
- It is recommended to utilize this application by visiting the url: kanamobile.herokuapp.com 
+ THIS IS A MOBILE FIRST APPLICATION, it is recommended to view this application on a mobile device. The app is available at kanamobile.herokuapp.com 
  The username and password for the admin view is available upon request
 
  ## How to run locally:
