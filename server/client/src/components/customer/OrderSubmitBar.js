@@ -209,12 +209,10 @@ const useStyles = makeStyles({
     buttonCheckout: {
       color: 'white',
       height: 48,
-      padding: '0 30px',
       zindex: 1,
       left: 0,
       right: 0,
       margin: '0 auto',
-      marginLeft: '30%',
     },
     container: {
       display: 'flex',
