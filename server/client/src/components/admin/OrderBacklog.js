@@ -123,6 +123,7 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
     padding: theme.spacing(3),
     fontSize: 20,
+    height: '100vh'
 
   },
   toolbar: theme.mixins.toolbar,
