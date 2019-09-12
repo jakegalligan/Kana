@@ -102,8 +102,10 @@ const useStyles = makeStyles({
     },
     descriptor: {
         color: 'white',
-        marginTop: '15%',
+        marginTop: '25%',
         fontFamily: '\'Raleway\', sans-serif',
+        paddingTop: '10%',
+        width: '130%'
     },
     buttonWrapper: {
         zIndex: '10'
