@@ -14,12 +14,14 @@ Jake Galligan
  NOTE: If running locally get requests to server will fail as there is no connection to the database.
  To begin server navigate to server folder (/server) open the terminal and type the following on the command line
  ```bash
+ npm install
  node index.js 
  ```
  from the terminal(again, much of the data will not be available without connection to the database)
  To view the project locally navigate to the client folder (/server/client)
  and from the terminal type the following on the command line
   ```bash
+ npm install
  npm start
  ```
 
