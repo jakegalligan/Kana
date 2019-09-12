@@ -26,6 +26,6 @@ Jake Galligan
  ```
 
 ## Notes:
-This project was completed within a week as a final project at Project Shift Software Engineering Fellowship
-The file tree was set up in such a way as a specific approach to deploying the application to heroku.
+1. This project was completed within a week as a final project at Project Shift Software Engineering Fellowship
+2. The file tree was set up in such a way as a specific approach to deploying the application to heroku.
  
